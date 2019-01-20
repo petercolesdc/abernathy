@@ -1,0 +1,3 @@
+# Vendor
+
+External libraries and frameworks etc...

@@ -1,0 +1,44 @@
+{% set title = 'Color' %}
+{% extends 'layouts/guide.html' %}
+
+{% block content %}
+<h1 class="guide_h1">{{ title }} primaries</h1>
+<ul class="guide_swatches">
+  <li class="guide_swatch guide_swatchByers">
+    <span class="guide_swatch_block"></span>
+    <span class="guide_swatch_meta">$dmByers</span>
+  </li>
+  <li class="guide_swatch guide_swatchHenderson">
+    <span class="guide_swatch_block"></span>
+    <span class="guide_swatch_meta">$dmHenderson</span>
+  </li>
+  <li class="guide_swatch guide_swatchWheeler">
+    <span class="guide_swatch_block"></span>
+    <span class="guide_swatch_meta">$dmWheeler</span>
+  </li>
+</ul>
+
+<h2 class="guide_h1">{{ title }} greyscale</h2>
+<ul class="guide_swatches">
+  <li class="guide_swatch guide_swatchHarrington">
+    <span class="guide_swatch_block"></span>
+    <span class="guide_swatch_meta">$dmHarrington</span>
+  </li>
+  <li class="guide_swatch guide_swatchHolland">
+    <span class="guide_swatch_block"></span>
+    <span class="guide_swatch_meta">$dmHolland</span>
+  </li>
+  <li class="guide_swatch guide_swatchHawkins">
+    <span class="guide_swatch_block"></span>
+    <span class="guide_swatch_meta">$dmHawkins</span>
+  </li>
+  <li class="guide_swatch guide_swatchHavens">
+    <span class="guide_swatch_block"></span>
+    <span class="guide_swatch_meta">$dmHavens</span>
+  </li>
+  <li class="guide_swatch guide_swatchHargrove">
+    <span class="guide_swatch_block"></span>
+    <span class="guide_swatch_meta">$dmHargrove</span>
+  </li>
+</ul>
+{% endblock %}

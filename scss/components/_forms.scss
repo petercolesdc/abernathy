@@ -1,0 +1,203 @@
+
+.form {
+  position: relative;
+
+}
+
+.fieldset {
+  border: none;
+  padding: 0;
+}
+
+// Labels
+.formlabel {
+  font-size: rem($typeS);
+  color: $dmLabel;
+	&.formlabelHidden {
+		@include a11yhide;
+	}
+}
+
+// Form field wrapper
+.formfield {
+	position: relative;
+	@include pie-clearfix;
+  &Spaced {
+    padding-top: $bufferSpaceS/1.5;
+  }
+  &Error {
+    .formitem {
+      border-color: $dmError;
+      &:focus {
+        border-color: $dmError;
+      }
+    }
+    .formlabel {
+      color: $dmError;
+    }
+  }
+  &CheckRadio {
+    position: relative;
+    > .formlabel {
+      margin-bottom: 12px;
+      display: block;
+    }
+  }
+  &SelectButton {
+    @include pie-clearfix;
+    .formfield_select {
+      float: left;
+      position: relative;
+      select {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+    .button {
+      float: left;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  .hint {
+    font-size: rem($typeXS);
+    padding-top: 6px;
+    clear: left;
+    display: block;
+  }
+  .errormessage {
+    color: $dmError;
+    display: none;
+    font-size: rem($typeXS);
+    padding-top: 6px;
+    clear: left;
+    &Visible {
+      display: block;
+    }
+  }
+}
+
+// Standard form elements
+.formitem {
+	padding: 10px;
+	display: block;
+	border: $strokeWidth solid $dmBorder;
+	appearance: none;
+	background-color: #fff;
+	height: $formItem;
+  width: 100%;
+  border-radius: 0;
+	font-size: 15px; // Stop IOS doing the zoom thing, the Git!
+  border-radius: $btnRadius;
+	&::focus-inner {
+    border: 0;
+    padding: 0;
+	}
+	&:focus {
+		outline: none;
+		border-color: $dmLabel;
+	}
+  &Small {
+    height: $formItem/1.25;
+  }
+}
+
+// Turn off spinners for number input field, as flipping ugly
+.formitem[type=number]::-webkit-inner-spin-button,
+.formitem[type=number]::-webkit-outer-spin-button {
+	appearance: none;
+}
+
+// Min height to text area
+textarea.formitem {
+	min-height: 200px;
+}
+
+// Radio and Checkboxes baseline
+// -----------------------
+
+.formfield_radiobuttons,
+.formfield_checkboxes {
+	label {
+		position: relative;
+		top: 0;
+		vertical-align: middle;
+		&:after {
+			clear: left;
+			content: "";
+			display: block;
+			height: 0;
+		}
+	}
+	input {
+		float: left;
+		margin-right: 12px;
+		vertical-align: middle;
+		&:after {
+			clear: left;
+			content: "";
+			display: block;
+			height: 0;
+		}
+	}
+	input[type="radio"],
+	input[type="checkbox"] {
+		width: 16px;
+		height: 16px;
+		position: relative;
+		top: 4px;
+	}
+  input[type="radio"] {
+		width: 16px;
+		height: 16px;
+		position: relative;
+		top: 3px;
+	}
+}
+
+// Select baseline
+// -----------------------
+
+.formfield_select {
+  background-color: #fff;
+  height: $formItem;
+	select {
+		width: 100%;
+		display: block;
+		height: $formItem;
+		padding: 2px 15px 0 15px;
+		vertical-align: middle;
+		border: $strokeWidth solid $dmBorder;
+		appearance: none;
+		-moz-appearance: window; // Hides firefox native select arrow
+    background: url(../assets/icons/source/drop.svg) #fff no-repeat right 43%;
+    background-origin: content-box;
+		background-size: 15px 8px;
+    border-radius: 0;
+    font-size: 15px;
+    line-height: 15px;
+    border-radius: $btnRadius;
+		&:hover, &:focus {
+			border-color: $dmLabel;
+			cursor: pointer;
+		}
+		&:focus {
+			outline: none;
+		}
+		&::-ms-expand {
+			display: none;
+		}
+    .formfieldError & {
+      border-color: $dmError;
+    }
+    option {
+      max-width: 90%;
+    }
+	}
+  &Small {
+    height: $formItem/1.25;
+    select {
+      height: $formItem/1.25;
+    }
+  }
+}

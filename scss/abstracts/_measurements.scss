@@ -1,0 +1,30 @@
+
+@import 'viewports.scss';
+
+// General spacing options
+// ------------------------------------------------------------------
+
+$bufferSpaceS: 20px;
+
+
+// Ratios
+// ------------------------------------------------------------------
+
+$ratioWidescreen: 56.25%;
+
+
+// Buttons
+// ------------------------------------------------------------------
+
+$btnSmall:    30px;
+$btnDefault:  35px;
+$btnRadius:   3px;
+$btnPadding:  15px;
+$btnPaddingSmall: $btnPadding/1.25;
+
+
+// Misc
+// ------------------------------------------------------------------
+
+$formItem: 40px;
+$strokeWidth: 1px;

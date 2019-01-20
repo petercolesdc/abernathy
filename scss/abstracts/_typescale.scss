@@ -1,0 +1,34 @@
+
+// Type scale
+// ------------------------------------------------------------------
+
+$scaleRoot: 				10;
+$lineheightRoot: 		18;
+$lineheightBase: 		$lineheightRoot / $scaleRoot;
+
+$typeXXL: 					$scaleRoot*3;
+$typeXL: 						$scaleRoot*2.2;
+$typeL: 						$scaleRoot*2;
+$typeM:							$scaleRoot*1.8;
+$typeMe:						$scaleRoot*1.6;		// Me = 'median'. Generally the standard font size for the page
+$typeS: 						$scaleRoot*1.4;
+$typeXS: 						$scaleRoot*1.2;
+$typeXXS: 					$scaleRoot;
+
+// Declaritives
+$typeDefault: 			$typeMe;
+
+
+// Functions and mixins
+// ------------------------------------------------------------------
+
+// Make pixel values into REMS
+@function rem($pixels){
+	@return $pixels / $scaleRoot + rem; // Usage = font-size: rem(xx);
+}
+
+// Tighten leading
+@mixin leading_adjust($gapAdjust) {
+	line-height:  $lineheightBase - ($gapAdjust/$scaleRoot);
+	margin-bottom: rem($lineheightBase + $gapAdjust);
+}

@@ -1,0 +1,206 @@
+// mixins
+// NO GLOBAL VARIABLES IN HERE PLEASE
+
+
+// Sharpen type (use with care)
+// ------------------------------------------------------------------
+
+@mixin sharp-text {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	//text-rendering: optimizeLegibility;
+}
+
+// Helpers
+// ------------------------------------------------------------------
+
+// Oldschool clearfixing
+@mixin pie-clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+    //*zoom: 1;
+	}
+}
+
+@mixin link-active-styles {
+	&:hover, &:focus, &:active {
+		@content;
+	}
+}
+
+// Animation
+// ------------------------------------------------------------------
+
+// HACKS - https://github.com/IanLunn/Hover/blob/master/scss/_hacks.scss
+// As is often the case, some devices/browsers need additional code to get CSS to work
+// in the most desired way. These mixins are used to quickly drop in hacks for each element
+// Find out more here: https://github.com/IanLunn/Hover/wiki/Hacks-Explained
+
+@mixin hardwareAccel() {
+	// Improve performance on mobile/tablet devices
+	// Perspective reduces blurryness of text in Chrome
+	transform: perspective(1px) translateZ(0);
+}
+
+@mixin improveAntiAlias() {
+	// Improve aliasing on mobile/tablet devices
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+@mixin forceBlockLevel() {
+	// Transforms need to be block-level to work
+	display: inline-block;
+	vertical-align: middle;
+}
+
+@mixin animationHacks() {
+	@include forceBlockLevel();
+	@include hardwareAccel();
+	@include improveAntiAlias();
+}
+
+// Media queries with fallbacks if needed
+// ------------------------------------------------------------------
+
+
+// Widths only
+@mixin respond-to($media-min) {
+	@media screen and (min-width: $media-min) {
+	    @content;
+	}
+}
+
+@mixin respond-to-max($media-max) {
+	@media screen and (max-width: $media-max - 1px) {
+	    @content;
+	}
+}
+
+@mixin respond-to-min-max($media-min, $media-max) {
+	 @media screen and (min-width: $media-min) and (max-width: $media-max - 1px) {
+	    @content;
+	}
+}
+
+// Widths and heights
+@mixin respond-to-both($media-w-min, $media-h-min) {
+	@media screen and (min-width: $media-w-min) and (min-height: $media-h-min) {
+	    @content;
+	}
+}
+
+// Height
+
+@mixin respond-to-height($media-min) {
+	@media screen and (min-height: $media-min) {
+	    @content;
+	}
+}
+
+@mixin respond-to-height-max($media-max) {
+	@media screen and (max-height: $media-max - 1px) {
+	    @content;
+	}
+}
+
+// Both
+@mixin respond-to-both-max-min($media-w-min, $media-h-min) {
+	@media screen and (max-width: $media-w-min) and (min-height: $media-h-min - 1px) {
+	    @content;
+	}
+}
+
+// A11y hidden
+// ------------------------------------------------------------------
+
+@mixin a11yhide {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0px;
+	border: 0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+// Ratio
+// ------------------------------------------------------------------
+
+@mixin ratio($ratio: 1 1) {
+	//@if length($ratio) < 2 or length($ratio) > 2 { @warn "$ratio must be a list with two values."; }
+	$ratio-width: 100%;
+	$ratio-height: percentage(nth($ratio, 2) / nth($ratio, 1));
+	width: $ratio-width;
+	height: 0;
+	padding-bottom: $ratio-height;
+}
+
+// Faux links
+// ------------------------------------------------------------------
+
+@mixin fauxUnderline($color) {
+  background-image: linear-gradient(
+    to top,
+    rgba($color, 0) 3%,
+    rgba($color, 0.7) 3%,
+    rgba($color, 0.7) 20%,
+    rgba($color, 0) 20%
+  );
+}
+
+// Shadow controls
+// ------------------------------------------------------------------
+
+@mixin shadowSubtle {
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.075), 0 2px 1px 0 rgba(0,0,0,0.05);
+}
+
+
+// Consistent edges
+// ------------------------------------------------------------------
+
+@mixin edgeBufferLeft($type) {
+  @if $type == "padding" {
+    padding-left: $bufferSpaceS;
+		@include respond-to($vpRowBufferA) {
+  		padding-left: 0;
+  	}
+  } @else {
+    left: $bufferSpaceS;
+  	@include respond-to($vpRowBufferA) {
+  		left: 0;
+  	}
+  }
+}
+
+@mixin edgeBufferRight($type) {
+  @if $type == "padding" {
+    padding-right: $bufferSpaceS;
+		@include respond-to($vpRowBufferA) {
+  		padding-right: 0;
+  	}
+  } @else {
+    right: $bufferSpaceS;
+  	@include respond-to($vpRowBufferA) {
+  		right: 0;
+  	}
+  }
+}
+
+@mixin edgeBufferTop($type) {
+  @if $type == "padding" {
+    padding-top: $bufferSpaceS;
+  } @else {
+    margin-top: $bufferSpaceS;
+  }
+}
+
+@mixin edgeBufferBottom($type) {
+  @if $type == "padding" {
+    padding-bottom: $bufferSpaceS;
+  } @else {
+    margin-bottom: $bufferSpaceS;
+  }
+}

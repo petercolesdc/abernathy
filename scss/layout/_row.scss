@@ -1,0 +1,13 @@
+
+.row {
+  @include pie-clearfix;
+  padding-left: $bufferSpaceS;
+  padding-right: $bufferSpaceS;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: auto;
+  &Static {
+    position: static;
+  }
+}

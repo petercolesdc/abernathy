@@ -1,0 +1,19 @@
+{% set title = 'Buttons' %}
+{% extends 'layouts/guide.html' %}
+
+{% block content %}
+<div class="guidesection">
+  <h1 class="guide_h1">{{ title }} default</h1>
+  <a href="" class="button">Default</a>
+  <a href="" class="button buttonSecondary">Secondary</a>
+  <a href="" class="button buttonDisabled">Disabled</a>
+  <a href="" class="button buttonIcon"><svg class="icon_plus_svg"><use xlink:href="/assets/icons/renders/sprite.svg#plus"></use></svg>Icon.</a>
+</div>
+<div class="guidesection">
+  <h1 class="guide_h1">{{ title }} small</h1>
+  <a href="" class="button buttonSmall">Default</a>
+  <a href="" class="button buttonSmall buttonSecondary">Secondary</a>
+  <a href="" class="button buttonSmall buttonDisabled">Disabled</a>
+  <a href="" class="button buttonSmall buttonIcon"><svg class="icon_plus_svg"><use xlink:href="/assets/icons/renders/sprite.svg#plus"></use></svg>Icon.</a>
+</div>
+{% endblock %}

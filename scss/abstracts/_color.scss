@@ -1,0 +1,52 @@
+
+// Brand colours
+// ------------------------------------------------------------------
+
+$dmByers: 				  #FFF200!default;
+$dmHenderson:       #6AAFD9!default;
+$dmHopper:          #ABDFFF!default;
+$dmWheeler:         #54FF20!default;
+
+
+// Greyscales
+$dmHarrington:      #24262b; // Darkest
+$dmHolland:         #68595D;
+$dmHawkins:         #ADA2A5;
+$dmHavens:          #E4E1E1;
+$dmHargrove:        #F1F1F1;
+$dmHarbour:         #FDFDFD; // Lightest
+
+
+// Non-brand feedbacks
+// ------------------------------------------------------------------
+
+$dmError: 					#B10E1E;
+$dmSuccess: 				#00823B;
+$dmAlert: 					#FFBF47;
+
+
+// Assign colours from variables in shared/color.scss
+// ------------------------------------------------------------------
+
+// Actions
+$dmAction: 					$dmByers;
+$dmActionRespond: 	$dmHenderson;
+$dmActionVisited:   $dmHenderson;
+
+// Buttons
+$dmButtonPrimary:   $dmByers;
+$dmButtonSecondary: #fff;
+$dmButtonDisabled:  $dmHargrove;
+$dmButtonDanger:    $dmError;
+$dmButtonSuccess:   $dmSuccess;
+
+
+// Default text colors
+$dmHeading: 				$dmHarrington;
+$dmLabel:           $dmHarrington;
+$dmText: 						$dmHolland;
+
+
+// Misc. color assignments
+$dmBorder:          $dmHavens;
+$dmDisabled: 				$dmHawkins;

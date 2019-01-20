@@ -1,0 +1,34 @@
+<!doctype html>
+<!--[if IE 10]> <html lang="en-GB" class="no-js ie10"> <![endif]-->
+<!--[if (gt IE 10)|!(IE)]><!--><html lang="en-GB" class="no-js"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include 'layouts/scaffold/head.html' %}
+</head>
+
+<body>
+	<div class="ui__container" id="uicontainer">
+		{% block header %}
+			{% include 'layouts/headers/default.html' %}
+		{% endblock %}
+		<div class="ui__canvas">
+			{% block precontent %}
+			{% endblock %}
+
+			{% block content %}
+			{% endblock %}
+
+			{% block postcontent %}
+			{% endblock %}
+		</div>
+		{% block footer %}
+			{% include 'layouts/footers/default.html' %}
+		{% endblock %}
+	</div>
+</body>
+
+<script></script>
+{% block script %}
+{% endblock %}
+</html>

@@ -1,0 +1,129 @@
+{% set title = 'Forms' %}
+{% extends 'layouts/guide.html' %}
+
+{% block content %}
+<div class="guidesection">
+  <h1 class="guide_h1">Inputs</h1>
+  <fieldset class="fieldset">
+    <div class="formfield">
+      <label class="formlabel" for="text">Text</label>
+      <input class="formitem" type="text" value="" name="text" id="text">
+    </div>
+    <div class="formfield formfieldSpaced">
+      <label class="formlabel" for="email">Email</label>
+      <input class="formitem" type="email" value="" name="email" id="email">
+    </div>
+    <div class="formfield formfieldSpaced">
+      <label class="formlabel" for="email">Small</label>
+      <input class="formitem formitemSmall" type="email" value="" name="email" id="email">
+    </div>
+    <div class="formfield formfieldSpaced formfieldError">
+      <label class="formlabel" for="email">With error</label>
+      <input class="formitem" type="email" value="" name="email" id="email">
+      <span class="errormessage errormessageVisible">Please add your email</span>
+    </div>
+  </fieldset>
+</div>
+<div class="guidesection">
+  <h1 class="guide_h1">Selects</h1>
+  <fieldset class="fieldset">
+    <div class="formfield">
+      <label class="formlabel" for="select">Select</label>
+      <div class="formfield_select">
+        <select name="select">
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+        </select>
+      </div>
+    </div>
+    <div class="formfield formfieldSpaced">
+      <label class="formlabel" for="select">Select</label>
+      <div class="formfield_select formfield_selectSmall">
+        <select name="select">
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+        </select>
+      </div>
+    </div>
+    <div class="formfield formfieldSpaced formfieldError">
+      <label class="formlabel" for="select">Select</label>
+      <div class="formfield_select">
+        <select name="select">
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+        </select>
+      </div>
+      <span class="errormessage errormessageVisible">Please choose an option</span>
+    </div>
+  </fieldset>
+</div>
+<div class="guidesection">
+  <h1 class="guide_h1">Radios</h1>
+  <fieldset class="fieldset">
+    <div class="formfield formfieldCheckRadio">
+      <label class="formlabel">Choose an option</label>
+      <div class="formfield_radiobuttons">
+        <input type="radio" name="use_observ" id="use_observ">
+        <label class="formlabel" for="use_observ">Observability of models/analytics in production</label>
+        <input type="radio" name="use_audit" id="use_audit">
+        <label class="formlabel" for="use_audit">Auditability of your data science teams</label>
+      </div>
+    </div>
+    <div class="formfield formfieldSpaced formfieldCheckRadio formfieldError">
+      <label class="formlabel">Choose an option</label>
+      <div class="formfield_radiobuttons">
+        <input type="radio" name="use_observ1" id="use_observ1">
+        <label class="formlabel" for="use_observ1">Observability of models/analytics in production</label>
+        <input type="radio" name="use_audit2" id="use_audit2">
+        <label class="formlabel" for="use_audit2">Auditability of your data science teams</label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+<div class="guidesection">
+  <h1 class="guide_h1">Checkboxes</h1>
+  <fieldset class="fieldset">
+    <div class="formfield formfieldCheckRadio">
+      <label class="formlabel">Choose an option</label>
+      <div class="formfield_checkboxes">
+        <input type="checkbox" name="use_vc" id="use_vc">
+        <label class="formlabel" for="use_vc">Version Control</label>
+        <input type="checkbox" name="use_collab" id="use_collab">
+        <label class="formlabel" for="use_collab">Collaboration between data scientists</label>
+      </div>
+    </div>
+    <div class="formfieldSpaced formfieldCheckRadio formfieldError">
+      <label class="formlabel">Choose an option</label>
+      <div class="formfield_checkboxes">
+        <input type="checkbox" name="use_vc1" id="use_vc1">
+        <label class="formlabel" for="use_vc1">Version Control</label>
+        <input type="checkbox" name="use_collab2" id="use_collab2">
+        <label class="formlabel" for="use_collab2">Collaboration between data scientists</label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+<div class="guidesection">
+  <h1 class="guide_h1">Textareas</h1>
+  <fieldset class="fieldset">
+    <div class="formfield">
+      <label class="formlabel" for="textarea">Textarea</label>
+      <textarea class="formitem" name="textarea" id="textarea"></textarea>
+    </div>
+    <div class="formfield formfieldSpaced formfieldError">
+      <label class="formlabel" for="textarea">Textarea</label>
+      <textarea class="formitem" name="textarea" id="textarea"></textarea>
+      <span class="errormessage errormessageVisible">Please add a message</span>
+    </div>
+  </fieldset>
+</div>
+{% endblock %}

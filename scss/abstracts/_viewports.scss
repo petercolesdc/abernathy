@@ -1,0 +1,24 @@
+
+// Viewports. Horizontal break widths
+// Use example @include respond-to(var) { }. See mixins.scss for all options
+// ------------------------------------------------------------------
+
+$vpA: 300px;
+$vpB: 500px;
+$vpC: 900px;
+$vpD: 1110px;
+$vpE: 1300px;
+$vpF: 1600px;
+
+// Assign viewports to tasks
+$vpMax:           $vpF;                   // Max viewports
+$vpMin:           $vpA;
+$vpMenu:          $vpC;                   // Switch menu layout
+$vpTable:         $vpC;                   // Switch table layout
+
+$vpDeviceSafe:		800px;	                // Safe width for tablet type things as they can be odd
+
+// ------------------------------------------------------------------
+
+// Buffer switch points. Add as required
+$vpRowBufferA:		$vpMax;
