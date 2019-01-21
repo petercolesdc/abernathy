@@ -1,9 +1,12 @@
-@import 'abstracts/color.scss';
+@import 'colorSwatches.scss';
 @import 'abstracts/fonts.scss';
 
 $guideSpace: 80px;
 $guideStroke: 2px;
 $guideDivide: $guideStroke solid #ddd;
+
+// Guide layout
+// -----------------------------------
 
 .guide_index {
   padding: 8rem 10%;
@@ -50,22 +53,6 @@ $guideDivide: $guideStroke solid #ddd;
   @media screen and (min-width:700px) {
     display: grid;
     grid-template-columns: repeat(4, minmax(25%, 1fr));
-  }
-}
-
-@each $name, $color in
-		('Byers', $dmAction),
-		('Henderson', $dmHenderson),
-		('Wheeler', $dmWheeler),
-		('Havens', $dmHavens),
-		('Harrington', $dmHarrington),
-		('Holland', $dmHolland),
-    ('Hawkins', $dmHawkins),
-    ('Hargrove', $dmHargrove),
-	{
-  .guide_swatch#{$name} {
-    .guide_swatch_block   { background-color: $color; }
-    &:after               { content: "#{$color}"; }
   }
 }
 

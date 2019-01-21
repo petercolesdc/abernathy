@@ -1,0 +1,20 @@
+@import 'abstracts/color.scss';
+
+// Set colours for guide
+// ------------------------------------------------------------------
+
+@each $name, $color in
+		('Abernathy', $cAbernathy),
+		('Lowe', $cLowe),
+		('Ford', $cFord),
+		('Delos', $cDelos),
+		('Stubbs', $cStubbs),
+		('Flood', $cFlood),
+    ('Weber', $cWeber),
+    ('Sizemore', $cSizemore),
+	{
+  .guide_swatch#{$name} {
+    .guide_swatch_block   { background-color: $color; }
+    &:after               { content: "#{$color}"; }
+  }
+}

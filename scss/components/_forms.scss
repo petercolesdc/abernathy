@@ -12,7 +12,7 @@
 // Labels
 .formlabel {
   font-size: rem($typeS);
-  color: $dmLabel;
+  color: $cLabel;
 	&.formlabelHidden {
 		@include a11yhide;
 	}
@@ -27,13 +27,13 @@
   }
   &Error {
     .formitem {
-      border-color: $dmError;
+      border-color: $cError;
       &:focus {
-        border-color: $dmError;
+        border-color: $cError;
       }
     }
     .formlabel {
-      color: $dmError;
+      color: $cError;
     }
   }
   &CheckRadio {
@@ -66,7 +66,7 @@
     display: block;
   }
   .errormessage {
-    color: $dmError;
+    color: $cError;
     display: none;
     font-size: rem($typeXS);
     padding-top: 6px;
@@ -81,7 +81,7 @@
 .formitem {
 	padding: 10px;
 	display: block;
-	border: $strokeWidth solid $dmBorder;
+	border: $strokeWidth solid $cBorder;
 	appearance: none;
 	background-color: #fff;
 	height: $formItem;
@@ -95,7 +95,7 @@
 	}
 	&:focus {
 		outline: none;
-		border-color: $dmLabel;
+		border-color: $cLabel;
 	}
   &Small {
     height: $formItem/1.25;
@@ -167,7 +167,7 @@ textarea.formitem {
 		height: $formItem;
 		padding: 2px 15px 0 15px;
 		vertical-align: middle;
-		border: $strokeWidth solid $dmBorder;
+		border: $strokeWidth solid $cBorder;
 		appearance: none;
 		-moz-appearance: window; // Hides firefox native select arrow
     background: url(../assets/icons/source/drop.svg) #fff no-repeat right 43%;
@@ -178,7 +178,7 @@ textarea.formitem {
     line-height: 15px;
     border-radius: $btnRadius;
 		&:hover, &:focus {
-			border-color: $dmLabel;
+			border-color: $cLabel;
 			cursor: pointer;
 		}
 		&:focus {
@@ -188,7 +188,7 @@ textarea.formitem {
 			display: none;
 		}
     .formfieldError & {
-      border-color: $dmError;
+      border-color: $cError;
     }
     option {
       max-width: 90%;

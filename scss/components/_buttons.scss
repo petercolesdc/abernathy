@@ -9,7 +9,7 @@
   padding: 0 $btnPadding;
   vertical-align: middle;
   text-align: left;
-  color: $dmLabel;
+  color: $cLabel;
   text-decoration: none;
   display: inline-block;
   border-radius: $btnRadius;
@@ -37,16 +37,15 @@ button.button {
   @extend %button;
   font-size: rem($typeS);
   line-height: $btnDefault;
-  background-color: $dmButtonPrimary;
-  border-color: darken($dmButtonPrimary, 5%);
-  //transform: perspective(1px) translateZ(0);
+  background-color: $cButtonPrimary;
+  border-color: darken($cButtonPrimary, 5%);
   transition-duration: 0.1s;
   &:before {
     content: '';
     position: absolute;
     border-style: solid;
     border-width: 3px;
-    border-color: darken($dmButtonPrimary, 5%);
+    border-color: darken($cButtonPrimary, 5%);
     top: 0;
     right: 0;
     bottom: 0;
@@ -72,16 +71,22 @@ button.button {
   }
 
   // Types
+  &Primary {
+    color: #fff;
+    @include link-active-styles {
+      color: #fff;
+    }
+  }
   &Secondary {
     background-color: #fff;
-    border-color: $dmBorder;
+    border-color: $cBorder;
     &:before {
       animation-duration: 3.5s;
     }
     @include link-active-styles {
-      background-color: $dmButtonSecondary;
+      background-color: $cButtonSecondary;
       &:before {
-        border-color: $dmBorder;;
+        border-color: $cBorder;;
       }
     }
   }
@@ -107,6 +112,11 @@ button.button {
         animation-duration: 0.3s;
         animation-timing-function: linear;
         animation-iteration-count: 1;
+      }
+    }
+    &.buttonPrimary {
+      svg  {
+        fill: #fff;
       }
     }
   }

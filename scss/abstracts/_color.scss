@@ -2,51 +2,46 @@
 // Brand colours
 // ------------------------------------------------------------------
 
-$dmByers: 				  #FFF200!default;
-$dmHenderson:       #6AAFD9!default;
-$dmHopper:          #ABDFFF!default;
-$dmWheeler:         #54FF20!default;
-
+// Core colours
+$cAbernathy: #f06062!default;
+$cLowe: #37557D!default;
+$cFord: #c8b4a0!default;
+$cDelos: #FFCFE1!default;
 
 // Greyscales
-$dmHarrington:      #24262b; // Darkest
-$dmHolland:         #68595D;
-$dmHawkins:         #ADA2A5;
-$dmHavens:          #E4E1E1;
-$dmHargrove:        #F1F1F1;
-$dmHarbour:         #FDFDFD; // Lightest
+$cStubbs: #242326!default;
+$cFlood: #595859!default;
+$cWeber: #cecdcf!default;
+$cSizemore: #F6F5F7!default;
 
 
 // Non-brand feedbacks
 // ------------------------------------------------------------------
+$cError: 					#B10E1E;
+$cSuccess: 				#00823B;
+$cAlert: 					#FFBF47;
 
-$dmError: 					#B10E1E;
-$dmSuccess: 				#00823B;
-$dmAlert: 					#FFBF47;
 
-
-// Assign colours from variables in shared/color.scss
+// Assign colours to declarative variables
 // ------------------------------------------------------------------
 
 // Actions
-$dmAction: 					$dmByers;
-$dmActionRespond: 	$dmHenderson;
-$dmActionVisited:   $dmHenderson;
+$cAction: 				 $cAbernathy;
+$cActionRespond: 	 $cFord;
+$cActionVisited:   $cLowe;
 
 // Buttons
-$dmButtonPrimary:   $dmByers;
-$dmButtonSecondary: #fff;
-$dmButtonDisabled:  $dmHargrove;
-$dmButtonDanger:    $dmError;
-$dmButtonSuccess:   $dmSuccess;
-
+$cButtonPrimary:   $cAbernathy;
+$cButtonSecondary: #fff;
+$cButtonDisabled:  $cSizemore;
+$cButtonDanger:    $cError;
+$cButtonSuccess:   $cSuccess;
 
 // Default text colors
-$dmHeading: 				$dmHarrington;
-$dmLabel:           $dmHarrington;
-$dmText: 						$dmHolland;
-
+$cHeading: 				 $cStubbs;
+$cLabel:           $cStubbs;
+$cText: 					 $cFlood;
 
 // Misc. color assignments
-$dmBorder:          $dmHavens;
-$dmDisabled: 				$dmHawkins;
+$cBorder:          $cWeber;
+$cDisabled: 			 $cSizemore;

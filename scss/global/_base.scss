@@ -6,25 +6,19 @@ html {
 }
 
 body {
-  color: $dmText;
+  color: $cText;
   font-family: $fontDefault;
   line-height: $lineheightBase;
-  background-color: $dmHarbour;
   overflow-x: hidden;
-}
-
-*::selection {
-  background-color: $dmHarrington;
-  color: $dmByers;
 }
 
 a,
 .fauxlink {
   text-decoration: underline;
   cursor: pointer;
-  color: $dmHarrington;
+  color: $cAction;
   @include link-active-styles {
-    text-decoration-color: darken($dmByers, 15%);
+    text-decoration-color: darken($cAction, 35%);
   }
 }
 
