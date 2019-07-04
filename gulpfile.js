@@ -19,7 +19,6 @@ var gulp            = require("gulp")
         .pipe(sassGlob())
         .pipe(sass({outputStyle : "compressed"}))
         .pipe(autoprefixer({
-          browsers : ["last 6 versions"],
           grid: "true",
         }))
         .pipe(gulp.dest("public/css/"))

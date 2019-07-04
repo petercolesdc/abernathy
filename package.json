@@ -13,7 +13,7 @@
     "browser-sync": "^2.26.3",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^6.0.0",
+    "gulp-autoprefixer": "^6.1.0",
     "gulp-nunjucks-render": "^2.2.2",
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^4.0.2",
@@ -22,5 +22,11 @@
   },
   "dependencies": {
     "gulp-pretty-url": "^0.1.1"
-  }
+  },
+  "browserslist": [
+    "last 3 version",
+    "> 3%",
+    "maintained node versions",
+    "not dead"
+  ]
 }
