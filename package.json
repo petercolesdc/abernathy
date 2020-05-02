@@ -21,7 +21,9 @@
     "gulp-svg-sprite": "^1.5.0"
   },
   "dependencies": {
-    "gulp-pretty-url": "^0.1.1"
+    "gulp-pretty-url": "^0.1.1",
+    "lodash": "^4.17.15",
+    "lodash.template": "^4.5.0"
   },
   "browserslist": [
     "last 3 version",
