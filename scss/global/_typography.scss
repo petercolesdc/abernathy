@@ -8,63 +8,13 @@
 	margin-top: 0;
 }
 
-// Kerning
-// ------------------------------------------------------------------
-
-%kernTight 				{ letter-spacing: -0.125rem; font-kerning: normal; }
-%kernLoose 				{ letter-spacing: 0.3rem; }
-%kernUltraLoose 	{ letter-spacing: 0.76rem; }
-
-// Typescale
-// ------------------------------------------------------------------
-
-.typeXXL {
-	@extend %typebaseRoot;
-	@extend %kernTight;
-	@include sharp-text;
-	font-size: rem($typeXXL);
-}
-
-.typeXL {
-	@extend %typebaseRoot;
-	font-size: rem($typeXL);
-}
-
-.typeL {
-	@extend %typebaseRoot;
-	font-size: rem($typeL);
-}
-
-.typeM {
-	@extend %typebaseRoot;
-	font-size: rem($typeM);
-}
-
-// Median
-.typeMe {
-	@extend %typebaseRoot;
-	font-size: rem($typeMe);
-}
-
-.typeS {
-	@extend %typebaseRoot;
-	font-size: rem($typeS);
-}
-
-.typeXS {
-	@extend %typebaseRoot;
-	font-size: rem($typeXS);
-}
-
-
 // Heading styles
 // ------------------------------------------------------------------
 
 .heading {
 	display: block;
-	font-weight: $fontSemiBold;
+	font-weight: $fontBold;
 	color: $cHeading;
-	@include sharp-text;
 }
 
 // Default text
@@ -72,6 +22,7 @@
 
 .text {
 	@extend %typebaseRoot;
+	@include sharp-text;
 	font-size: rem($typeDefault);
 }
 
@@ -84,14 +35,7 @@
 	}
 }
 
-%listlead {
-	padding-bottom: rem($typeDefault/2);
-	&:last-of-type {
-		padding-bottom: 0;
-	}
-}
-
-.unordered_list {
+.unorderedlist {
 	list-style-type: disc;
 	@extend %textList;
 	ul {
@@ -100,7 +44,7 @@
 	}
 }
 
-.ordered_list {
+.orderedlist {
 	list-style-type: decimal;
 	@extend %textList;
 	ol {
@@ -109,7 +53,7 @@
 	}
 }
 
-.simple_list {
+.simplelist {
 	list-style-type: none;
 	@extend %textList;
 	ol,ul {
@@ -118,121 +62,10 @@
 	}
 }
 
-.description_list {
-	overflow: hidden;
-	margin-left: 0;
-	margin-right: 0;
-	dt,dd {
-		@extend .text;
-		@include leading_adjust(2);
-		margin-left: 0;
-		margin-right: 0;
-	}
-	dt {
-		display: block;
-	}
-	dd {
-		display: block;
-		margin-left: rem(18);
-		+ dt {
-			margin-top: rem(18);
-		}
-	}
-	code {
-		display: inline;
-	}
-}
-
 // Typebase (for runs of text)
 // ------------------------------------------------------------------
 
-.typebase {
-	p {
-		@extend .text;
-		margin-top: rem($typeDefault);
-		display: block;
-	}
-	ul,
-	ol {
-		@extend %textList;
-		margin-top: rem($typeDefault);
-	}
-	dl {
-		margin: rem($typeDefault*1.5) 0;
-		@extend .description_list;
-	}
-	ul {
-		@extend .unordered_list;
-	}
-	ol {
-		@extend .ordered_list;
-	}
-	li {
-		@extend %listlead;
-	}
-	img {
-		display: block;
-		max-width: 100%;
-		height: auto;
-	}
-	h1, h2, h3, h4, h5, h6 {
-		@extend .heading;
-		position: relative;
-		margin-top: rem($typeDefault*4);
-	}
-	h1,h2 {
-		@extend .typeXXL;
-	}
-	h3 {
-		@extend .typeXL;
-	}
-	h4 {
-		@extend .typeL;
-	}
-	h5 {
-		@extend .typeM;
-	}
-	h6 {
-		@extend .typeMe;
-	}
-
-	// Remove next para or list top margin
-	h1 + p,
-	h2 + p,
-	h3 + p,
-	h4 + p,
-	h5 + p,
-	h6 + p,
-	h1 + ol,
-	h2 + ol,
-	h3 + ol,
-	h4 + ol,
-	h5 + ol,
-	h6 + ol,
-	h1 + ul,
-	h2 + ul,
-	h3 + ul,
-	h4 + ul,
-	h5 + ul,
-	h6 + ul {
-		margin-top: rem($typeDefault/2);
-	}
-
-	// Tear out the initial top margin to allow things to flush together
-	> h1:first-child,
-	> h2:first-child,
-	> h3:first-child,
-	> h4:first-child,
-	> h5:first-child,
-	> h6:first-child,
-	> img:first-child,
-	> p:first-child,
-	> ol:first-child,
-	> ul:first-child,
-	> media-video-wrapper:first-child  {
-		margin-top: 0;
-	}
-
+.hideEmpty {
 	// Stop empty spacing
 	br + br,
 	h1:empty,

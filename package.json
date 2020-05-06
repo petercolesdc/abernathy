@@ -26,9 +26,6 @@
     "lodash.template": "^4.5.0"
   },
   "browserslist": [
-    "last 3 version",
-    "> 3%",
-    "maintained node versions",
-    "not dead"
+    "defaults"
   ]
 }

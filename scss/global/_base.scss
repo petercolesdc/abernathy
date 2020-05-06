@@ -28,23 +28,9 @@ a[href^="tel"] {
   text-decoration: none;
 }
 
-// Max with utl class
-.max_width {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-// Full width utl class
-.full_width {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 // Further sensible resets
 strong, b {
-  font-weight: $fontSemiBold;
+  font-weight: $fontBold;
 	@include sharp-text;
 }
 

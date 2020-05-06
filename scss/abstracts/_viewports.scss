@@ -11,14 +11,9 @@ $vpE: 1300px;
 $vpF: 1600px;
 
 // Assign viewports to tasks
-$vpMax:           $vpF;                   // Max viewports
-$vpMin:           $vpA;
+$vpMax:           $vpF;                   // Max viewport
+$vpMin:           $vpA;                   // Min viewport
 $vpMenu:          $vpC;                   // Switch menu layout
 $vpTable:         $vpC;                   // Switch table layout
 
 $vpDeviceSafe:		800px;	                // Safe width for tablet type things as they can be odd
-
-// ------------------------------------------------------------------
-
-// Buffer switch points. Add as required
-$vpRowBufferA:		$vpMax;
