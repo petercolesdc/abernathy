@@ -144,5 +144,4 @@ var gulp            = require("gulp")
     gulp.task("build", gulp.parallel("scss", "js", "assets", "render"));
 
     // Icon Build
-    //gulp.task('icons:build', ['sprite-page']);
     gulp.task("icons:build", gulp.parallel("sprite-page"));
