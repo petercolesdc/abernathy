@@ -42,7 +42,6 @@ design.watch:
 		-v /app/node_modules \
 		-v /app/public \
 		-p 3000:3000 \
-		-w /app/public \
 		$(BUILDER_IMAGE) gulp serve
 
 

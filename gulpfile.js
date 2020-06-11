@@ -108,15 +108,12 @@ var gulp            = require("gulp")
         done()
     })
 
-    // Watch more things
-    //gulp.task("watch-all", ["scss", "render", "assets", "js"], function () {
-    gulp.task("watch-all", gulp.parallel("scss", "render", "js", "assets"), function (done) {
-      gulp.watch("js/**/*", ["js"])
-      gulp.watch("templates/**/*", ["render"])
-      gulp.watch("scss/**/*", ["scss"])
-      gulp.watch("assets/**/*", ["assets"])
-      done()
-    })
+    gulp.task('watch-all', function() {
+      gulp.watch('js/**/*', gulp.series('scss'));
+      gulp.watch('templates/**/*', gulp.series('render'));
+      gulp.watch('scss/**/*', gulp.series('scss'));
+      gulp.watch('assets/**/*', gulp.series('assets'));
+    });
 
     // Spin up server
     gulp.task('browser-sync', function(done) {
@@ -140,24 +137,12 @@ var gulp            = require("gulp")
     // Task runners syntax
     // --------------------------
 
-    // Just do a render
-    //gulp.task("default", gulp.series("render"));
-
-    // Spins up a sever to render test templates
-    //gulp.task("serve", gulp.series(gulp.parallel("watch-all", "browser-sync")))
-    gulp.task("serve", gulp.parallel("watch-all", "browser-sync"), function(done) {
-      done()
-    })
+    // Serve it all
+    gulp.task('serve', gulp.series("scss", "js", "assets", "render", "browser-sync", "watch-all"));
 
     // Run a build
-    //gulp.task("build", gulp.parallel("scss", "js", "assets", "render"))
-    //gulp.task("build", ["scss", "js", "assets", "render"])
-    gulp.task("build", gulp.parallel("scss", "js", "assets"), function(done) {
-      done()
-    })
+    gulp.task("build", gulp.parallel("scss", "js", "assets", "render"));
 
     // Icon Build
     //gulp.task('icons:build', ['sprite-page']);
-    gulp.task("icons:build", gulp.parallel("sprite-page"), function(done) {
-      done()
-    })
+    gulp.task("icons:build", gulp.parallel("sprite-page"));
