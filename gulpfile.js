@@ -42,12 +42,12 @@ var gulp            = require("gulp")
     })
 
     // Watch asset folders for changes
-    gulp.task("watch", gulp.parallel("scss", "js", "assets"), function (done) {
-      gulp.watch("js/**/*", ["js"])
-      gulp.watch("scss/**/*", ["scss"])
-      gulp.watch("assets/**/*", ["assets"])
-      done()
-    })
+    // gulp.task("watch", gulp.parallel("scss", "js", "assets"), function (done) {
+    //   gulp.watch("js/**/*", ["js"])
+    //   gulp.watch("scss/**/*", ["scss"])
+    //   gulp.watch("assets/**/*", ["assets"])
+    //   done()
+    // })
 
     // SVG Config
     var config = {
