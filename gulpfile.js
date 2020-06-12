@@ -41,13 +41,11 @@ var gulp            = require("gulp")
         done()
     })
 
-    // Watch asset folders for changes
-    // gulp.task("watch", gulp.parallel("scss", "js", "assets"), function (done) {
-    //   gulp.watch("js/**/*", ["js"])
-    //   gulp.watch("scss/**/*", ["scss"])
-    //   gulp.watch("assets/**/*", ["assets"])
-    //   done()
-    // })
+    gulp.task('cleanup', function () {
+      return del([
+        'public/**/*',
+      ]);
+    })
 
     // SVG Config
     var config = {
@@ -141,7 +139,7 @@ var gulp            = require("gulp")
     gulp.task('serve', gulp.series("scss", "js", "assets", "render", "browser-sync", "watch-all"));
 
     // Run a build
-    gulp.task("build", gulp.parallel("scss", "js", "assets", "render"));
+    gulp.task("build", gulp.series('cleanup', gulp.parallel("scss", "js", "assets", "render")));
 
     // Icon Build
     gulp.task("icons:build", gulp.parallel("sprite-page"));
