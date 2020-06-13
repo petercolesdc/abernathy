@@ -1,5 +1,5 @@
 # Abernathy.
-It doesn't look like anything to me!
+
 ![Excellent](https://media.giphy.com/media/l2SqblV4jfjdExmr6/giphy.gif "Delores")
 
 Abernathy is a place to start product and web builds. Built with atomic component based systems in mind, she renders to standard html templates, so you can build in a modular fashion - then render the old fashioned way.
