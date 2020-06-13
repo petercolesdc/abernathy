@@ -1,27 +1,26 @@
 # Abernathy.
+It doesn't look like anything to me!
+![Excellent](https://media.giphy.com/media/l2SqblV4jfjdExmr6/giphy.gif "Delores")
 
-A place to start. Made with Gulp and SCSS.
+Abernathy is a place to start product and web builds. Built with atomic component based systems in mind, she renders to standard html templates, so you can build in a modular fashion - then render the old fashioned way.
 
-![Excellent](https://media.giphy.com/media/KdILx9YU2IcaA/giphy.gif "Shalom")
+Abernathy uses the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language to harness the power of includes, macros and loops to aim in building dynamic design systems.
 
-## Docker
+## Install (Docker)
 
-1. `make images` - You only need to do this once
-2. `make design.watch` to run in watch mode
-3. `make design.stop` to stop watch mode
-4. `make design.build` to just build
-5. `make design.icons` generate icons
+Grab docker desktop, install and start on your machine. Then:
 
-## Install (the old way)
+1. Change directory into this repo in your CLI.
+2. `make images` - You only need to do this once
+3. `make design.watch` to run in watch mode
+4. `make design.stop` to stop watch mode
+5. `make design.build` to build the project to deploy from public folder
+6. `make design.icons` generate icons
 
-1. Install NPM
-2. Change directory into the root folder for Abernathy
-3. `npm install`
-4. `gulp serve` to get going
-5. Ditch the demofiles folder and `demo.scss` file in `scss/layout`
 
 ### Icons
-`gulp build:icons` builds the icon sprite from SVG icons placed in the `assets/icons/source` folder.
+Place all icons in the `assets/icons/source` folder.
+If you want to use CSS to color them, remove any `fill=` tags from the SVG code.
 
 Reference in your markup as follows (where icon is exampleicon)
 
