@@ -4,7 +4,15 @@ A place to start. Made with Gulp and SCSS.
 
 ![Excellent](https://media.giphy.com/media/KdILx9YU2IcaA/giphy.gif "Shalom")
 
-## Install
+## Docker
+
+1. `make images` - You only need to do this once
+2. `make design.watch` to run in watch mode
+3. `make design.stop` to stop watch mode
+4. `make design.build` to just build
+5. `make design.icons` generate icons
+
+## Install (the old way)
 
 1. Install NPM
 2. Change directory into the root folder for Abernathy

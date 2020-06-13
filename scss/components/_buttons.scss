@@ -3,22 +3,17 @@
 
 // Button base style
 %button {
-  cursor: pointer;
-  font-weight: $fontSemiBold;
-  position: relative;
+  color: $cLabel;
   padding: 0 $btnPadding;
+  border-radius: $btnRadius;
+  cursor: pointer;
+  position: relative;
   vertical-align: middle;
   text-align: left;
-  color: $cLabel;
   text-decoration: none;
   display: inline-block;
-  border-radius: $btnRadius;
-  transition-property: color;
-  transition-duration: 0.5s;
   background-image: none;
   text-align: center;
-  transition: background-color linear 0.3s;
-  border: 1px solid transparent;
   span {
     font-size: inherit;
     font-weight: inherit;
@@ -39,31 +34,12 @@ button.button {
   line-height: $btnDefault;
   background-color: $cButtonPrimary;
   border-color: darken($cButtonPrimary, 5%);
-  transition-duration: 0.1s;
-  &:before {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-width: 3px;
-    border-color: darken($cButtonPrimary, 5%);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    animation-duration: 1s;
-    border-radius: $btnRadius*2;
-    opacity: 0;
-  }
   @include link-active-styles {
     text-decoration: none;
-    transition-duration: 0.1s;
-    &:before {
-      animation-name: hvr-ripple-out;
-      animation-duration: 1s;
-    }
   }
 
   // Sizes
+  // ------------------------------------
   &Small {
     font-size: rem($typeS);
     line-height: $btnSmall;
@@ -71,24 +47,11 @@ button.button {
   }
 
   // Types
+  // ------------------------------------
   &Primary {
     color: #fff;
     @include link-active-styles {
       color: #fff;
-    }
-  }
-
-  &Secondary {
-    background-color: #fff;
-    border-color: $cBorder;
-    &:before {
-      animation-duration: 3.5s;
-    }
-    @include link-active-styles {
-      background-color: $cButtonSecondary;
-      &:before {
-        border-color: $cBorder;;
-      }
     }
   }
 
@@ -100,42 +63,14 @@ button.button {
       top: 50%;
       right: $btnPadding/1.25;
       transform: translateY(-50%);
-      transition-duration: 0.3s;
-      transition-property: transform;
-      transition-timing-function: ease-out;
-      transform-origin: top;
       height: 16px;
       width: 16px;
       display: block;
-    }
-    @include link-active-styles {
-      svg {
-        animation-name: hvr-icon-pop;
-        animation-duration: 0.3s;
-        animation-timing-function: linear;
-        animation-iteration-count: 1;
-      }
     }
     &.buttonPrimary {
       svg  {
         fill: #fff;
       }
     }
-  }
-  
-  &Disabled {
-    cursor: not-allowed;
-    opacity: 0.3;
-    filter: grayscale(100%);
-    &:focus {
-      outline: none;
-      text-decoration: none;
-    }
-    @include link-active-styles {
-      text-decoration: none;
-    }
-  }
-  &Block {
-    display: block;
   }
 }

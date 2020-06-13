@@ -1,24 +1,92 @@
 
-.form {
-  position: relative;
+// General
+// ------------------------------------------------------------------
 
-}
-
-.fieldset {
+fieldset {
   border: none;
   padding: 0;
 }
 
-// Labels
-.formlabel {
-  font-size: rem($typeS);
-  color: $cLabel;
-	&.formlabelHidden {
-		@include a11yhide;
-	}
+
+form {
+  position: relative;
+  label {
+    font-size: rem($typeS);
+    color: $cLabel;
+    display: block;
+  	&Hidden {
+  		@include a11yhide;
+  	}
+  }
+  input[type="color"],
+  input[type="date"],
+  input[type="email"],
+  input[type="file"],
+  input[type="image"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="range"],
+  input[type="reset"],
+  input[type="search"],
+  input[type="text"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"] {
+    border: $strokeWidth solid $cBorder;
+    height: $formItem;
+    font-size: $formInputText;
+    border-radius: $formRadius;
+    padding: 0 $formPadding;
+  	display: block;
+  	appearance: none;
+    width: 100%;
+  	&:focus {
+  		border-color: $cLabel;
+  	}
+    // Turn off spinners for number input field, as flipping ugly
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+    	appearance: none;
+    }
+  }
+  // Min height to text area
+  textarea {
+    font-size: $formInputText;
+    padding: $formPadding;
+    display: block;
+    width: 100%;
+  }
+  select {
+    font-size: $formInputText;
+    height: $formItem;
+    border: $strokeWidth solid $cBorder;
+    border-radius: $formRadius;
+    padding: 0 $formPadding;
+    width: 100%;
+    display: block;
+    vertical-align: middle;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='%23444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    &:hover, &:focus {
+      border-color: $cLabel;
+      cursor: pointer;
+    }
+    &:focus {
+
+    }
+    .formfieldError & {
+      border-color: $cError;
+    }
+  }
 }
 
-// Form field wrapper
+// Form field blocks
+// ------------------------------------------------------------------
+
 .formfield {
 	position: relative;
 	@include pie-clearfix;
@@ -26,44 +94,22 @@
     padding-top: $bufferSpaceS/1.5;
   }
   &Error {
-    .formitem {
+    input {
       border-color: $cError;
       &:focus {
         border-color: $cError;
       }
     }
-    .formlabel {
+    label {
       color: $cError;
     }
   }
   &CheckRadio {
     position: relative;
-    > .formlabel {
+    > label {
       margin-bottom: 12px;
       display: block;
     }
-  }
-  &SelectButton {
-    @include pie-clearfix;
-    .formfield_select {
-      float: left;
-      position: relative;
-      select {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-    }
-    .button {
-      float: left;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
-  .hint {
-    font-size: rem($typeXS);
-    padding-top: 6px;
-    clear: left;
-    display: block;
   }
   .errormessage {
     color: $cError;
@@ -75,42 +121,6 @@
       display: block;
     }
   }
-}
-
-// Standard form elements
-.formitem {
-	padding: 10px;
-	display: block;
-	border: $strokeWidth solid $cBorder;
-	appearance: none;
-	background-color: #fff;
-	height: $formItem;
-  width: 100%;
-  border-radius: 0;
-	font-size: 15px; // Stop IOS doing the zoom thing, the Git!
-  border-radius: $btnRadius;
-	&::focus-inner {
-    border: 0;
-    padding: 0;
-	}
-	&:focus {
-		outline: none;
-		border-color: $cLabel;
-	}
-  &Small {
-    height: $formItem/1.25;
-  }
-}
-
-// Turn off spinners for number input field, as flipping ugly
-.formitem[type=number]::-webkit-inner-spin-button,
-.formitem[type=number]::-webkit-outer-spin-button {
-	appearance: none;
-}
-
-// Min height to text area
-textarea.formitem {
-	min-height: 200px;
 }
 
 // Radio and Checkboxes baseline
@@ -153,51 +163,4 @@ textarea.formitem {
 		position: relative;
 		top: 3px;
 	}
-}
-
-// Select baseline
-// -----------------------
-
-.formfield_select {
-  background-color: #fff;
-  height: $formItem;
-	select {
-		width: 100%;
-		display: block;
-		height: $formItem;
-		padding: 2px 15px 0 15px;
-		vertical-align: middle;
-		border: $strokeWidth solid $cBorder;
-		appearance: none;
-		-moz-appearance: window; // Hides firefox native select arrow
-    background: url(../assets/icons/source/drop.svg) #fff no-repeat right 43%;
-    background-origin: content-box;
-		background-size: 15px 8px;
-    border-radius: 0;
-    font-size: 15px;
-    line-height: 15px;
-    border-radius: $btnRadius;
-		&:hover, &:focus {
-			border-color: $cLabel;
-			cursor: pointer;
-		}
-		&:focus {
-			outline: none;
-		}
-		&::-ms-expand {
-			display: none;
-		}
-    .formfieldError & {
-      border-color: $cError;
-    }
-    option {
-      max-width: 90%;
-    }
-	}
-  &Small {
-    height: $formItem/1.25;
-    select {
-      height: $formItem/1.25;
-    }
-  }
 }

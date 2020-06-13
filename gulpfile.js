@@ -13,7 +13,7 @@ var gulp            = require("gulp")
     // --------------------------------
 
     // Concat and copy CSS
-    gulp.task("scss", function () {
+    gulp.task("scss", function (done) {
       gulp.src("scss/**/*.scss")
         .pipe(plumber())
         .pipe(sassGlob())
@@ -22,27 +22,29 @@ var gulp            = require("gulp")
           grid: "true",
         }))
         .pipe(gulp.dest("public/css/"))
+        done()
     })
 
     // Copy javascript
-    gulp.task("js", function () {
+    gulp.task("js", function (done) {
       gulp.src("js/**/*.js")
         .pipe(plumber())
         .pipe(gulp.dest("public/js/"))
+        done()
     })
 
     // Assets copy
-    gulp.task("assets", function () {
+    gulp.task("assets", function (done) {
       gulp.src("assets/**/*")
         .pipe(plumber())
         .pipe(gulp.dest("public/assets/"))
+        done()
     })
 
-    // Watch asset folders for changes
-    gulp.task("watch", ["scss", "js", "assets"], function () {
-      gulp.watch("js/**/*", ["js"])
-      gulp.watch("scss/**/*", ["scss"])
-      gulp.watch("assets/**/*", ["assets"])
+    gulp.task('cleanup', function () {
+      return del([
+        'public/**/*',
+      ]);
     })
 
     // SVG Config
@@ -70,26 +72,28 @@ var gulp            = require("gulp")
       }
     };
 
-    gulp.task('sprite-page', function() {
+    gulp.task('sprite-page', function(done) {
       gulp.src('assets/icons/source/**/*.svg')
         .pipe(plumber())
         .pipe(svgSprite(config))
         .pipe(gulp.dest('.'));
+        done()
     });
 
-    gulp.task('sprite-shortcut', function() {
+    gulp.task('sprite-shortcut', function(done) {
       gulp.src('assets/icons/renders/*')
         .pipe(plumber())
         .pipe(gulp.dest('templates/'));
+        done()
     });
 
 
     // --------------------------------------
-    // Test templates
+    // Templates and watch
     // --------------------------------------
 
     // Render templates
-    gulp.task("render", function () {
+    gulp.task("render", function (done) {
       gulp.src("templates/**/*.html")
         .pipe(plumber())
         .pipe(nunjucksRender(
@@ -99,18 +103,18 @@ var gulp            = require("gulp")
           }))
         .pipe(prettyUrl())
         .pipe(gulp.dest("public"))
+        done()
     })
 
-    // Watch more things
-    gulp.task("watch-all", ["scss", "render", "assets", "js"], function () {
-      gulp.watch("js/**/*", ["js"])
-      gulp.watch("templates/**/*", ["render"])
-      gulp.watch("scss/**/*", ["scss"])
-      gulp.watch("assets/**/*", ["assets"])
-    })
+    gulp.task('watch-all', function() {
+      gulp.watch('js/**/*', gulp.series('scss'));
+      gulp.watch('templates/**/*', gulp.series('render'));
+      gulp.watch('scss/**/*', gulp.series('scss'));
+      gulp.watch('assets/**/*', gulp.series('assets'));
+    });
 
     // Spin up server
-    gulp.task('browser-sync', function() {
+    gulp.task('browser-sync', function(done) {
         browserSync.init({
             server: {
                 baseDir: "public",
@@ -124,20 +128,18 @@ var gulp            = require("gulp")
         });
         //gulp.watch("public/**/*").on('change', browserSync.reload);
         gulp.watch("public/**/*");
+        done()
     });
 
     // --------------------------
     // Task runners syntax
     // --------------------------
 
-    // Just do a build
-    gulp.task("default", ["render"])
-
-    // Spins up a sever to render test templates
-    gulp.task("serve", ["watch-all", "browser-sync"])
+    // Serve it all
+    gulp.task('serve', gulp.series("scss", "js", "assets", "render", "browser-sync", "watch-all"));
 
     // Run a build
-    gulp.task("build", ["scss", "js", "assets", "render"])
+    gulp.task("build", gulp.series('cleanup', gulp.parallel("scss", "js", "assets", "render")));
 
     // Icon Build
-    gulp.task('icons:build', ['sprite-page']);
+    gulp.task("icons:build", gulp.parallel("sprite-page"));
