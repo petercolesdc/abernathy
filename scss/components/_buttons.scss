@@ -9,7 +9,6 @@
   cursor: pointer;
   position: relative;
   vertical-align: middle;
-  text-align: left;
   text-decoration: none;
   display: inline-block;
   background-image: none;
@@ -33,9 +32,9 @@ button.button {
   font-size: rem($typeS);
   line-height: $btnDefault;
   background-color: $cButtonPrimary;
-  border-color: darken($cButtonPrimary, 5%);
   @include link-active-styles {
     text-decoration: none;
+    background-color: $cActionRespond;
   }
 
   // Sizes
