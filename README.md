@@ -7,7 +7,6 @@ Abernathy is a place to start product and web builds. Built with atomic componen
 Abernathy uses the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language to harness the power of includes, macros and loops to aim in building dynamic design systems.
 
 ## Install (Docker)
-
 Grab docker desktop, install and start on your machine. Then:
 
 1. Change directory into this repo in your CLI.
@@ -16,6 +15,12 @@ Grab docker desktop, install and start on your machine. Then:
 4. `make design.stop` to stop watch mode
 5. `make design.build` to build the project to deploy from public folder
 6. `make design.icons` generate icons
+
+### Optional
+If you want to keep a tidy house, then I'd recommend the following:
+
+1. Open `Makefile` and update `IMAGE?=` to the name of your project
+2. Update this ReadMe file
 
 
 ### Icons
