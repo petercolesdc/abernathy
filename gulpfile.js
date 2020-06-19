@@ -107,7 +107,7 @@ var gulp            = require("gulp")
     })
 
     gulp.task('watch-all', function() {
-      gulp.watch('js/**/*', gulp.series('scss'));
+      gulp.watch('js/**/*', gulp.series('js'));
       gulp.watch('templates/**/*', gulp.series('render'));
       gulp.watch('scss/**/*', gulp.series('scss'));
       gulp.watch('assets/**/*', gulp.series('assets'));
