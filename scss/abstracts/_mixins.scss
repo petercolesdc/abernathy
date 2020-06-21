@@ -1,34 +1,160 @@
-// mixins
-// NO GLOBAL VARIABLES IN HERE PLEASE
 
-
-// Sharpen type (use with care)
+// Typography specific mixins
 // ------------------------------------------------------------------
 
-@mixin sharp-text {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	//text-rendering: optimizeLegibility;
+// Make pixel values into REMS
+@function rem($pixels){
+	@return $pixels / $scaleRoot + rem; // Usage = font-size: rem(xx);
 }
 
-// Helpers
-// ------------------------------------------------------------------
+// Tweak leading
+@mixin leading_adjust($gapAdjust) {
+	line-height: $lineheightBase - ($gapAdjust/$scaleRoot);
+}
 
-// Oldschool clearfixing
-@mixin pie-clearfix {
-	&:after {
-		content: "";
-		display: table;
-		clear: both;
-    //*zoom: 1;
+// Basline spacing with regular units
+@mixin baseline($baselineMult, $type) {
+	@if $type == "margin-bottom"  {
+		margin-bottom: rem($gridBaseline*$baselineMult);
+	} @else if $type == "margin-top"  {
+		margin-top: rem($gridBaseline*$baselineMult);
+	} @else if $type == "padding-bottom"  {
+		padding-bottom: rem($gridBaseline*$baselineMult);
+	} @else if $type == "padding-top"  {
+		padding-top: rem($gridBaseline*$baselineMult);
+	} @else {
+
 	}
 }
+
+// Grid calculations
+// ------------------------------------------------------------------
+
+// gridCalc
+// $GgridGap = The gap between grid items (default to 0)
+// Used to set a grid only.
+@mixin gridCalc($GgridGap: 'false') {
+	display: grid;
+	grid-template-columns: $gridCols;
+	@if $GgridGap == 'true'  {
+		grid-gap: $gridGap;
+	} @else {
+		grid-gap: 0;
+	}
+}
+
+// gridCol
+// In combination with gridCalc this detemines the start point & span of columns
+@mixin gridCol($gridStart, $gridSpan) {
+	grid-column: $gridStart / span $gridSpan;
+}
+
+// gridRow
+// In combination with gridCalc this detemines the start point & span of rows
+@mixin gridRow($gridStart, $gridSpan) {
+	grid-row: $gridStart / span $gridSpan;
+}
+
+// gridRepeat
+// This should only be used for grids with the same width of columns that repeat
+
+@mixin gridRepeat($colNumber, $GgridGap: $gridGap, $GgridRowGap: $gridRowGap) {
+  display: grid;
+  grid-template-columns: repeat($colNumber, 1fr);
+  grid-gap: $GgridGap;
+  grid-row-gap: $gridRowGap
+}
+
+
+// Link interaction combo
+// Bundle hover, focus and active together
+// Overide as needed
+// ------------------------------------------------------------------
 
 @mixin link-active-styles {
 	&:hover, &:focus, &:active {
 		@content;
 	}
 }
+
+// Media queries
+// Simplify the syntax and use variables for easy changes
+// ------------------------------------------------------------------
+
+
+// Widths only
+@mixin respond-to($media-min) {
+	@media screen and (min-width: $media-min) {
+	    @content;
+	}
+}
+
+@mixin respond-to-max($media-max) {
+	@media screen and (max-width: $media-max - 1px) {
+	    @content;
+	}
+}
+
+@mixin respond-to-min-max($media-min, $media-max) {
+	 @media screen and (min-width: $media-min) and (max-width: $media-max - 1px) {
+	    @content;
+	}
+}
+
+// Widths and heights
+@mixin respond-to-both($media-w-min, $media-h-min) {
+	@media screen and (min-width: $media-w-min) and (min-height: $media-h-min) {
+	    @content;
+	}
+}
+
+// Height only
+@mixin respond-to-height($media-min) {
+	@media screen and (min-height: $media-min) {
+	    @content;
+	}
+}
+
+@mixin respond-to-height-max($media-max) {
+	@media screen and (max-height: $media-max - 1px) {
+	    @content;
+	}
+}
+
+// Both
+@mixin respond-to-both-max-min($media-w-min, $media-h-min) {
+	@media screen and (max-width: $media-w-min) and (min-height: $media-h-min - 1px) {
+	    @content;
+	}
+}
+
+// A11y hidden
+// Hide things on the page in an accessible way (eg form labels)
+// ------------------------------------------------------------------
+
+@mixin a11yhide {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0px;
+	border: 0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+// Ratios
+// Use maths to make responsive ratios (works great for video embeds)
+// ------------------------------------------------------------------
+
+@mixin ratio($ratio: 1 1) {
+	//@if length($ratio) < 2 or length($ratio) > 2 { @warn "$ratio must be a list with two values."; }
+	$ratio-width: 100%;
+	$ratio-height: percentage(nth($ratio, 2) / nth($ratio, 1));
+	width: $ratio-width;
+	height: 0;
+	padding-bottom: $ratio-height;
+}
+
 
 // Animation
 // ------------------------------------------------------------------
@@ -61,81 +187,27 @@
 	@include improveAntiAlias();
 }
 
-// Media queries with fallbacks if needed
+// Clearfix - Old Skool
 // ------------------------------------------------------------------
 
-
-// Widths only
-@mixin respond-to($media-min) {
-	@media screen and (min-width: $media-min) {
-	    @content;
+@mixin pie-clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+    //*zoom: 1;
 	}
 }
 
-@mixin respond-to-max($media-max) {
-	@media screen and (max-width: $media-max - 1px) {
-	    @content;
-	}
-}
-
-@mixin respond-to-min-max($media-min, $media-max) {
-	 @media screen and (min-width: $media-min) and (max-width: $media-max - 1px) {
-	    @content;
-	}
-}
-
-// Widths and heights
-@mixin respond-to-both($media-w-min, $media-h-min) {
-	@media screen and (min-width: $media-w-min) and (min-height: $media-h-min) {
-	    @content;
-	}
-}
-
-// Height
-
-@mixin respond-to-height($media-min) {
-	@media screen and (min-height: $media-min) {
-	    @content;
-	}
-}
-
-@mixin respond-to-height-max($media-max) {
-	@media screen and (max-height: $media-max - 1px) {
-	    @content;
-	}
-}
-
-// Both
-@mixin respond-to-both-max-min($media-w-min, $media-h-min) {
-	@media screen and (max-width: $media-w-min) and (min-height: $media-h-min - 1px) {
-	    @content;
-	}
-}
-
-// A11y hidden
+// Sharpen type (use with care)
 // ------------------------------------------------------------------
 
-@mixin a11yhide {
-	position: absolute !important;
-	clip: rect(1px, 1px, 1px, 1px);
-	padding: 0px;
-	border: 0 !important;
-	height: 1px !important;
-	width: 1px !important;
-	overflow: hidden;
+@mixin sharp-text {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	//text-rendering: optimizeLegibility;
 }
 
-// Ratio
-// ------------------------------------------------------------------
-
-@mixin ratio($ratio: 1 1) {
-	//@if length($ratio) < 2 or length($ratio) > 2 { @warn "$ratio must be a list with two values."; }
-	$ratio-width: 100%;
-	$ratio-height: percentage(nth($ratio, 2) / nth($ratio, 1));
-	width: $ratio-width;
-	height: 0;
-	padding-bottom: $ratio-height;
-}
 
 // Faux links
 // ------------------------------------------------------------------
@@ -150,6 +222,13 @@
   );
 }
 
+// ------------------------------------------------------------------
+
+// LEGACY
+
+// ------------------------------------------------------------------
+
+
 // Shadow controls
 // ------------------------------------------------------------------
 
@@ -163,12 +242,12 @@
 
 @mixin edgeBufferLeft($type) {
   @if $type == "padding" {
-    padding-left: $bufferSpaceS;
+    padding-left: $edges;
 		@include respond-to($vpRowBufferA) {
   		padding-left: 0;
   	}
   } @else {
-    left: $bufferSpaceS;
+    left: $edges;
   	@include respond-to($vpRowBufferA) {
   		left: 0;
   	}
@@ -177,12 +256,12 @@
 
 @mixin edgeBufferRight($type) {
   @if $type == "padding" {
-    padding-right: $bufferSpaceS;
+    padding-right: $edges;
 		@include respond-to($vpRowBufferA) {
   		padding-right: 0;
   	}
   } @else {
-    right: $bufferSpaceS;
+    right: $edges;
   	@include respond-to($vpRowBufferA) {
   		right: 0;
   	}
@@ -191,16 +270,16 @@
 
 @mixin edgeBufferTop($type) {
   @if $type == "padding" {
-    padding-top: $bufferSpaceS;
+    padding-top: $edges;
   } @else {
-    margin-top: $bufferSpaceS;
+    margin-top: $edges;
   }
 }
 
 @mixin edgeBufferBottom($type) {
   @if $type == "padding" {
-    padding-bottom: $bufferSpaceS;
+    padding-bottom: $edges;
   } @else {
-    margin-bottom: $bufferSpaceS;
+    margin-bottom: $edges;
   }
 }

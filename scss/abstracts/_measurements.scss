@@ -1,35 +1,35 @@
 
 @import 'viewports.scss';
 
-// General spacing options
+// Grid
 // ------------------------------------------------------------------
-
-$bufferSpaceS: 20px;
-
-
-// Ratios
-// ------------------------------------------------------------------
-
-$ratioWidescreen: 56.25%;
+$gridCols: 1fr 1fr 1fr 1fr 1fr 1fr; // 6 cols. Change to suit
+$gridGap: 20px;
+$gridRowGap: 40px;
+$gridBaseline: 8px;
 
 
 // Buttons
 // ------------------------------------------------------------------
-
-$btnSmall:    30px;
-$btnDefault:  35px;
-$btnRadius:   3px;
-$btnPadding:  15px;
+$btnSmall: 30px;
+$btnDefault: 35px;
+$btnRadius: 3px;
+$btnPadding: 15px;
 $btnPaddingSmall: $btnPadding/1.25;
 
 
 // Forms
 // ------------------------------------------------------------------
-
 $formRadius: 0;
 $formItem: 40px;
 $formInputText: 15px;
 $formPadding: 10px;
+$formVSpace: 20px;
+
+
+// Edge spaces (for moving content away from browser edge)
+// ------------------------------------------------------------------
+$edges: 20px;
 
 
 // Misc

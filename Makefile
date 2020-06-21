@@ -9,11 +9,11 @@ images:
 
 .PHONY: static
 static:
-	docker build -t abernathy:latest .
+	docker build -t $(IMAGE):latest .
 	docker run -ti --rm \
-	--name abernathy \
+	--name $(IMAGE) \
 	-p 1234:80 \
-	abernathy:latest
+	$(IMAGE):latest
 
 
 .PHONY: design.build
@@ -47,4 +47,4 @@ design.watch:
 
 .PHONY: design.stop
 design.stop:
-	docker rm -f abernathy
+	docker rm -f $(IMAGE)

@@ -5,10 +5,12 @@ html {
   }
 }
 
+// Defaults
 body {
+  @extend %typebaseRoot;
   color: $cText;
   font-family: $fontDefault;
-  line-height: $lineheightBase;
+  font-size: rem($typeDefault);
   overflow-x: hidden;
 }
 
@@ -36,4 +38,23 @@ strong, b {
 
 input, textarea, select, button {
   font-family: $fontDefault;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: $fontBold;
+  color: $cHeading;
+}
+
+ol, ul {
+  ol, ul {
+    padding-left: rem(20);
+  }
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
 }

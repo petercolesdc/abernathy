@@ -4,17 +4,20 @@
 
 %typebaseRoot {
 	line-height: $lineheightBase;
-	margin-bottom: 0;
-	margin-top: 0;
+}
+
+%headingbaseRoot {
+	@include leading_adjust(4);
 }
 
 // Heading styles
 // ------------------------------------------------------------------
 
 .heading {
+	@include sharp-text;
+	@extend %headingbaseRoot;
 	display: block;
 	font-weight: $fontBold;
-	color: $cHeading;
 }
 
 // Default text
@@ -22,7 +25,6 @@
 
 .text {
 	@extend %typebaseRoot;
-	@include sharp-text;
 	font-size: rem($typeDefault);
 }
 
@@ -35,32 +37,6 @@
 	}
 }
 
-.unorderedlist {
-	list-style-type: disc;
-	@extend %textList;
-	ul {
-		list-style-type: disc;
-		padding-left: rem(20);
-	}
-}
-
-.orderedlist {
-	list-style-type: decimal;
-	@extend %textList;
-	ol {
-		list-style-type: decimal;
-		padding-left: rem(20);
-	}
-}
-
-.simplelist {
-	list-style-type: none;
-	@extend %textList;
-	ol,ul {
-		list-style-type: none;
-		padding-left: rem(20);
-	}
-}
 
 // Typebase (for runs of text)
 // ------------------------------------------------------------------

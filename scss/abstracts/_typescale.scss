@@ -16,19 +16,5 @@ $typeXS: 						$scaleRoot*1.2;
 $typeXXS: 					$scaleRoot;
 
 // Declaritives
-$typeDefault: 			$typeMe; 
+$typeDefault: 			$typeMe;
 $typeLabel: 				$typeS;
-
-// Functions and mixins
-// ------------------------------------------------------------------
-
-// Make pixel values into REMS
-@function rem($pixels){
-	@return $pixels / $scaleRoot + rem; // Usage = font-size: rem(xx);
-}
-
-// Tighten leading
-@mixin leading_adjust($gapAdjust) {
-	line-height:  $lineheightBase - ($gapAdjust/$scaleRoot);
-	margin-bottom: rem($lineheightBase + $gapAdjust);
-}

@@ -57,6 +57,7 @@ form {
     padding: $formPadding;
     display: block;
     width: 100%;
+    border: $strokeWidth solid $cBorder;
   }
   select {
     font-size: $formInputText;
@@ -69,7 +70,7 @@ form {
     vertical-align: middle;
     appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='%23444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
-    background-position: 100% 50%;
+    background-position: 99.5% 50%;
     background-repeat: no-repeat;
     &:hover, &:focus {
       border-color: $cLabel;
@@ -91,7 +92,7 @@ form {
 	position: relative;
 	@include pie-clearfix;
   &Spaced {
-    padding-top: $bufferSpaceS/1.5;
+    padding-top: $formVSpace;
   }
   &Error {
     input {
