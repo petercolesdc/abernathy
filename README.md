@@ -62,7 +62,7 @@ Convenient syntax mixins for responsive breakpoints. I won't outline each one as
 - `@mixin sharp-text`. Make text sharper. Sometimes it looks better, sometimes it looks pants. Use with discretion. `@include sharp-text;`
 - `@mixin fauxUnderline()`. Create a fake underline style. `@include fauxUnderline(red)`;
 
-## Animation
+### Animation
 There's some Animation helpers should you need them. See comments in the file for more details
 
 ## Component macro sheets
