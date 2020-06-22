@@ -1,0 +1,23 @@
+
+.gridexample {
+  @include gridCalc('true'); // Include grid with grid gap
+  div {
+    height: 60px;
+    background-color: #999;
+  }
+  .g1 {
+    @include gridCol(1, 2);
+  }
+  .g2 {
+    @include gridCol(3, 4);
+  }
+  .g3 {
+    @include gridCol(1, 2);
+  }
+  .g4 {
+    @include gridCol(3, 2);
+  }
+  .g5 {
+    @include gridCol(5, 2);
+  }
+}

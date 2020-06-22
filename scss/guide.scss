@@ -2,46 +2,40 @@
 @import 'abstracts/fonts.scss';
 
 $guideSpace: 80px;
-$guideStroke: 2px;
-$guideDivide: $guideStroke solid #ddd;
+$guideEdges: 30px;
+$guideDivide: 2px solid #ddd;
 
 // Guide layout
 // -----------------------------------
 
-.guide_index {
-  padding: 8rem 10%;
-  &_list {
-    list-style-type: none;
-    padding: 1rem 4rem 1rem 5rem;
-    border-left: 3px solid #5c2d70;
-    margin-top: 4rem;
-    margin-bottom: 10rem;
-    li {
-      font-size: 16px;
-      margin-bottom: 8px;
-      &:last-child {
-        margin-bottom: 4px;
-      }
+.guide_index_list {
+  list-style-type: none;
+  padding: 1rem 4rem 1rem 5rem;
+  border-left: 3px solid #5c2d70;
+  margin-top: 4rem;
+  margin-bottom: 10rem;
+  li {
+    font-size: 16px;
+    margin-bottom: 8px;
+    &:last-child {
+      margin-bottom: 4px;
     }
   }
 }
 
 .guidesection {
-  border-top: $guideDivide;
   margin-top: $guideSpace;
-  padding-top: $guideSpace - $guideStroke;
-  &:first-of-type {
-    border-top: 0;
-    margin-top: 0;
-    padding-top: 0;
-  }
+  padding-left: $guideEdges;
+  padding-right: $guideEdges;
 }
 
 .guide_h1 {
   font-size: 22px;
   line-height: 29px;
   margin-bottom: 22px;
+  padding-bottom: 0.5em;
   color: #333;
+  border-bottom: $guideDivide;
 }
 
 .guide_swatches {
@@ -52,7 +46,7 @@ $guideDivide: $guideStroke solid #ddd;
   grid-column-gap: 10px;
   @media screen and (min-width:700px) {
     display: grid;
-    grid-template-columns: repeat(4, minmax(25%, 1fr));
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
