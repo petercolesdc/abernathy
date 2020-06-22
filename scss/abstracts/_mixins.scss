@@ -3,7 +3,7 @@
 // ------------------------------------------------------------------
 
 // Make pixel values into REMS
-@function rem($pixels){
+@function rem($pixels) {
 	@return $pixels / $scaleRoot + rem; // Usage = font-size: rem(xx);
 }
 
