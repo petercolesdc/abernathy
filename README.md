@@ -54,6 +54,17 @@ It's worth noting that many mixins use settings defined in `/abstracts/measureme
 Convenient syntax mixins for responsive breakpoints. I won't outline each one as they all follow a similar syntax. There are options for min and max width, min and max heights and a combination of both.
 - `@mixin respond-to($media-min) { @content }`. Sets the breakpoint syntax based on browser width. I usually define these in `viewports.scss`. Use like this: `@include respond-to($vpA) { Your styles here };`
 
+### Helpful shit
+- `@mixin link-active-styles`. Combines `:focus, :active and :hover` states into one easy place. Use like this: `@include link-active-styles { Your stuff };`
+- `@mixin a11yhide`. Hide things in an accessible fashion. Usage: `@include a11yhide;`.
+- `@mixin ratio();`. Little mixin for ratio calculations. Great for responsive video. Usage `@include ratio(16 9)`
+- `@mixin pie-clearfix`. Clearfix the old-skool way. Usage. `@include pie-clearfix;`
+- `@mixin sharp-text`. Make text sharper. Sometimes it looks better, sometimes it looks pants. Use with discretion. `@include sharp-text;`
+- `@mixin fauxUnderline()`. Create a fake underline style. `@include fauxUnderline(red)`;
+
+## Animation
+There's some Animation helpers should you need them. See comments in the file for more details
+
 ## Component macro sheets
 So, I didn't know this was a thing, but what a thing it is. You can keep all your macros on one html page, and import only the ones you need into other pages. Love it!
 
