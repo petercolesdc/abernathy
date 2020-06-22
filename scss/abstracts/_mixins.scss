@@ -51,8 +51,8 @@
 
 // gridRow
 // In combination with gridCalc this detemines the start point & span of rows
-@mixin gridRow($gridStart, $gridSpan) {
-	grid-row: $gridStart / span $gridSpan;
+@mixin gridRow($rowNum) {
+	grid-row: $rowNum;
 }
 
 // gridRepeat
