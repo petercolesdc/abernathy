@@ -23,7 +23,7 @@ If you want to keep a tidy house, then I'd recommend the following:
 2. Update this ReadMe file
 
 
-### Icons
+## Making icons
 Place all icons in the `assets/icons/source` folder.
 If you want to use CSS to color them, remove any `fill=` tags from the SVG code.
 
@@ -34,6 +34,17 @@ Reference in your markup as follows (where icon is exampleicon)
   <use xlink:href="/assets/icons/renders/sprite.svg#exampleicon"></use>
 </svg>
 ```
+
+## Component macro sheets
+So, I didn't know this was a thing, but what a thing it is. You can keep all your macros on one html page, and import only the ones you need into other pages. Love it!
+
+For components, this works a treat. Here's what I like to do:
+
+1. Create a folder in `/components` and name it as per that component type
+2. Create an `index.html` page, that acts as an Index for the component type
+3. Create one or more `.html` pages for the component and keep all the macros for that component in one place
+4. Import the macro sheet using the `{% import 'components/thing/thing.html' as thing %}`method
+5. Reference the specific macro using the `{{ thing.thingName('setting', 'setting') }}`
 
 ## Use the mixins (or don't. Whatever!)
 The `mixins.scss` contains goodies that you might find useful. It's probably easier to pick through them, but here's what they do (and how to use them).
@@ -64,18 +75,6 @@ Convenient syntax mixins for responsive breakpoints. I won't outline each one as
 
 ### Animation
 There's some Animation helpers should you need them. See comments in the file for more details
-
-## Component macro sheets
-So, I didn't know this was a thing, but what a thing it is. You can keep all your macros on one html page, and import only the ones you need into other pages. Love it!
-
-For components, this works a treat. Here's what I like to do:
-
-1. Create a folder in `/components` and name it as per that component type
-2. Create an `index.html` page, that acts as an Index for the component type
-3. Create one or more `.html` pages for the component and keep all the macros for that component in one place
-4. Import the macro sheet using the `{% import 'components/thing/thing.html' as thing %}`method
-5. Reference the specific macro using the `{{ thing.thingName('setting', 'setting') }}`
-
 
 ## Known bugs & limitations
 - Occasionally, when adding new images or re-saving images, someone will freak out and ruin the party. To resolve, do a `make design.stop` then `make design.watch` to get back to the action.
