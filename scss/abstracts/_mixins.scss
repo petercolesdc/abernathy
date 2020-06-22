@@ -65,18 +65,6 @@
   grid-row-gap: $GgridRowGap;
 }
 
-
-// Link interaction combo
-// Bundle hover, focus and active together
-// Overide as needed
-// ------------------------------------------------------------------
-
-@mixin link-active-styles {
-	&:hover, &:focus, &:active {
-		@content;
-	}
-}
-
 // Media queries
 // Simplify the syntax and use variables for easy changes
 // ------------------------------------------------------------------
@@ -101,13 +89,6 @@
 	}
 }
 
-// Widths and heights
-@mixin respond-to-both($media-w-min, $media-h-min) {
-	@media screen and (min-width: $media-w-min) and (min-height: $media-h-min) {
-	    @content;
-	}
-}
-
 // Height only
 @mixin respond-to-height($media-min) {
 	@media screen and (min-height: $media-min) {
@@ -122,9 +103,26 @@
 }
 
 // Both
+@mixin respond-to-both($media-w-min, $media-h-min) {
+	@media screen and (min-width: $media-w-min) and (min-height: $media-h-min) {
+	    @content;
+	}
+}
+
 @mixin respond-to-both-max-min($media-w-min, $media-h-min) {
 	@media screen and (max-width: $media-w-min) and (min-height: $media-h-min - 1px) {
 	    @content;
+	}
+}
+
+// Link interaction combo
+// Bundle hover, focus and active together
+// Overide as needed
+// ------------------------------------------------------------------
+
+@mixin link-active-styles {
+	&:hover, &:focus, &:active {
+		@content;
 	}
 }
 

@@ -38,9 +38,21 @@ Reference in your markup as follows (where icon is exampleicon)
 ## Use the mixins (or don't. Whatever!)
 The `mixins.scss` contains goodies that you might find useful. It's probably easier to pick through them, but here's what they do (and how to use them).
 
+It's worth noting that many mixins use settings defined in `/abstracts/measurements.scss`, so be sure to check that out also.
+
+### Typography
 - `@function rem($pixels)` is a function that takes a pixel value and converts it into REM values. Use it like this: `font-size: rem(16);` or better yet `font-size: rem($yourTypeSizeVar);`
-- `@mixin leading_adjust($gapAdjust)` allows you to adjust the line-height of some text based on the `$lineheightBase` value set in `measurements.scss` for consistent spacing. Use like this: `@include leading_adjust(4);`
-- `@mixin baseline($baselineMult, $type)` allows you to space items taking into account a consistent baseline. Use like this `@include baseline(3, 'margin-bottom')`. Be sure to set `$gridBaseline` in `measurements.scss`.
+- `@mixin leading_adjust()` allows you to adjust the line-height of some text based on the `$lineheightBase` value set in `measurements.scss` for consistent spacing. Use like this: `@include leading_adjust(4);`
+- `@mixin baseline()` allows you to space items taking into account a consistent baseline. Use like this `@include baseline(3, 'margin-bottom')`. Be sure to set `$gridBaseline` in `measurements.scss`.
+
+### Grid
+- `@mixin gridCalc()`. Set's down a grid based on `$gridCols` defined in `measurements.scss`. You can set it's value to `true` if you want to use the defined `$gridGap`, or leave undefined for no gap at all. `@include gridCalc('true')` This mixin is only really useful when used with `@mixin gridCol` and `@mixin gridRow`.
+- `@mixin gridCol()` allows you to set the start column and span number for a grid item. Use like this: `@include gridCalc(1, 3)` where the first number is the column (1) and the second number is how many columns to span (3).
+- `@mixin gridRow()` allows you to define which row an item appears on. Use like this `@include gridRow(2)` to place an item on the second row.
+
+### Responsive
+Convenient syntax mixins for responsive breakpoints. I won't outline each one as they all follow a similar syntax. There are options for min and max width, min and max heights and a combination of both.
+- `@mixin respond-to($media-min) { @content }`. Sets the breakpoint syntax based on browser width. I usually define these in `viewports.scss`. Use like this: `@include respond-to($vpA) { Your styles here };`
 
 ## Component macro sheets
 So, I didn't know this was a thing, but what a thing it is. You can keep all your macros on one html page, and import only the ones you need into other pages. Love it!
