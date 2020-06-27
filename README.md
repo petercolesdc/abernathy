@@ -13,7 +13,7 @@ Grab docker desktop, install and start on your machine. Then:
 2. `make images` - You only need to do this once
 3. `make design.watch` to run in watch mode
 4. `make design.stop` to stop watch mode
-5. `make design.build` to build the project to deploy from public folder
+5. `make design.build` to build the project to the public folder on your computer (not in the container)
 6. `make design.icons` generate icons
 
 ### Optional
