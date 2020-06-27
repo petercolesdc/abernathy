@@ -1,3 +1,13 @@
-<title>{{ title }}</title>
-<link rel="stylesheet" href="/css/style.css">
-{% include 'layouts/scaffold/headshared.html' %}
+<!doctype html>
+<html lang="en-GB" class="no-js">
+<head>
+	<title>{{ title }}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if layout == 'guide' %}
+	<link rel="stylesheet" href="/css/guide.css">
+  {% else %}{% endif %}
+  <link rel="stylesheet" href="/css/style.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script src="/js/modernizr-custom.js"></script>
+</head>
