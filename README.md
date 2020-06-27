@@ -35,8 +35,11 @@ Reference in your markup as follows (where icon is exampleicon)
 </svg>
 ```
 
+## Deployment (basic)
+When you run `make design.build` Abernathy bundles the whole build into the local `public` folder. You can then deploy this folder anywhere you like as flat a self-contained flat-file system (I like to use surge.sh).
+
 ## Component macro sheets
-So, I didn't know this was a thing, but what a thing it is. You can keep all your macros on one html page, and import only the ones you need into other pages. Love it!
+You can keep all your macros on one html page, and import only the ones you need into other pages.
 
 For components, this works a treat. Here's what I like to do:
 
