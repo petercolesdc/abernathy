@@ -33,9 +33,22 @@
 // gridCalc
 // $GgridGap = The gap between grid items (default to 0)
 // Used to set a grid only.
-@mixin gridCalc($GgridGap: 'false') {
+
+// Repeat unit mixin
+// Thanks: https://stackoverflow.com/questions/52164202/sass-scss-mixin-to-generate-css-grid-classes-need-additional-20px-gap-columns
+@mixin gridColGen($gm, $gc) {
+	$c: "";
+  @for $i from 1 through $gc {
+  	$c: $gm + " " + $c;
+  }
+  grid-template-columns: unquote($c);
+}
+
+// gridCalc
+// Calculate the grid based on some defaults
+@mixin gridCalc($GgridGap: 'false', $GGridCols: $gridCols) {
 	display: grid;
-	grid-template-columns: $gridCols;
+	@include gridColGen($gridUnit, $GGridCols);
 	@if $GgridGap == 'true'  {
 		grid-gap: $gridGap;
 	} @else {
@@ -57,7 +70,6 @@
 
 // gridRepeat
 // This should only be used for grids with the same width of columns that repeat
-
 @mixin gridRepeat($colNumber, $GgridGap: $gridGap, $GgridRowGap: $gridRowGap) {
   display: grid;
   grid-template-columns: repeat($colNumber, 1fr);

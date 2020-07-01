@@ -3,7 +3,8 @@
 
 // Grid
 // ------------------------------------------------------------------
-$gridCols: 1fr 1fr 1fr 1fr 1fr 1fr; // 6 cols. Change to suit
+$gridUnit: 1fr;
+$gridCols: 6;
 $gridGap: 20px;
 $gridRowGap: 40px;
 $gridBaseline: 8px;
