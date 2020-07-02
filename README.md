@@ -72,7 +72,6 @@ Convenient syntax mixins for responsive breakpoints. I won't outline each one as
 - `@mixin ratio();`. Little mixin for ratio calculations. Great for responsive video. Usage `@include ratio(16 9)`
 - `@mixin pie-clearfix`. Clearfix the old-skool way. Usage. `@include pie-clearfix;`
 - `@mixin sharp-text`. Make text sharper. Sometimes it looks better, sometimes it looks pants. Use with discretion. `@include sharp-text;`
-- `@mixin fauxUnderline()`. Create a fake underline style. `@include fauxUnderline(red)`;
 
 ### Animation
 There's some Animation helpers should you need them. See comments in the file for more details
