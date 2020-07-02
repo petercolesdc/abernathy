@@ -27,7 +27,7 @@
 	}
 }
 
-// Grid calculations
+// CSS Grid calculations
 // ------------------------------------------------------------------
 
 // gridCalc
@@ -78,7 +78,6 @@
 // Simplify the syntax and use variables for easy changes
 // ------------------------------------------------------------------
 
-
 // Widths only
 @mixin respond-to($media-min) {
 	@media screen and (min-width: $media-min) {
@@ -124,11 +123,10 @@
 	}
 }
 
-// Link interaction combo
-// Bundle hover, focus and active together
-// Overide as needed
+// Interaction queries
 // ------------------------------------------------------------------
 
+// Bundle hover, focus and active together
 @mixin link-active-styles {
 	&:hover, &:focus, &:active {
 		@content;
@@ -183,21 +181,6 @@
 	//text-rendering: optimizeLegibility;
 }
 
-
-// Faux links
-// ------------------------------------------------------------------
-
-@mixin fauxUnderline($color) {
-  background-image: linear-gradient(
-    to top,
-    rgba($color, 0) 3%,
-    rgba($color, 0.7) 3%,
-    rgba($color, 0.7) 20%,
-    rgba($color, 0) 20%
-  );
-}
-
-
 // Animation
 // ------------------------------------------------------------------
 
@@ -227,66 +210,4 @@
 	@include forceBlockLevel();
 	@include hardwareAccel();
 	@include improveAntiAlias();
-}
-
-// ------------------------------------------------------------------
-
-// LEGACY
-
-// ------------------------------------------------------------------
-
-
-// Shadow controls
-// ------------------------------------------------------------------
-
-@mixin shadowSubtle {
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.075), 0 2px 1px 0 rgba(0,0,0,0.05);
-}
-
-
-// Consistent edges
-// ------------------------------------------------------------------
-
-@mixin edgeBufferLeft($type) {
-  @if $type == "padding" {
-    padding-left: $edges;
-		@include respond-to($vpRowBufferA) {
-  		padding-left: 0;
-  	}
-  } @else {
-    left: $edges;
-  	@include respond-to($vpRowBufferA) {
-  		left: 0;
-  	}
-  }
-}
-
-@mixin edgeBufferRight($type) {
-  @if $type == "padding" {
-    padding-right: $edges;
-		@include respond-to($vpRowBufferA) {
-  		padding-right: 0;
-  	}
-  } @else {
-    right: $edges;
-  	@include respond-to($vpRowBufferA) {
-  		right: 0;
-  	}
-  }
-}
-
-@mixin edgeBufferTop($type) {
-  @if $type == "padding" {
-    padding-top: $edges;
-  } @else {
-    margin-top: $edges;
-  }
-}
-
-@mixin edgeBufferBottom($type) {
-  @if $type == "padding" {
-    padding-bottom: $edges;
-  } @else {
-    margin-bottom: $edges;
-  }
 }
