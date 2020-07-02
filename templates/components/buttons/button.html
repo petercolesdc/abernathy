@@ -1,7 +1,0 @@
-{% macro button(classname, text) %}
-<a class="{{ classname }}">{{ text | safe }}</a>
-{% endmacro %}
-
-{% macro buttonIcon(classname, text, ico) %}
-<a class="{{ classname }}">{{ text | safe }}<svg class="icon_{{ ico }}_svg"><use xlink:href="/assets/icons/renders/sprite.svg#{{ ico }}"></use></svg></a>
-{% endmacro %}

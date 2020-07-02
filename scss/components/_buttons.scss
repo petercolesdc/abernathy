@@ -48,9 +48,9 @@ button.button {
   // Types
   // ------------------------------------
   &Primary {
-    color: #fff;
+    color: $cSizemore;
     @include link-active-styles {
-      color: #fff;
+      color: $cSizemore;
     }
   }
 
@@ -68,7 +68,7 @@ button.button {
     }
     &.buttonPrimary {
       svg  {
-        fill: #fff;
+        fill: $cSizemore;
       }
     }
   }

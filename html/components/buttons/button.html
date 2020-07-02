@@ -1,0 +1,23 @@
+
+{% import 'components/svg/svg.html' as svg %}
+
+
+{% macro button(classname, text, type) %}
+{% if type == 'anchor' %}
+<a href="#" class="{{ classname }}">{{ text | safe | trim }}</a>
+{% elif type == 'submit' %}
+<button type="submit" class="{{ classname }}">{{ text | safe | trim }}</button>
+{% else %}
+<button type="button" class="{{ classname }}">{{ text | safe | trim }}</button>
+{% endif %}
+{% endmacro %}
+
+{% macro buttonIcon(classname, text, ico, type) %}
+{% if type == 'anchor' %}
+<a href="#" class="{{ classname }}">{{ text | safe | trim }}<svg class="icon_{{ ico }}_svg"><use xlink:href="/assets/icons/renders/sprite.svg#{{ ico }}"></use></svg></a>
+{% elif type == 'submit' %}
+<button type="submit" class="{{ classname }}">{{ text | safe | trim }}<svg class="icon_{{ ico }}_svg"><use xlink:href="/assets/icons/renders/sprite.svg#{{ ico }}"></use></svg></button>
+{% else %}
+<button type="button" class="{{ classname }}">{{ text | safe | trim }}<svg class="icon_{{ ico }}_svg"><use xlink:href="/assets/icons/renders/sprite.svg#{{ ico }}"></use></svg></button>
+{% endif %}
+{% endmacro %}

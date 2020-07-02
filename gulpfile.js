@@ -94,11 +94,11 @@ var gulp            = require("gulp")
 
     // Render templates
     gulp.task("render", function (done) {
-      gulp.src("templates/**/*.html")
+      gulp.src("html/**/*.html")
         .pipe(plumber())
         .pipe(nunjucksRender(
           {
-            path: "templates",
+            path: "html",
             inheritExtension: true,
           }))
         .pipe(prettyUrl())
@@ -108,7 +108,7 @@ var gulp            = require("gulp")
 
     gulp.task('watch-all', function() {
       gulp.watch('js/**/*', gulp.series('js'));
-      gulp.watch('templates/**/*', gulp.series('render'));
+      gulp.watch('html/**/*', gulp.series('render'));
       gulp.watch('scss/**/*', gulp.series('scss'));
       gulp.watch('assets/**/*', gulp.series('assets'));
     });

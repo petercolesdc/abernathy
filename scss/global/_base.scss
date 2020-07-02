@@ -20,7 +20,7 @@ a,
   cursor: pointer;
   color: $cAction;
   @include link-active-styles {
-    text-decoration-color: darken($cAction, 35%);
+    color: $cActionRespond;
   }
 }
 
@@ -33,7 +33,6 @@ a[href^="tel"] {
 // Further sensible resets
 strong, b {
   font-weight: $fontBold;
-	@include sharp-text;
 }
 
 input, textarea, select, button {
@@ -45,6 +44,7 @@ h1,h2,h3,h4,h5,h6 {
   color: $cHeading;
 }
 
+// Sensible nesting default
 ol, ul {
   ol, ul {
     padding-left: rem(20);

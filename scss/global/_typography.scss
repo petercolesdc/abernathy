@@ -13,7 +13,7 @@
 // Heading styles
 // ------------------------------------------------------------------
 
-.heading {
+%heading {
 	@include sharp-text;
 	@extend %headingbaseRoot;
 	display: block;
@@ -23,7 +23,7 @@
 // Default text
 // ------------------------------------------------------------------
 
-.text {
+%text {
 	@extend %typebaseRoot;
 	font-size: rem($typeDefault);
 }
@@ -33,7 +33,7 @@
 
 %textList {
 	li {
-		@extend .text;
+		@extend %text;
 	}
 }
 

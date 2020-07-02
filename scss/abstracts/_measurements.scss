@@ -1,7 +1,7 @@
 
 @import 'viewports.scss';
 
-// Grid
+// Grid defaults
 // ------------------------------------------------------------------
 $gridUnit: 1fr;
 $gridCols: 6;
@@ -30,7 +30,7 @@ $formVSpace: 20px;
 
 // Edge spaces (for moving content away from browser edge)
 // ------------------------------------------------------------------
-$edges: 20px;
+$gutter: 20px;
 
 
 // Misc

@@ -7,7 +7,6 @@ fieldset {
   padding: 0;
 }
 
-
 form {
   position: relative;
   label {
@@ -45,7 +44,7 @@ form {
   	&:focus {
   		border-color: $cLabel;
   	}
-    // Turn off spinners for number input field, as flipping ugly
+    // Turn off spinners for number input field
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
     	appearance: none;
