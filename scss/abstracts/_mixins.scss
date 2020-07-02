@@ -46,14 +46,11 @@
 
 // gridCalc
 // Calculate the grid based on some defaults
-@mixin gridCalc($GgridGap: 'false', $GGridCols: $gridCols) {
+@mixin gridCalc($GgridCols: $gridCols, $GgridColGap: $gridColGap, $GgridRowGap: $gridRowGap) {
 	display: grid;
-	@include gridColGen($gridUnit, $GGridCols);
-	@if $GgridGap == 'true'  {
-		grid-gap: $gridGap;
-	} @else {
-		grid-gap: 0;
-	}
+	@include gridColGen($gridUnit, $GgridCols);
+	grid-column-gap: $GgridColGap;
+	grid-row-gap: $GgridRowGap;
 }
 
 // gridCol
@@ -70,10 +67,10 @@
 
 // gridRepeat
 // This should only be used for grids with the same width of columns that repeat
-@mixin gridRepeat($colNumber, $GgridGap: $gridGap, $GgridRowGap: $gridRowGap) {
+@mixin gridRepeat($colNumber, $GgridColGap: $gridColGap, $GgridRowGap: $gridRowGap) {
   display: grid;
-  grid-template-columns: repeat($colNumber, 1fr);
-  grid-column-gap: $GgridGap;
+  grid-template-columns: repeat($colNumber, $gridUnit);
+  grid-column-gap: $GgridColGap;
   grid-row-gap: $GgridRowGap;
 }
 
