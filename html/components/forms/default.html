@@ -16,8 +16,12 @@
 	  	{% else %}
 	  		aria-invalid="true"
 	  	{% endif %} 
+	  	{% if hint == '' %}
+	  	{% else %}
+	  		aria-describedby="hint-{{ name }}"
+	  	{% endif %} 
 	  >
-	  <div class="form-element__notes">{% if error_message == '' %}{% else %}<span class="form-element__error-message">{{ error_message | safe | trim }}</span>{% endif %}{% if hint == '' %}{% else %}<span class="form-element__hint">{{ hint | safe | trim }}</span>{% endif %}</div>
+	  <div class="form-element__notes">{% if error_message == '' %}{% else %}<span class="form-element__error-message">{{ error_message | safe | trim }}</span>{% endif %}{% if hint == '' %}{% else %}<span class="form-element__hint" id="hint-{{ name }}">{{ hint | safe | trim }}</span>{% endif %}</div>
 	</div>
 {% endmacro %}
 
@@ -35,8 +39,12 @@
 	  	{% else %}
 	  		aria-invalid="true"
 	  	{% endif %} 
+	  	{% if hint == '' %}
+	  	{% else %}
+	  		aria-describedby="hint-{{ name }}"
+	  	{% endif %} 
 	  ></textarea> 
-	  <div class="form-element__notes">{% if error_message == '' %}{% else %}<span class="form-element__error-message">{{ error_message | safe | trim }}</span>{% endif %}{% if hint == '' %}{% else %}<span class="form-element__hint">{{ hint | safe | trim }}</span>{% endif %}</div>
+	   <div class="form-element__notes">{% if error_message == '' %}{% else %}<span class="form-element__error-message">{{ error_message | safe | trim }}</span>{% endif %}{% if hint == '' %}{% else %}<span class="form-element__hint" id="hint-{{ name }}">{{ hint | safe | trim }}</span>{% endif %}</div>
 	</div>
 {% endmacro %}
 
@@ -44,10 +52,17 @@
 {% macro select(label, name, options, hint, required, error_message) %}
 <div class="form-element{% if error_message == '' %}{% else %} form-elementError{% endif %}{% if hint == '' %}{% else %} form-elementHint{% endif %}">
 	<label for="{{ name }}">{{ label | safe | trim }}{% if required == true %} <span>(Required)</span>{% else %}{% endif %}</label>
-	<select id="{{ name }}" name="{{ name }}">
+	<select 
+		id="{{ name }}" 
+		name="{{ name }}"
+		{% if hint == '' %}
+		{% else %}
+  		aria-describedby="hint-{{ name }}"
+  	{% endif %} 
+	>
 	  {{ options | safe | trim }}
 	</select>
-	<div class="form-element__notes">{% if error_message == '' %}{% else %}<span class="form-element__error-message">{{ error_message | safe | trim }}</span>{% endif %}{% if hint == '' %}{% else %}<span class="form-element__hint">{{ hint | safe | trim }}</span>{% endif %}</div>
+	 <div class="form-element__notes">{% if error_message == '' %}{% else %}<span class="form-element__error-message">{{ error_message | safe | trim }}</span>{% endif %}{% if hint == '' %}{% else %}<span class="form-element__hint" id="hint-{{ name }}">{{ hint | safe | trim }}</span>{% endif %}</div>
 </div>
 {% endmacro %}
 

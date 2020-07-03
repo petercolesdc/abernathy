@@ -18,6 +18,7 @@
 	@extend %headingbaseRoot;
 	display: block;
 	font-weight: $fontBold;
+	color: $cHeading;
 }
 
 // Default text
@@ -26,6 +27,8 @@
 %text {
 	@extend %typebaseRoot;
 	font-size: rem($typeDefault);
+	font-weight: $fontNormal;
+	color: $cText;
 }
 
 // Default lists
