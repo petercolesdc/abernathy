@@ -105,7 +105,7 @@ select {
   @extend %errorState;
 }
 
-// Form elements
+// Form element styles
 // ------------------------------------------------------------------
 
 .form-element {
@@ -136,10 +136,11 @@ select {
     color: $cError;
   }
   &RadioCheckbox {
-    margin-bottom: 0.5rem;
     label {
       position: relative;
       vertical-align: middle;
+      padding: 0.5em 0; // Give the field a bigger hit area for fat-fingers
+      cursor: pointer;
     }
     input {
       margin-right: 1.2rem;
@@ -150,12 +151,10 @@ select {
     }
     input[type="radio"],
     input[type="checkbox"] {
-      width: 1.6rem;
-      height: 1.6rem;
+      width: 2rem;
+      height: 2rem;
       position: relative;
-    }
-    input[type="radio"] {
-      
+      top: -1px; // Required tweaks depending on size
     }
   }
 }

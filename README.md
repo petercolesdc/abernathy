@@ -35,6 +35,15 @@ Reference in your markup as follows (where icon is exampleicon)
 </svg>
 ```
 
+## Colors
+Updating colors is pretty easy, but requires a few things to be changed in order for the system and the color palette in `/guide` to display correctly. 
+
+1. Rename and/or re-assign colors look in the `absracts/_colors.scss` file. 
+2. Open `_colorSwatches.scss` and match the color references to the ones in `absracts/_colors.scss`
+3. Open `/guide/color.html` and update the model with the color references to match those in `_colorSwatches.scss`
+
+Watche the terminal for errors
+
 ## Deployment (basic)
 When you run `make design.build` Abernathy bundles the whole build into the local `public` folder. You can then deploy this folder anywhere you like as a self-contained flat-file system (I like to use surge.sh).
 
@@ -52,7 +61,7 @@ For components, this works a treat. Here's what I like to do:
 ## Use the mixins (or don't. Whatever!)
 The `mixins.scss` contains goodies that you might find useful. It's probably easier to pick through them, but here's what they do (and how to use them).
 
-It's worth noting that many mixins use settings defined in `/abstracts/measurements.scss`, so be sure to check that out also.
+It's worth noting that many mixins use settings defined in `/abstracts/_measurements.scss`, so be sure to check that out also.
 
 ### Typography
 - `@function rem($pixels)` is a function that takes a pixel value and converts it into REM values. Use it like this: `font-size: rem(16);` or better yet `font-size: rem($yourTypeSizeVar);`
