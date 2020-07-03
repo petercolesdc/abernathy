@@ -142,9 +142,10 @@
       <div class="formfield">
         {{ input.radiocheckbox
 				  	( 
-				  		label='Radio standard', 
-				  		name='radio-1',
 				  		type='radio',
+				  		label='Radio standard', 
+				  		name='radio',
+				  		id='radio-1',
 				  		value='value1',
 				  		checked= true,
 				  		required= true
@@ -152,9 +153,10 @@
 				  }}
 				  {{ input.radiocheckbox
 				  	( 
-				  		label='Radio standard unchecked', 
-				  		name='radio-2',
 				  		type='radio',
+				  		label='Radio standard unchecked', 
+				  		name='radio',
+				  		id='radio-2',
 				  		value='value2',
 				  		checked= false,
 				  		required= false
@@ -173,9 +175,10 @@
       <div class="formfield">
         {{ input.radiocheckbox
 				  	( 
-				  		label='Check standard', 
-				  		name='check-1',
 				  		type='checkbox',
+				  		label='Check standard', 
+				  		id='check-1',
+				  		name='check',
 				  		value='value1',
 				  		checked= true,
 				  		required= true
@@ -183,9 +186,10 @@
 				  }}
 				  {{ input.radiocheckbox
 				  	( 
-				  		label='Check standard unchecked', 
-				  		name='check-2',
 				  		type='checkbox',
+				  		label='Check standard unchecked', 
+				  		id='check-2',
+				  		name='check',
 				  		value='value2',
 				  		checked= false,
 				  		required= false
@@ -227,6 +231,115 @@
 			  }}
       </div>
      </fieldset>
+  </form>
+</section>
+
+<section class="guidesection">
+  <h1 class="guide_h1">Example form</h1>
+  <form>
+    <fieldset>
+      <div class="formfield">
+        {{ input.input
+			  	( 
+			  		label='Full name', 
+			  		name='name',
+			  		type='text',
+			  		value='',
+			  		hint='',
+			  		placeholder='',
+			  		autocomplete='',
+			  		error_message='',
+			  		required= true
+			  	) 
+			  }}
+      </div>
+      <div class="formfield formfieldSpaced">
+         {{ input.input
+				  	( 
+				  		label='Email', 
+				  		name='email',
+				  		type='email',
+				  		value='',
+				  		hint='',
+				  		placeholder='',
+				  		autocomplete='email',
+				  		error_message='',
+				  		required= true
+				  	) 
+				  }}
+      </div>
+       <div class="formfield formfieldSpaced">
+         {{ input.input
+				  	( 
+				  		label='Telephone number', 
+				  		name='tel',
+				  		type='tel',
+				  		value='',
+				  		hint='Enter in any format',
+				  		placeholder='',
+				  		autocomplete='tel',
+				  		error_message="",
+				  		required= false
+				  	) 
+				  }}
+      </div>
+      <div class="formfield formfieldSpaced">
+          {{ input.select
+				  	( 
+				  		label='Company size', 
+				  		name='select',
+				  		options='
+				  			<option value="1">1&ndash;10</option>
+				  			<option value="2">10&ndash;20</option>
+								<option value="3">21&plus;</option>
+				  		',
+				  		hint='If you are an individual not a company, select 1&ndash;10',
+				  		error_message='',
+				  		required= false
+				  	) 
+				  }}
+      </div>
+      <div class="formfield formfieldSpaced">
+        {{ input.textarea
+			  	( 
+			  		label='Comments', 
+			  		name='textarea',
+			  		value='',
+			  		hint='',
+			  		placeholder='',
+			  		error_message='',
+			  		required= false
+			  	) 
+			  }}
+      </div>
+    </fieldset>
+    <fieldset>
+    	<legend>Do you have a work permit?</legend>
+    	 <div class="formfield">
+        {{ input.radiocheckbox
+				  	( 
+				  		type='radio',
+				  		label='Yes', 
+				  		id='radioA',
+				  		name='permit',
+				  		value='yes',
+				  		checked= false,
+				  		required= false
+				  	) 
+				  }}
+				  {{ input.radiocheckbox
+				  	( 
+				  		type='radio',
+				  		label='No', 
+				  		id='radioB',
+				  		name='permit',
+				  		value='no',
+				  		checked= false,
+				  		required= false
+				  	) 
+				  }}
+      </div>
+    </fieldset>
   </form>
 </section>
 {% endblock %}

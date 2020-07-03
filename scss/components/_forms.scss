@@ -8,13 +8,23 @@
   }
 }
 
-fieldset {
-  border: none;
-  padding: 0;
-}
-
 form {
   position: relative;
+}
+
+fieldset {
+  border: none;
+  padding: 0.01em 0 0 0;
+  + fieldset {
+    margin-top: $formVSpace;
+  }
+}
+
+legend {
+  font-size: rem($typeLegend);
+  color: $cHeading;
+  display: block;
+  margin-bottom: 0.5em;
 }
 
 label {
