@@ -30,11 +30,8 @@
 // CSS Grid calculations
 // ------------------------------------------------------------------
 
-// gridCalc
-// $GgridGap = The gap between grid items (default to 0)
-// Used to set a grid only.
-
-// Repeat unit mixin
+// gridColGen
+// Create col numbers on the fly
 // Thanks: https://stackoverflow.com/questions/52164202/sass-scss-mixin-to-generate-css-grid-classes-need-additional-20px-gap-columns
 @mixin gridColGen($gm, $gc) {
 	$c: "";
@@ -73,6 +70,7 @@
   grid-column-gap: $GgridColGap;
   grid-row-gap: $GgridRowGap;
 }
+
 
 // Media queries
 // Simplify the syntax and use variables for easy changes
