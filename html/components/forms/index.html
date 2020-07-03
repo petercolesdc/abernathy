@@ -340,6 +340,10 @@
 				  }}
       </div>
     </fieldset>
+    <div class="formfield formfieldSpaced">
+      {% import 'components/buttons/button.html' as btn %}
+      {{ btn.button(classname='button buttonPrimary', text='Submit form', type='submit') }}
+    </div>
   </form>
 </section>
 {% endblock %}
