@@ -1,7 +1,4 @@
 
-{% import 'components/svg/svg.html' as svg %}
-
-
 {% macro button(classname, text, type) %}
 {% if type == 'anchor' %}
 <a href="#" class="{{ classname }}">{{ text | safe | trim }}</a>
