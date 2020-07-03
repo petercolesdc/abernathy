@@ -17,7 +17,7 @@ var gulp            = require("gulp")
       gulp.src("scss/**/*.scss")
         .pipe(plumber())
         .pipe(sassGlob())
-        .pipe(sass({outputStyle : "compressed"}))
+        .pipe(sass({outputStyle : "expanded"}))
         .pipe(autoprefixer({
           grid: "true",
         }))

@@ -6,12 +6,12 @@
 $cAbernathy: #b3025e!default;
 $cLowe: #37557D!default;
 $cFord: #c8b4a0!default;
-$cDelos: #FFCFE1!default;
+$cDelos: #0b0fc4!default;
 
 // Greyscales
 $cStubbs: #242326!default;
 $cFlood: #595859!default;
-$cWeber: #cecdcf!default;
+$cWeber: #f2f2f2!default;
 $cSizemore: #ffffff!default;
 
 
@@ -37,5 +37,9 @@ $cHeading: $cStubbs;
 $cLabel: $cStubbs;
 $cText: $cFlood;
 
+// Form colors
+$cFormNotes: $cWeber;
+$cFocus: $cDelos;
+
 // Misc. color assignments
-$cBorder: $cWeber;
+$cBorder: $cFlood;

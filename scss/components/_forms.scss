@@ -2,6 +2,12 @@
 // General
 // ------------------------------------------------------------------
 
+%errorState {
+  .form-elementError & {
+    border-color: $cError;
+  }
+}
+
 fieldset {
   border: none;
   padding: 0;
@@ -9,82 +15,152 @@ fieldset {
 
 form {
   position: relative;
-  label {
-    font-size: rem($typeLabel);
-    color: $cLabel;
-    display: block;
-  	&Hidden {
-  		@include a11yhide;
-  	}
-  }
-  input[type="color"],
-  input[type="date"],
-  input[type="email"],
-  input[type="file"],
-  input[type="image"],
-  input[type="month"],
-  input[type="number"],
-  input[type="password"],
-  input[type="range"],
-  input[type="reset"],
-  input[type="search"],
-  input[type="text"],
-  input[type="tel"],
-  input[type="time"],
-  input[type="url"],
-  input[type="week"] {
-    border: $strokeWidth solid $cBorder;
-    height: $formItem;
-    font-size: $formInputText;
-    border-radius: $formRadius;
-    padding: 0 $formPadding;
-  	display: block;
-  	appearance: none;
-    width: 100%;
-  	&:focus {
-  		border-color: $cLabel;
-  	}
-    // Turn off spinners for number input field
-    &::-webkit-inner-spin-button,
-    &::-webkit-outer-spin-button {
-    	appearance: none;
-    }
-  }
-  // Min height to text area
-  textarea {
-    font-size: $formInputText;
-    padding: $formPadding;
-    display: block;
-    width: 100%;
-    border: $strokeWidth solid $cBorder;
-  }
-  select {
-    font-size: $formInputText;
-    height: $formItem;
-    border: $strokeWidth solid $cBorder;
-    border-radius: $formRadius;
-    padding: 0 $formPadding;
-    width: 100%;
-    display: block;
-    vertical-align: middle;
-    appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='%23444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
-    background-position: 99.5% 50%;
-    background-repeat: no-repeat;
-    &:hover, &:focus {
-      border-color: $cLabel;
-      cursor: pointer;
-    }
-    &:focus {
+}
 
+label {
+  font-size: rem($typeLabel);
+  color: $cLabel;
+  display: block;
+  .form-elementError & {
+    color: $cError;
+  }
+}
+
+input[type] {
+  @extend %errorState;
+}
+
+input[type="color"],
+input[type="date"],
+input[type="email"],
+input[type="file"],
+input[type="image"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="range"],
+input[type="reset"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"] {
+  border: $strokeWidth solid $cBorder;
+  height: $formItem;
+  font-size: $formInputText;
+  border-radius: $formRadius;
+  padding: 0 $formPadding;
+	display: block;
+	appearance: none;
+  width: 100%;
+  outline: none;
+  // Turn off spinners for number input field
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+  	appearance: none;
+  }
+  &:focus {
+    border-color: $cFocus;
+    outline: none;
+  }
+}
+
+// Min height to text area
+textarea {
+  font-size: $formInputText;
+  padding: $formPadding;
+  display: block;
+  width: 100%;
+  border: $strokeWidth solid $cBorder;
+  @extend %errorState;
+  outline: none;
+  &:focus {
+    border-color: $cFocus;
+    outline: none;
+  }
+}
+
+select {
+  font-size: $formInputText;
+  height: $formItem;
+  border: $strokeWidth solid $cBorder;
+  border-radius: $formRadius;
+  padding: 0 $formPadding;
+  width: 100%;
+  display: block;
+  vertical-align: middle;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='%23444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+  background-position: 99.5% 50%;
+  background-repeat: no-repeat;
+  outline: none;
+  &:hover, &:active {
+    cursor: pointer;
+  }
+  &:focus {
+    border-color: $cFocus;
+    outline: none;
+  }
+  @extend %errorState;
+}
+
+// Form elements
+// ------------------------------------------------------------------
+
+.form-element {
+  position: relative;
+  &__notes {
+    display: none;
+    position: relative;
+    .form-elementError & {
+      display: block;
+      padding: 0.5em 1em;
+      background-color: $cFormNotes;
+      border: $strokeWidth solid darken($cFormNotes, 20%);
+      border-top: 0;
     }
-    .formfieldError & {
-      border-color: $cError;
+    .form-elementHint & {
+      display: block;
+      padding-top: 0.5em;
+    }
+  }
+  &__hint,
+  &__error-message {
+    color: $cText;
+    font-size: rem($typeLabel);
+    clear: left;
+    display: block
+  }
+  &__error-message {
+    color: $cError;
+  }
+  &RadioCheckbox {
+    margin-bottom: 0.5rem;
+    label {
+      position: relative;
+      vertical-align: middle;
+    }
+    input {
+      margin-right: 1.2rem;
+      vertical-align: middle;
+      &:focus {
+        outline-color: $cFocus;
+      }
+    }
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 1.6rem;
+      height: 1.6rem;
+      position: relative;
+    }
+    input[type="radio"] {
+      
     }
   }
 }
 
-// Form field blocks
+// Form field spacer blocks
 // ------------------------------------------------------------------
 
 .formfield {
@@ -104,63 +180,4 @@ form {
       color: $cError;
     }
   }
-  &CheckRadio {
-    position: relative;
-    > label {
-      margin-bottom: 12px;
-      display: block;
-    }
-  }
-  .errormessage {
-    color: $cError;
-    display: none;
-    font-size: rem($typeXS);
-    padding-top: 6px;
-    clear: left;
-    &Visible {
-      display: block;
-    }
-  }
-}
-
-// Radio and Checkboxes baseline
-// -----------------------
-
-.formfield_radiobuttons,
-.formfield_checkboxes {
-	label {
-		position: relative;
-		top: 0;
-		vertical-align: middle;
-		&:after {
-			clear: left;
-			content: "";
-			display: block;
-			height: 0;
-		}
-	}
-	input {
-		float: left;
-		margin-right: 12px;
-		vertical-align: middle;
-		&:after {
-			clear: left;
-			content: "";
-			display: block;
-			height: 0;
-		}
-	}
-	input[type="radio"],
-	input[type="checkbox"] {
-		width: 16px;
-		height: 16px;
-		position: relative;
-		top: 4px;
-	}
-  input[type="radio"] {
-		width: 16px;
-		height: 16px;
-		position: relative;
-		top: 3px;
-	}
 }
