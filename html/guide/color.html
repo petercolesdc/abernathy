@@ -14,7 +14,7 @@
 %}
 
 {% block content %}
-<div class="guidesection">
+<section class="guidesection">
   <h1 class="guide_h1">{{ title }} palette</h1>
   <ul class="guide_swatches">
     {% for key, object in color | dictsort %}
@@ -24,5 +24,5 @@
       </li>
     {% endfor %}
   </ul>
-</div>
+</section>
 {% endblock %}
