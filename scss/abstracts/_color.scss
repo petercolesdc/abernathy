@@ -15,8 +15,18 @@ $cWeber: #f2f2f2!default;
 $cSizemore: #ffffff!default;
 
 
-// Make a map for easy assignment loops + swatches
-// These must match the colors
+// Non-brand feedbacks
+// ------------------------------------------------------------------
+
+$cError: #B10E1E;
+$cSuccess: #00823B;
+$cAlert: #FFBF47;
+
+
+// Map for easy assignment loops + swatches
+// These must match the colors above
+// ------------------------------------------------------------------
+
 $colors: (
   Abernathy: $cAbernathy,
   Lowe: $cLowe,
@@ -27,13 +37,6 @@ $colors: (
   Weber: $cWeber,
   Sizemore: $cSizemore
 );
-
-
-// Non-brand feedbacks
-// ------------------------------------------------------------------
-$cError: #B10E1E;
-$cSuccess: #00823B;
-$cAlert: #FFBF47;
 
 
 // Assign colours to declarative variables
@@ -48,10 +51,10 @@ $cButtonPrimary: $cStubbs;
 
 // Default text colors
 $cHeading: $cStubbs;
-$cLabel: $cStubbs;
 $cText: $cFlood;
 
 // Form colors
+$cLabel: $cStubbs;
 $cFormNotes: $cWeber;
 $cFocus: $cDelos;
 

@@ -67,51 +67,47 @@ $guideDivide: 2px solid #ddd;
   list-style-type: none;
   margin-bottom: 10rem;
   display: grid;
-  grid-row-gap: 20px;
+  grid-row-gap: 40px;
   grid-column-gap: 20px;
-  @media screen and (min-width:750px) {
+  @media screen and (min-width:860px) {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 0;
   }
 }
 
 .guide_swatch {
   display: block;
-  font-size: 13px;
-  line-height: 13px;
+  font-size: 16px;
+  line-height: 16px;
   color: #333;
-  &_block {
-    height: 80px;
-    width: 100%;
-    min-height: 80px;
-    display: block;
-    margin-bottom: 7px;
-    box-shadow: 0 0 3px rgba(#000, 0.2);
-    position: relative;
-    &:after {
-      @extend .guide_swatch_meta;
-      position: absolute;
-      bottom: -20px;
-      right: 0px;
-    }
-    @media screen and (min-width:750px) {
-      height: 0;
-      width: 100%;
-      padding-bottom: 50%;
-    }
-  }
+  height: 300px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 3px 12px rgba(#000,0.05);
   &_meta {
     display: block;
-    margin-top: 7px;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1em;
+    width: 100%;
+    font-weight: bold;
+    &:after {
+      display: block;
+      margin-top: 10px;
+      font-weight: normal;
+    }
   }
 }
 
-.guide_swatch {
-  @each $color in map-keys($colors) {
-    &_block#{$color} {
-      background-color: map-get($colors, $color);
-      &:after { content: "#{map-get($colors, $color)}"; }
-    }
+@each $color in map-keys($colors) {
+  .guide_swatch#{$color} {
+    background-color: map-get($colors, $color);
+  }
+  .guide_swatch_meta#{$color}:after{
+    content: "#{map-get($colors, $color)}";
   }
 }
 

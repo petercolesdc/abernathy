@@ -18,9 +18,8 @@
   <h1 class="guide_h1">{{ title }} palette</h1>
   <ul class="guide_swatches">
     {% for key, object in color | dictsort %}
-      <li class="guide_swatch guide_swatch">
-        <span class="guide_swatch_block guide_swatch_block{{ object.color }}"></span>
-        <span class="guide_swatch_meta">{{ object.color }}</span>
+      <li class="guide_swatch guide_swatch{{ object.color }}">
+        <span class="guide_swatch_meta guide_swatch_meta{{ object.color }}">{{ object.color }}</span>
       </li>
     {% endfor %}
   </ul>
