@@ -36,11 +36,11 @@ Reference in your markup as follows (where icon is exampleicon)
 ```
 
 ## Colors
-Updating colors is pretty easy, but requires a few things to be changed in order for the system and the color palette in `/guide` to display correctly. 
+Updating colors is pretty easy, but requires a few things to be changed in order for the system and the color palette in `/guide` to display correctly.
 
-1. Rename and/or re-assign colors look in the `absracts/_colors.scss` file. 
-2. Open `_colorSwatches.scss` and match the color references to the ones in `absracts/_colors.scss`
-3. Open `/guide/color.html` and update the model with the color references to match those in `_colorSwatches.scss`
+1. Rename and/or re-assign colors look in the `absracts/_colors.scss` file.
+2. Assign colors to the map function in `absracts/_colors.scss`. These should match the color variables. This function builds swatches, and is generally useful for making loops to assign color.
+3. Open `/guide/color.html` and update the model with the color references.
 
 Watche the terminal for errors
 

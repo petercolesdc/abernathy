@@ -1,4 +1,4 @@
-@import 'colorSwatches.scss';
+@import 'abstracts/color.scss';
 @import 'abstracts/fonts.scss';
 @import 'abstracts/measurements.scss';
 @import 'abstracts/mixins.scss';
@@ -59,13 +59,17 @@ $guideDivide: 2px solid #ddd;
   color: #333;
 }
 
+
+// Swatches
+// --------------------------------------------------------
+
 .guide_swatches {
   list-style-type: none;
   margin-bottom: 10rem;
   display: grid;
-  grid-row-gap: 40px;
-  grid-column-gap: 10px;
-  @media screen and (min-width:700px) {
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  @media screen and (min-width:750px) {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
@@ -86,7 +90,8 @@ $guideDivide: 2px solid #ddd;
     display: block;
     margin-bottom: 7px;
     box-shadow: 0 0 3px rgba(#000, 0.2);
-    @media screen and (min-width:690px) {
+    position: relative;
+    @media screen and (min-width:750px) {
       height: 0;
       width: 100%;
       padding-bottom: 50%;
@@ -98,6 +103,14 @@ $guideDivide: 2px solid #ddd;
   }
 }
 
+.guide_swatch {
+  @each $color in map-keys($colors) {
+    &_block#{$color} {
+      background-color: map-get($colors, $color);
+      &::after { content: "#{map-get($colors, $color)}"; position: absolute; bottom: -20px; right: 0px;}
+    }
+  }
+}
 
 // Examples
 // Uses a 6 column grid
