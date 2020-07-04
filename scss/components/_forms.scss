@@ -146,6 +146,7 @@ select {
     color: $cError;
   }
   &RadioCheckbox {
+    height: 100%;
     label {
       position: relative;
       vertical-align: middle;
@@ -164,7 +165,6 @@ select {
       width: 2rem;
       height: 2rem;
       position: relative;
-      top: -1px; // Required tweaks depending on size
     }
   }
 }

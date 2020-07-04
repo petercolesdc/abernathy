@@ -80,9 +80,6 @@ $guideDivide: 2px solid #ddd;
   font-size: 13px;
   line-height: 13px;
   color: #333;
-  &:after {
-    @extend .guide_swatch_meta;
-  }
   &_block {
     height: 80px;
     width: 100%;
@@ -91,6 +88,12 @@ $guideDivide: 2px solid #ddd;
     margin-bottom: 7px;
     box-shadow: 0 0 3px rgba(#000, 0.2);
     position: relative;
+    &:after {
+      @extend .guide_swatch_meta;
+      position: absolute;
+      bottom: -20px;
+      right: 0px;
+    }
     @media screen and (min-width:750px) {
       height: 0;
       width: 100%;
@@ -107,7 +110,7 @@ $guideDivide: 2px solid #ddd;
   @each $color in map-keys($colors) {
     &_block#{$color} {
       background-color: map-get($colors, $color);
-      &::after { content: "#{map-get($colors, $color)}"; position: absolute; bottom: -20px; right: 0px;}
+      &:after { content: "#{map-get($colors, $color)}"; }
     }
   }
 }
