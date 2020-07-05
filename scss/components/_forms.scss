@@ -40,22 +40,7 @@ input[type] {
   @extend %errorState;
 }
 
-input[type="color"],
-input[type="date"],
-input[type="email"],
-input[type="file"],
-input[type="image"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="range"],
-input[type="reset"],
-input[type="search"],
-input[type="text"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
-input[type="week"] {
+input:not([type=checkbox]):not([type=radio]) {
   border: $strokeWidth solid $cBorder;
   height: $formItem;
   font-size: $formInputText;
