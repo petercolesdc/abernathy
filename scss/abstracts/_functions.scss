@@ -13,10 +13,8 @@
 
 @function box-shadow-sharp($n, $x: 0px, $y: 1px, $blur: 1px, $opacity: 0.025, $int: 2) {
   $box-shadow: '';
-  @for $i from 1 through 1 {
-    $shadows: $x $y $blur rgba(0,0,0,$opacity);
-    $box-shadow: $box-shadow + $shadows + ' ,';
-  }
+  $shadows: $x $y $blur rgba(0,0,0,$opacity);
+  $box-shadow: $box-shadow + $shadows + ' ,';
 	@for $i from 1 through $n {
     $shadows: $i*$x*$int $i*$y*$int $i*$blur*$int rgba(0,0,0,$i*$opacity/$int);
     $box-shadow: $box-shadow + $shadows + ' ,';
@@ -28,10 +26,8 @@
 
 @function box-shadow-diffuse($n, $x: 0px, $y: 1px, $blur: 1px, $opacity: 0.008, $int: 2) {
   $box-shadow: '';
-  @for $i from 1 through 1 {
-    $shadows: $x $y $blur rgba(0,0,0,$opacity);
-    $box-shadow: $box-shadow + $shadows + ' ,';
-  }
+  $shadows: $x $y $blur rgba(0,0,0,$opacity);
+  $box-shadow: $box-shadow + $shadows + ' ,';
 	@for $i from 1 through $n {
     $shadows: $i*$x*$int $i*$y*$int $i*$blur*$int rgba(0,0,0,$i*$opacity*$int);
     $box-shadow: $box-shadow + $shadows + ' ,';
