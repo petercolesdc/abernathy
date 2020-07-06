@@ -1,0 +1,42 @@
+
+// Make pixel values into REMS
+// ------------------------------------------------------------------
+@function rem($pixels) {
+	@return $pixels / $scaleRoot + rem;
+}
+
+// font-size: rem(xx);
+
+// Box shadows
+// https://tobiasahlin.com/blog/layered-smooth-box-shadows/
+// ------------------------------------------------------------------
+
+@function box-shadow-sharp($n, $x: 0px, $y: 1px, $blur: 1px, $opacity: 0.025, $int: 2) {
+  $box-shadow: '';
+  @for $i from 1 through 1 {
+    $shadows: $x $y $blur rgba(0,0,0,$opacity);
+    $box-shadow: $box-shadow + $shadows + ' ,';
+  }
+	@for $i from 1 through $n {
+    $shadows: $i*$x*$int $i*$y*$int $i*$blur*$int rgba(0,0,0,$i*$opacity/$int);
+    $box-shadow: $box-shadow + $shadows + ' ,';
+  }
+  @return str_slice(unquote($box-shadow), 0, str_length($box-shadow)-1) ;
+}
+
+// box-shadow: box-shadow-sharp(x);
+
+@function box-shadow-diffuse($n, $x: 0px, $y: 1px, $blur: 1px, $opacity: 0.008, $int: 2) {
+  $box-shadow: '';
+  @for $i from 1 through 1 {
+    $shadows: $x $y $blur rgba(0,0,0,$opacity);
+    $box-shadow: $box-shadow + $shadows + ' ,';
+  }
+	@for $i from 1 through $n {
+    $shadows: $i*$x*$int $i*$y*$int $i*$blur*$int rgba(0,0,0,$i*$opacity*$int);
+    $box-shadow: $box-shadow + $shadows + ' ,';
+  }
+  @return str_slice(unquote($box-shadow), 0, str_length($box-shadow)-1) ;
+}
+
+// box-shadow: box-shadow-diffuse(x);

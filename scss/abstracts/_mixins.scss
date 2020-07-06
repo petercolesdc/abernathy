@@ -2,11 +2,6 @@
 // Typography specific mixins
 // ------------------------------------------------------------------
 
-// Make pixel values into REMS
-@function rem($pixels) {
-	@return $pixels / $scaleRoot + rem; // Usage = font-size: rem(xx);
-}
-
 // Tweak leading
 @mixin leading_adjust($gapAdjust) {
 	line-height: $lineheightBase - ($gapAdjust/$scaleRoot);
