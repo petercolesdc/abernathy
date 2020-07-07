@@ -42,7 +42,7 @@ Updating colors is pretty easy, but requires a few things to be changed in order
 2. Assign colors to the map function in `absracts/_colors.scss`. These should match the color variables. This function builds swatches, and is generally useful for making loops to assign color.
 3. Open `/guide/color.html` and update the model with the color references.
 
-Watche the terminal for errors
+Watch the terminal for errors
 
 ## Deployment (basic)
 When you run `make design.build` Abernathy bundles the whole build into the local `public` folder. You can then deploy this folder anywhere you like as a self-contained flat-file system (I like to use surge.sh).

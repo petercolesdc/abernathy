@@ -2,6 +2,7 @@
 @import 'abstracts/fonts.scss';
 @import 'abstracts/measurements.scss';
 @import 'abstracts/mixins.scss';
+@import 'abstracts/functions.scss';
 
 $guideSpace: 80px;
 $guideEdges: 30px;
@@ -108,6 +109,29 @@ $guideDivide: 2px solid #ddd;
   }
   .guide_swatch_meta#{$color}:after{
     content: "#{map-get($colors, $color)}";
+  }
+}
+
+// Shadows
+// --------------------------------------------------------
+
+.guideshadows {
+  display: grid;
+  grid-gap: 40px;
+  @media screen and (min-width:860px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.guide_shadow {
+  padding: 6em;
+  text-align: center;
+  border-radius: 5px;
+  &Sharp {
+    box-shadow: box-shadow-sharp(4);
+  }
+  &Diffuse {
+    box-shadow: box-shadow-diffuse(4);
   }
 }
 
