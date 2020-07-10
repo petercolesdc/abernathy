@@ -66,7 +66,7 @@ It's worth noting that many mixins use settings defined in `/abstracts/_measurem
 ### Typography
 - `@function rem($pixels)` is a function that takes a pixel value and converts it into REM values. Use it like this: `font-size: rem(16);` or better yet `font-size: rem($yourTypeSizeVar);`
 - `@mixin leading_adjust()` allows you to adjust the line-height of some text based on the `$lineheightBase` value set in `measurements.scss` for consistent spacing. Use like this: `@include leading_adjust(4);`
-- `@mixin baseline()` allows you to space items taking into account a consistent baseline. Use like this `@include baseline(3, 'margin-bottom')`. Be sure to set `$gridBaseline` in `measurements.scss`.
+- `@mixin baseline()` allows you to space items taking into account a consistent baseline. Use like this `@include baseline(3, 'margin-bottom')`. Be sure to set `$gridBaseline` in `measurements.scss`. Can take `margin-bottom` `margin-top` `padding-top` or `padding-bottom` arguements.
 
 ### Grid
 To do
@@ -75,7 +75,7 @@ To do
 Convenient syntax mixins for responsive breakpoints. I won't outline each one as they all follow a similar syntax. There are options for min and max width, min and max heights and a combination of both.
 - `@mixin respond-to($media-min) { @content }`. Sets the breakpoint syntax based on browser width. I usually define these in `viewports.scss`. Use like this: `@include respond-to($vpA) { Your styles here };`
 
-### Helpful shit
+### Helpful stuff
 - `@mixin link-active-styles`. Combines `:focus, :active and :hover` states into one easy place. Use like this: `@include link-active-styles { Your stuff };`
 - `@mixin a11yhide`. Hide things in an accessible fashion. Usage: `@include a11yhide;`.
 - `@mixin ratio();`. Little mixin for ratio calculations. Great for responsive video. Usage `@include ratio(16 9)`
