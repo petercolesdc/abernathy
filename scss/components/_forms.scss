@@ -161,6 +161,6 @@ select {
 	position: relative;
 	@include pie-clearfix;
   &Spaced {
-    padding-top: $formVSpace;
+    margin-top: $formVSpace;
   }
 }
