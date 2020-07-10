@@ -58,8 +58,8 @@ For components, this works a treat. Here's what I like to do:
 4. Import the macro sheet using the `{% import 'components/thing/thing.html' as thing %}`method
 5. Reference the specific macro using the `{{ thing.thingName('setting', 'setting') }}`
 
-## Use the mixins (or don't. Whatever!)
-The `mixins.scss` contains goodies that you might find useful. It's probably easier to pick through them, but here's what they do (and how to use them).
+## Use the mixins and functions (or don't. Whatever!)
+The `mixins.scss` and `functions.scss` contains goodies that you might find useful. It's probably easier to pick through them, but here's what they do (and how to use them).
 
 It's worth noting that many mixins use settings defined in `/abstracts/_measurements.scss`, so be sure to check that out also.
 
