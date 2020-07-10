@@ -3,11 +3,11 @@
 
 // Grid defaults
 // ------------------------------------------------------------------
+$gridBaseline: 8;
 $gridUnit: 1fr;
-$gridCols: 6;
-$gridColGap: 20px;
-$gridRowGap: 20px;
-$gridBaseline: 8px;
+$gridCols: 6; // Default 
+$gridColGap: rem($gridBaseline*3); // Default
+$gridRowGap: rem($gridBaseline*3); // Default
 
 
 // Buttons

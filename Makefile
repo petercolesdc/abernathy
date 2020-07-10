@@ -37,7 +37,7 @@ design.icons:
 .PHONY: design.watch
 design.watch:
 	docker run -ti --rm \
-	  --name abernathy \
+	  --name $(IMAGE) \
 		-v $(PWD):/app \
 		-v /app/node_modules \
 		-v /app/public \

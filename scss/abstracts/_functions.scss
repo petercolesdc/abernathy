@@ -1,4 +1,7 @@
 
+@import 'measurements.scss';
+@import 'typescale.scss';
+
 // Make pixel values into REMS
 // ------------------------------------------------------------------
 @function rem($pixels) {
