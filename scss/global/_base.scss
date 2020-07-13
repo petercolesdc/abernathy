@@ -1,5 +1,4 @@
 html {
-  font-size: $scaleRoot + px;
   @media (max-width: $vpDeviceSafe) {
     -webkit-text-size-adjust: 100%;
   }

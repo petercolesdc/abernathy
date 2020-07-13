@@ -7,7 +7,7 @@
 }
 
 %headingbaseRoot {
-	@include leading_adjust(4);
+	@include leading_tighten(1);
 }
 
 // Heading styles
@@ -29,36 +29,4 @@
 	font-size: rem($typeDefault);
 	font-weight: $fontNormal;
 	color: $cText;
-}
-
-// Default lists
-// ------------------------------------------------------------------
-
-%textList {
-	li {
-		@extend %text;
-	}
-}
-
-
-// Typebase (for runs of text)
-// ------------------------------------------------------------------
-
-.hideEmpty {
-	// Stop empty spacing
-	br + br,
-	h1:empty,
-	h2:empty,
-	h3:empty,
-	h4:empty,
-	h5:empty,
-	h6:empty,
-	p:empty,
-	ul:empty,
-	ol:empty,
-	span:empty,
-	cite:empty,
-	div:empty {
-		display: none;
-	}
 }

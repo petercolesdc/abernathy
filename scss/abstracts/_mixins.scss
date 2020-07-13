@@ -6,9 +6,14 @@
 // ------------------------------------------------------------------
 
 // Tweak leading
-@mixin leading_adjust($gapAdjust) {
-	line-height: $lineheightBase - ($gapAdjust/$scaleRoot);
+@mixin leading_tighten($gapAdjust) {
+	line-height: $lineheightBase - (($lineheightRoot*$gapAdjust)/10);
 }
+
+@mixin leading_loosen($gapAdjust) {
+	line-height: $lineheightBase + (($lineheightRoot*$gapAdjust)/10);
+}
+
 
 // Basline spacing with regular units
 @mixin baseline($baselineMult, $type) {

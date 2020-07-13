@@ -1,36 +1,30 @@
 
 @import 'viewports.scss';
+@import 'typescale.scss';
 
 // Grid defaults
 // ------------------------------------------------------------------
 $gridBaseline: 8;
 $gridUnit: 1fr;
-$gridCols: 6; // Default 
-$gridColGap: rem($gridBaseline*3); // Default
-$gridRowGap: rem($gridBaseline*3); // Default
+$gridCols: 6; // Default
+$gridColGap: 20px; // Default
+$gridRowGap: $gridBaseline*3 + px; // Default
 
 
 // Buttons
 // ------------------------------------------------------------------
-$btnSmall: 30px;
-$btnDefault: 35px;
-$btnRadius: 3px;
-$btnPadding: 15px;
-$btnPaddingSmall: $btnPadding/1.25;
+$btnDefault: 35;
+$btnRadius: 3;
+$btnPadding: 16;
 
 
 // Forms
 // ------------------------------------------------------------------
 $formRadius: 0;
-$formItem: 44px;
-$formInputText: 15px;
-$formPadding: 10px;
-$formVSpace: 32px;
-
-
-// Edge spaces (for moving content away from browser edge)
-// ------------------------------------------------------------------
-$gutter: 20px;
+$formItem: 44;
+$formPadding: 10;
+$formVSpace: 32;
+$formInputText: $typeForm;
 
 
 // Misc

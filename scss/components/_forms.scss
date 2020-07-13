@@ -16,7 +16,7 @@ fieldset {
   border: none;
   padding: 0.01em 0 0 0;
   + fieldset {
-    margin-top: $formVSpace;
+    margin-top: rem($formVSpace);
   }
 }
 
@@ -38,10 +38,10 @@ label {
 
 input:not([type=checkbox]):not([type=radio]) {
   border: $strokeWidth solid $cBorder;
-  height: $formItem;
-  font-size: $formInputText;
-  border-radius: $formRadius;
-  padding: 0 $formPadding;
+  height: rem($formItem);
+  font-size: rem($formInputText);
+  border-radius: rem($formRadius);
+  padding: 0 rem($formPadding);
 	display: block;
 	appearance: none;
   width: 100%;
@@ -63,8 +63,8 @@ input[type] {
 
 // Min height to text area
 textarea {
-  font-size: $formInputText;
-  padding: $formPadding;
+  font-size: rem($formInputText);
+  padding: rem($formPadding);
   display: block;
   width: 100%;
   border: $strokeWidth solid $cBorder;
@@ -77,11 +77,11 @@ textarea {
 }
 
 select {
-  font-size: $formInputText;
-  height: $formItem;
+  font-size: rem($formInputText);
+  height: rem($formItem);
   border: $strokeWidth solid $cBorder;
-  border-radius: $formRadius;
-  padding: 0 $formPadding;
+  border-radius: rem($formRadius);
+  padding: 0 rem($formPadding);
   width: 100%;
   display: block;
   vertical-align: middle;
@@ -139,7 +139,7 @@ select {
       cursor: pointer;
     }
     input {
-      margin-right: 1.2rem;
+      margin-right: rem(12);
       vertical-align: middle;
       &:focus {
         outline-color: $cFocus;
@@ -147,8 +147,8 @@ select {
     }
     input[type="radio"],
     input[type="checkbox"] {
-      width: 2rem;
-      height: 2rem;
+      width: rem(22);
+      height: rem(22);
       position: relative;
     }
   }
@@ -161,6 +161,6 @@ select {
 	position: relative;
 	@include pie-clearfix;
   &Spaced {
-    margin-top: $formVSpace;
+    margin-top: rem($formVSpace);
   }
 }
