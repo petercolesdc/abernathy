@@ -64,7 +64,7 @@ The `mixins.scss` and `functions.scss` contains goodies that you might find usef
 It's worth noting that many mixins use settings defined in `/abstracts/_measurements.scss`, so be sure to check that out also.
 
 ### Spacing
-`@mixin baseline()` allows you to space items taking into account a consistent baseline. Use like this `@include baseline(3, 'margin-bottom')`. Be sure to set `$baseline` in `measurements.scss`. Can take `margin-bottom` `margin-top` `padding-top` or `padding-bottom` arguments.
+`@mixin baseline(number, 'type')` allows you to space items taking into account a consistent baseline. Use like this `@include baseline(3, 'margin-bottom')`. Be sure to set `$baseline` in `measurements.scss`. Can take `margin-bottom` `margin-top` `padding-top` or `padding-bottom` arguments.
 
 
 ### Typography
