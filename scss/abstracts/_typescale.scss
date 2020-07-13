@@ -2,20 +2,25 @@
 // Type scale
 // ------------------------------------------------------------------
 
-$scaleRoot: 				10;
-$lineheightRoot: 		18;
-$lineheightBase: 		$lineheightRoot / $scaleRoot;
+$scaleRoot: 				16;
+$lineheightRoot: 		4; // Text leading default
+$lineheightMulti:   4; // Multiplier default
+$lineheightBase: 		($lineheightRoot*$lineheightMulti) / 10;
 
-$typeXXL: 					$scaleRoot*3;
-$typeXL: 						$scaleRoot*2.2;
-$typeL: 						$scaleRoot*2;
-$typeM:							$scaleRoot*1.8;
-$typeMe:						$scaleRoot*1.6;		// Me = 'median'. Generally the standard font size for the page
-$typeS: 						$scaleRoot*1.4;
-$typeXS: 						$scaleRoot*1.2;
-$typeXXS: 					$scaleRoot;
+$typeXXL: 					48;
+$typeXL: 						34;
+$typeL: 						24;
+$typeM:							20;
+$typeMe:						16;		// Me = 'median'. Generally the standard font size for the page
+$typeS: 						14;
+$typeXS: 					  12;
+$typeXXS: 					10;
 
 // Declaritives
+// ------------------------------------------------------------------
+
 $typeDefault: 			$typeMe;
 $typeLabel: 				$typeMe;
 $typeLegend: 				$typeL;
+$typeBtn:           $typeS;
+$typeForm:          $typeMe;

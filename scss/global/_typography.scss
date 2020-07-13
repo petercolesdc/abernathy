@@ -1,21 +1,9 @@
 
-// Root base
-// ------------------------------------------------------------------
-
-%typebaseRoot {
-	line-height: $lineheightBase;
-}
-
-%headingbaseRoot {
-	@include leading_adjust(4);
-}
-
 // Heading styles
 // ------------------------------------------------------------------
 
 %heading {
 	@include sharp-text;
-	@extend %headingbaseRoot;
 	display: block;
 	font-weight: $fontBold;
 	color: $cHeading;
@@ -25,40 +13,34 @@
 // ------------------------------------------------------------------
 
 %text {
-	@extend %typebaseRoot;
-	font-size: rem($typeDefault);
 	font-weight: $fontNormal;
 	color: $cText;
 }
 
-// Default lists
+
+// Examples
 // ------------------------------------------------------------------
 
-%textList {
-	li {
-		@extend %text;
-	}
+.heading-eg {
+	@extend %heading;
+	@include font-size($typeXXL, 'tighten', 1);
+	@include baseline(1, 'margin-bottom');
 }
 
+.text-eg {
+	@extend %text;
+	@include font-size($typeDefault);
+	@include baseline(2, 'margin-bottom');
+}
 
-// Typebase (for runs of text)
-// ------------------------------------------------------------------
-
-.hideEmpty {
-	// Stop empty spacing
-	br + br,
-	h1:empty,
-	h2:empty,
-	h3:empty,
-	h4:empty,
-	h5:empty,
-	h6:empty,
-	p:empty,
-	ul:empty,
-	ol:empty,
-	span:empty,
-	cite:empty,
-	div:empty {
-		display: none;
+.list-eg {
+	@extend %text;
+	@include font-size($typeDefault);
+	@include baseline(2, 'margin-bottom');
+	ul, ol {
+		@include baseline(1, 'margin-top');
+	}
+	li {
+		@include baseline(1, 'margin-bottom');
 	}
 }

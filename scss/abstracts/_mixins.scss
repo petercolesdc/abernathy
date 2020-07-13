@@ -6,9 +6,18 @@
 // ------------------------------------------------------------------
 
 // Tweak leading
-@mixin leading_adjust($gapAdjust) {
-	line-height: $lineheightBase - ($gapAdjust/$scaleRoot);
+@mixin leading_tighten($gapAdjust) {
+	line-height: $lineheightBase - (($lineheightRoot*$gapAdjust)/10);
 }
+
+// @include leading_tighten(1);
+
+@mixin leading_loosen($gapAdjust) {
+	line-height: $lineheightBase + (($lineheightRoot*$gapAdjust)/10);
+}
+
+// @include leading_loosen(1);
+
 
 // Basline spacing with regular units
 @mixin baseline($baselineMult, $type) {
@@ -24,6 +33,26 @@
 
 	}
 }
+
+// @include baseline(3, 'margin-bottom');
+
+
+// Generate font-size and leading adjust on the fly
+// based upon global spacing
+@mixin font-size($tSize, $tAdjust: 'none', $tAdjustAmount: 0) {
+	font-size: rem($tSize);
+	@if $tAdjust == 'tighten'  {
+		@include leading_tighten($tAdjustAmount);
+	} @else if $tAdjust == "loosen"  {
+		@include leading_loosen($tAdjustAmount);
+	} @else {
+
+	}
+}
+
+// @include font-size($typeDefault);
+// @include font-size($typeXXL, 'tighten', 1);
+
 
 // CSS Grid calculations
 // ------------------------------------------------------------------
@@ -44,9 +73,11 @@
 @mixin gridCalc($GgridCols: $gridCols, $GgridColGap: $gridColGap, $GgridRowGap: $gridRowGap) {
 	display: grid;
 	@include gridColGen($gridUnit, $GgridCols);
-	grid-column-gap: ren($GgridColGap);
+	grid-column-gap: rem($GgridColGap);
 	grid-row-gap: rem($GgridRowGap);
 }
+
+// @include gridCalc($gridCols, 40px, 20px);
 
 // gridCol
 // In combination with gridCalc this detemines the start point & span of columns
@@ -54,20 +85,26 @@
 	grid-column: $gridStart / span $gridSpan;
 }
 
+// @include gridRow(2);
+
 // gridRow
 // In combination with gridCalc this detemines the start point & span of rows
 @mixin gridRow($rowNum) {
 	grid-row: $rowNum;
 }
 
+// @include gridRow(2);
+
 // gridRepeat
 // This should only be used for grids with the same width of columns that repeat
 @mixin gridRepeat($colNumber, $GgridColGap: $gridColGap, $GgridRowGap: $gridRowGap) {
   display: grid;
   grid-template-columns: repeat($colNumber, $gridUnit);
-	grid-column-gap: ren($GgridColGap);
+	grid-column-gap: rem($GgridColGap);
 	grid-row-gap: rem($GgridRowGap);
 }
+
+// @include gridRepeat(3);
 
 
 // Media queries
@@ -134,13 +171,16 @@
 // ------------------------------------------------------------------
 
 @mixin a11yhide {
-	position: absolute !important;
-	clip: rect(1px, 1px, 1px, 1px);
-	padding: 0px;
-	border: 0 !important;
-	height: 1px !important;
-	width: 1px !important;
-	overflow: hidden;
+	border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px); // maybe deprecated but we need to support legacy browsers
+  clip-path: inset(50%); // modern browsers, clip-path works inwards from each corner
+  white-space: nowrap; // added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space
 }
 
 // Ratios

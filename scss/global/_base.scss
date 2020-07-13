@@ -1,5 +1,4 @@
 html {
-  font-size: $scaleRoot + px;
   @media (max-width: $vpDeviceSafe) {
     -webkit-text-size-adjust: 100%;
   }
@@ -7,7 +6,7 @@ html {
 
 // Defaults
 body {
-  @extend %typebaseRoot;
+  line-height: $lineheightBase;
   color: $cText;
   font-family: $fontDefault;
   font-size: rem($typeDefault);
@@ -40,7 +39,6 @@ input, textarea, select, button {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-weight: $fontBold;
   color: $cHeading;
 }
 

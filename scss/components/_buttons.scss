@@ -4,8 +4,8 @@
 // Button base style
 %button {
   color: $cLabel;
-  padding: 0 $btnPadding;
-  border-radius: $btnRadius;
+  padding: 0 rem($btnPadding);
+  border-radius: rem($btnRadius);
   cursor: pointer;
   position: relative;
   vertical-align: middle;
@@ -30,20 +30,12 @@
 a.button,
 button.button {
   @extend %button;
-  font-size: rem($typeS);
-  line-height: $btnDefault;
+  font-size: rem($typeBtn);
+  line-height: rem($btnDefault);
   background-color: $cButtonPrimary;
   @include link-active-styles {
     text-decoration: none;
     background-color: $cActionRespond;
-  }
-
-  // Sizes
-  // ------------------------------------
-  &Small {
-    font-size: rem($typeS);
-    line-height: $btnSmall;
-    padding: 0 $btnPaddingSmall;
   }
 
   // Types
@@ -56,12 +48,12 @@ button.button {
   }
 
   &Icon {
-    padding-right: $btnPadding*3;
+    padding-right: rem($btnPadding*3);
     text-align: left;
     svg {
       position: absolute;
       top: 50%;
-      right: $btnPadding/1.25;
+      right: rem($btnPadding/1.25);
       transform: translateY(-50%);
       height: 16px;
       width: 16px;
