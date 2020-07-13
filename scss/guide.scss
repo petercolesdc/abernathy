@@ -170,7 +170,7 @@ $guideDivide: 2px solid #ddd;
 }
 
 .gridexample2 {
-  @include gridCalc($gridCols, 40px, 20px); // Default grid with different gaps
+  @include gridCalc($gridCols, 40, 20); // Default grid with different gaps
   margin-top: 20px;
   div {
     height: 60px;
