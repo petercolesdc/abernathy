@@ -88,9 +88,6 @@ Convenient syntax mixins for responsive breakpoints. I won't outline each one as
 ### Animation
 There's some Animation helpers should you need them. See comments in the file for more details
 
-### Legacy
-- `@mixin leading_adjust()` allows you to adjust the line-height of some text based on the `$lineheightBase` value set in `measurements.scss` for consistent spacing. Use like this: `@include leading_adjust(4);`
-
 ## Known bugs & limitations
 - Occasionally, when adding new images or re-saving images, someone will freak out and ruin the party. To resolve, do a `make design.stop` then `make design.watch` to get back to the action.
 - Right now, I have no flippin' idea how to use an `include` and a `for loop` together. This only appears to work if the data and the loop exist in the same page.
