@@ -68,15 +68,23 @@ It's worth noting that many mixins use settings defined in `/abstracts/_measurem
 
 
 ### Typography
-- `@function rem($pixels)` is a function that takes a pixel value and converts it into REM values. Use it like this: `font-size: rem(16);` or better yet `font-size: rem($yourTypeSizeVar);`
-- `@mixin font-size` allows you to set the font-size in rem (but declare in px / pt value), and optionally tighten or loosen leading, based on a set baseline unit found in `measurements.scss`. `@include (font-size, 'loosen/tighten', value);`. E.g `@include font-size($yourTypeSizeVar, 'tighten', 1);`
+`@function rem($pixels)` is a function that takes a pixel value and converts it into REM values. Use it like this: `font-size: rem(16);` or better yet `font-size: rem($yourTypeSizeVar);`
+
+`@mixin font-size(size, 'adjust', adjust_amount)` allows you to set the font-size in rem (but declare in px / pt value), and optionally tighten or loosen leading, based on a set baseline unit found in `measurements.scss`. `@include (font-size, 'loosen/tighten', value);`. E.g `@include font-size($yourTypeSizeVar, 'tighten', 1);`
 
 ### Grid
-To do
+`@mixin gridCalc(cols, colgap, rowgap)` allows you to lay down a CSS grid on the parent element. By default it uses the `1fr` unit for equal grid columns. Currently this mixin does not allow for variable columns. By default, the grid is set to the `$gridCols`, `$gridColGap` and `$gridRowGap` outlined in `measurements.scss`. You can over-ride these in the mixin. E.g `@include gridCalc(8, 30, 30);`
+
+`@mixin gridCol(position, span_number)` allows you to set column position and span amount for an element. `@include gridCol(1, 3)` for example, would set the position at column one and span 3 columns. Combine with `gridRow` for best use.
+
+`@mixin gridRow(number)` allows you to tell the grid which row the element resides on. E. `@include gridCol(2)` would put it on the second row of the grid. Combine with `gridCol` for best use.
+
+`@mixin gridRepeat(cols, colgap, rowgap)` works in a similar manner to `gridCalc` but the columns repeat, rather than being set by the child elements. `gridRepeat(3)` would repeat a 3 column grid for example.
 
 ### Responsive
 Convenient syntax mixins for responsive breakpoints. I won't outline each one as they all follow a similar syntax. There are options for min and max width, min and max heights and a combination of both.
-- `@mixin respond-to($media-min) { @content }`. Sets the breakpoint syntax based on browser width. I usually define these in `viewports.scss`. Use like this: `@include respond-to($vpA) { Your styles here };`
+
+`@mixin respond-to($media-min) { @content }`. Sets the breakpoint syntax based on browser width. I usually define these in `viewports.scss`. Use like this: `@include respond-to($vpA) { Your styles here };`
 
 ### Helpful stuff
 - `@mixin link-active-styles`. Combines `:focus, :active and :hover` states into one easy place. Use like this: `@include link-active-styles { Your stuff };`
