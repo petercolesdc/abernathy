@@ -65,7 +65,7 @@ It's worth noting that many mixins use settings defined in `/abstracts/_measurem
 
 ### Typography
 - `@function rem($pixels)` is a function that takes a pixel value and converts it into REM values. Use it like this: `font-size: rem(16);` or better yet `font-size: rem($yourTypeSizeVar);`
-- `@mixin leading_adjust()` allows you to adjust the line-height of some text based on the `$lineheightBase` value set in `measurements.scss` for consistent spacing. Use like this: `@include leading_adjust(4);`
+- `@mixin font-size` allows you to set the font-size in rem (but declare in px / pt value), and optionally tighten or loosen leading, based on a set baseline unit found in `measurements.scss`. `@include (font-size, 'loosen/tighten', value);`. E.g `@include font-size($yourTypeSizeVar, 'tighten', 1);`
 - `@mixin baseline()` allows you to space items taking into account a consistent baseline. Use like this `@include baseline(3, 'margin-bottom')`. Be sure to set `$gridBaseline` in `measurements.scss`. Can take `margin-bottom` `margin-top` `padding-top` or `padding-bottom` arguements.
 
 ### Grid
@@ -77,13 +77,16 @@ Convenient syntax mixins for responsive breakpoints. I won't outline each one as
 
 ### Helpful stuff
 - `@mixin link-active-styles`. Combines `:focus, :active and :hover` states into one easy place. Use like this: `@include link-active-styles { Your stuff };`
-- `@mixin a11yhide`. Hide things in an accessible fashion. Usage: `@include a11yhide;`.
+- `@mixin a11yhide`. Hide text in an accessible fashion. Usage: `@include a11yhide;`.
 - `@mixin ratio();`. Little mixin for ratio calculations. Great for responsive video. Usage `@include ratio(16 9)`
 - `@mixin pie-clearfix`. Clearfix the old-skool way. Usage. `@include pie-clearfix;`
 - `@mixin sharp-text`. Make text sharper. Sometimes it looks better, sometimes it looks pants. Use with discretion. `@include sharp-text;`
 
 ### Animation
 There's some Animation helpers should you need them. See comments in the file for more details
+
+### Legacy
+- `@mixin leading_adjust()` allows you to adjust the line-height of some text based on the `$lineheightBase` value set in `measurements.scss` for consistent spacing. Use like this: `@include leading_adjust(4);`
 
 ## Known bugs & limitations
 - Occasionally, when adding new images or re-saving images, someone will freak out and ruin the party. To resolve, do a `make design.stop` then `make design.watch` to get back to the action.
