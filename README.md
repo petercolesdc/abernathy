@@ -70,7 +70,7 @@ It's worth noting that many mixins use settings defined in `/abstracts/_measurem
 ### Typography
 `@function rem($pixels)` is a function that takes a pixel value and converts it into REM values. Use it like this: `font-size: rem(16);` or better yet `font-size: rem($yourTypeSizeVar);`
 
-`@mixin font-size(size, 'adjust', adjust_amount)` allows you to set the font-size in rem (but declare in px / pt value), and optionally tighten or loosen leading, based on a set baseline unit found in `measurements.scss`. `@include font-size(size, 'loosen/tighten', value);`. E.g `@include font-size($yourTypeSizeVar, 'tighten', 1);`
+`@mixin font-size(size, 'loosen/tighten', adjust_amount)` allows you to set the font-size in rem (but declare in px / pt value), and optionally tighten or loosen leading, based on a set baseline unit found in `measurements.scss`. E.g `@include font-size($yourTypeSizeVar, 'tighten', 1);`
 
 ### Grid
 `@mixin gridCalc(cols, colgap, rowgap)` allows you to lay down a CSS grid on the parent element. By default it uses the `1fr` unit for equal grid columns. Currently this mixin does not allow for variable columns. By default, the grid is set to the `$gridCols`, `$gridColGap` and `$gridRowGap` outlined in `measurements.scss`. You can over-ride these in the mixin. E.g `@include gridCalc(8, 30, 30);`
