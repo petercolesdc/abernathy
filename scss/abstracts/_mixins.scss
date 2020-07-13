@@ -44,8 +44,8 @@
 @mixin gridCalc($GgridCols: $gridCols, $GgridColGap: $gridColGap, $GgridRowGap: $gridRowGap) {
 	display: grid;
 	@include gridColGen($gridUnit, $GgridCols);
-	grid-column-gap: $GgridColGap;
-	grid-row-gap: $GgridRowGap;
+	grid-column-gap: ren($GgridColGap);
+	grid-row-gap: rem($GgridRowGap);
 }
 
 // gridCol
@@ -65,8 +65,8 @@
 @mixin gridRepeat($colNumber, $GgridColGap: $gridColGap, $GgridRowGap: $gridRowGap) {
   display: grid;
   grid-template-columns: repeat($colNumber, $gridUnit);
-  grid-column-gap: $GgridColGap;
-  grid-row-gap: $GgridRowGap;
+	grid-column-gap: ren($GgridColGap);
+	grid-row-gap: rem($GgridRowGap);
 }
 
 
