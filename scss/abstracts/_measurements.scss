@@ -1,19 +1,20 @@
 
-@import 'viewports.scss';
-@import 'typescale.scss';
-
 // Measurements are unitless (with the exception of gridUnit).
 // This aids in the conversion of px to rem units
 // Use the rem(#); function to define in rem units
 // E.g rem($btnDefault);
 
+// Baseline
+// ------------------------------------------------------------------
+$baseline: 8; // Set baseline for the design
+
+
 // Grid defaults
 // ------------------------------------------------------------------
-$gridBaseline: 8;
 $gridUnit: 1fr;
 $gridCols: 6; // Default
 $gridColGap: 20; // Default
-$gridRowGap: $gridBaseline*3; // Default
+$gridRowGap: $baseline*3; // Default
 
 
 // Buttons
@@ -29,7 +30,6 @@ $formRadius: 0;
 $formItem: 44;
 $formPadding: 10;
 $formVSpace: 32;
-$formInputText: $typeForm;
 
 
 // Misc

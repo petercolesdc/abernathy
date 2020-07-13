@@ -22,13 +22,13 @@
 // Basline spacing with regular units
 @mixin baseline($baselineMult, $type) {
 	@if $type == "margin-bottom"  {
-		margin-bottom: rem($gridBaseline*$baselineMult);
+		margin-bottom: rem($baseline*$baselineMult);
 	} @else if $type == "margin-top"  {
-		margin-top: rem($gridBaseline*$baselineMult);
+		margin-top: rem($baseline*$baselineMult);
 	} @else if $type == "padding-bottom"  {
-		padding-bottom: rem($gridBaseline*$baselineMult);
+		padding-bottom: rem($baseline*$baselineMult);
 	} @else if $type == "padding-top"  {
-		padding-top: rem($gridBaseline*$baselineMult);
+		padding-top: rem($baseline*$baselineMult);
 	} @else {
 
 	}

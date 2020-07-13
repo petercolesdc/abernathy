@@ -63,10 +63,13 @@ The `mixins.scss` and `functions.scss` contains goodies that you might find usef
 
 It's worth noting that many mixins use settings defined in `/abstracts/_measurements.scss`, so be sure to check that out also.
 
+### Spacing
+`@mixin baseline()` allows you to space items taking into account a consistent baseline. Use like this `@include baseline(3, 'margin-bottom')`. Be sure to set `$baseline` in `measurements.scss`. Can take `margin-bottom` `margin-top` `padding-top` or `padding-bottom` arguments.
+
+
 ### Typography
 - `@function rem($pixels)` is a function that takes a pixel value and converts it into REM values. Use it like this: `font-size: rem(16);` or better yet `font-size: rem($yourTypeSizeVar);`
 - `@mixin font-size` allows you to set the font-size in rem (but declare in px / pt value), and optionally tighten or loosen leading, based on a set baseline unit found in `measurements.scss`. `@include (font-size, 'loosen/tighten', value);`. E.g `@include font-size($yourTypeSizeVar, 'tighten', 1);`
-- `@mixin baseline()` allows you to space items taking into account a consistent baseline. Use like this `@include baseline(3, 'margin-bottom')`. Be sure to set `$gridBaseline` in `measurements.scss`. Can take `margin-bottom` `margin-top` `padding-top` or `padding-bottom` arguements.
 
 ### Grid
 To do

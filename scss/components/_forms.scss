@@ -39,7 +39,7 @@ label {
 input:not([type=checkbox]):not([type=radio]) {
   border: $strokeWidth solid $cBorder;
   height: rem($formItem);
-  font-size: rem($formInputText);
+  font-size: rem($typeForm);
   border-radius: rem($formRadius);
   padding: 0 rem($formPadding);
 	display: block;
@@ -63,7 +63,7 @@ input[type] {
 
 // Min height to text area
 textarea {
-  font-size: rem($formInputText);
+  font-size: rem($typeForm);
   padding: rem($formPadding);
   display: block;
   width: 100%;
@@ -77,7 +77,7 @@ textarea {
 }
 
 select {
-  font-size: rem($formInputText);
+  font-size: rem($typeForm);
   height: rem($formItem);
   border: $strokeWidth solid $cBorder;
   border-radius: rem($formRadius);

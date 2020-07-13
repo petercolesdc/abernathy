@@ -1,11 +1,16 @@
 
-// Type scale
+@import 'measurements.scss';
+
+// Set defaults
 // ------------------------------------------------------------------
 
 $scaleRoot: 				16;
-$lineheightRoot: 		4; // Text leading default
-$lineheightMulti:   4; // Multiplier default
+$lineheightRoot: 		$baseline/2; // Text grid unit default (e.g 4 = 4px baseline)
+$lineheightMulti:   4; // Multiplier default (e.g how many multiples to create the defaul spacing in line-height)
 $lineheightBase: 		($lineheightRoot*$lineheightMulti) / 10;
+
+// Type scale
+// ------------------------------------------------------------------
 
 $typeXXL: 					48;
 $typeXL: 						34;
