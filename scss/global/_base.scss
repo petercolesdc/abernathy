@@ -11,6 +11,13 @@ body {
   font-family: $fontDefault;
   font-size: rem($typeDefault);
   overflow-x: hidden;
+  &:not(.user-is-tabbing) a:focus,
+  &:not(.user-is-tabbing) button:focus,
+  &:not(.user-is-tabbing) input:not([type=checkbox]):not([type=radio]):focus,
+  &:not(.user-is-tabbing) select:focus,
+  &:not(.user-is-tabbing) textarea:focus {
+    outline: none;
+  }
 }
 
 a,

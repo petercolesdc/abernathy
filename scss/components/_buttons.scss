@@ -35,16 +35,12 @@ button.button {
   background-color: $cButtonPrimary;
   @include link-active-styles {
     text-decoration: none;
-    background-color: $cActionRespond;
   }
 
   // Types
   // ------------------------------------
   &Primary {
-    color: $cSizemore;
-    @include link-active-styles {
-      color: $cSizemore;
-    }
+    background-color: $cButtonPrimary;
   }
 
   &Icon {
@@ -58,11 +54,6 @@ button.button {
       height: 16px;
       width: 16px;
       display: block;
-    }
-    &.buttonPrimary {
-      svg  {
-        fill: $cSizemore;
-      }
     }
   }
 }
