@@ -1,6 +1,6 @@
 {
   "name": "abernathy",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A place to start web and app projects",
   "repository": "https://github.com/petercolesdc/abernathy",
   "main": "index.js",
@@ -11,8 +11,8 @@
   "author": "Peter Coles",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.7",
-    "del": "^5.1.0",
+    "browser-sync": "^2.26.12",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-nunjucks-render": "^2.2.3",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "gulp-pretty-url": "^0.1.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "lodash.template": "^4.5.0"
   },
   "browserslist": [
