@@ -35,6 +35,7 @@ button.button {
   background-color: $cButtonPrimary;
   @include link-active-styles {
     text-decoration: none;
+    background-color: darken($cButtonPrimary, 3%);
   }
 
   // Types

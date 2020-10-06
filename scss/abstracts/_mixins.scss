@@ -19,7 +19,7 @@
 // @include leading_loosen(1);
 
 
-// Basline spacing with regular units
+// Baseline spacing with regular units
 @mixin baseline($baselineMult, $type) {
 	@if $type == "margin-bottom"  {
 		margin-bottom: rem($baseline*$baselineMult);
@@ -52,59 +52,6 @@
 
 // @include font-size($typeDefault);
 // @include font-size($typeXXL, 'tighten', 1);
-
-
-// CSS Grid calculations
-// ------------------------------------------------------------------
-
-// gridColGen
-// Create col numbers on the fly
-// Thanks: https://stackoverflow.com/questions/52164202/sass-scss-mixin-to-generate-css-grid-classes-need-additional-20px-gap-columns
-@mixin gridColGen($gm, $gc) {
-	$c: "";
-  @for $i from 1 through $gc {
-  	$c: $gm + " " + $c;
-  }
-  grid-template-columns: unquote($c);
-}
-
-// gridCalc
-// Calculate the grid based on some defaults
-@mixin gridCalc($GgridCols: $gridCols, $GgridColGap: $gridColGap, $GgridRowGap: $gridRowGap) {
-	display: grid;
-	@include gridColGen($gridUnit, $GgridCols);
-	grid-column-gap: rem($GgridColGap);
-	grid-row-gap: rem($GgridRowGap);
-}
-
-// @include gridCalc($gridCols, 40px, 20px);
-
-// gridCol
-// In combination with gridCalc this detemines the start point & span of columns
-@mixin gridCol($gridStart, $gridSpan) {
-	grid-column: $gridStart / span $gridSpan;
-}
-
-// @include gridRow(2);
-
-// gridRow
-// In combination with gridCalc this detemines the start point & span of rows
-@mixin gridRow($rowNum) {
-	grid-row: $rowNum;
-}
-
-// @include gridRow(2);
-
-// gridRepeat
-// This should only be used for grids with the same width of columns that repeat
-@mixin gridRepeat($colNumber, $GgridColGap: $gridColGap, $GgridRowGap: $gridRowGap) {
-  display: grid;
-  grid-template-columns: repeat($colNumber, $gridUnit);
-	grid-column-gap: rem($GgridColGap);
-	grid-row-gap: rem($GgridRowGap);
-}
-
-// @include gridRepeat(3);
 
 
 // Media queries
@@ -171,7 +118,7 @@
 // ------------------------------------------------------------------
 
 @mixin a11yhide {
-	border: 0;
+  border: 0;
   padding: 0;
   margin: 0;
   position: absolute !important;
