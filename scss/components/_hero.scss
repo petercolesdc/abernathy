@@ -1,0 +1,9 @@
+
+.hero {
+	background-color: #000;
+	padding: 3em;
+	&_heading {
+		color: #fff;
+		@include font-size(22);
+	}
+}

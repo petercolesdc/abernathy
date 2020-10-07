@@ -6,20 +6,18 @@
 <link rel="stylesheet" href="/css/guide.css">
 {% endblock %}
 <body class="guide_body">
-	<aside class="guide_menu">
+	<button class="guide_toggle" id="guide_toggle" aria-expanded="false" aria-controls="guide_menu"><span>Hide </span>Menu</button>
+	<aside class="guide_menu" id="guide_menu">
 		<div>
 			<h1 class="guide_menu_heading"><a href="/">Home</a></h1>
-			<h3 class="guide_menu_heading">Components</h3>
+			<h3 class="guide_menu_heading">Macro components</h3>
 			<ul class="guide_menu_list">
 				<li><a href="/components/buttons/">Buttons</a></li>
 				<li><a href="/components/forms/">Forms</a></li>
 			</ul>
-			<h3 class="guide_menu_heading">Style guide</h3>
+			<h3 class="guide_menu_heading">Full components</h3>
 			<ul class="guide_menu_list">
-				<li><a href="/guide/color/">Color</a></li>
-				<li><a href="/guide/typography/">Typography</a>
-				<li><a href="/guide/shadow/">Shadow</a>
-				<li><a href="/assets/icons/renders/sprite.symbol.html">Icon sprite</a></li>
+				<li><a href="/components/heroes/">Heroes</a></li>
 			</ul>
 			<h3 class="guide_menu_heading">Templates</h3>
 			<ul class="guide_menu_list">
@@ -29,12 +27,36 @@
 			<ul class="guide_menu_list">
 				<li>Add here</li>
 			</ul>
+			<h3 class="guide_menu_heading">Style guide</h3>
+			<ul class="guide_menu_list">
+				<li><a href="/guide/color/">Color</a></li>
+				<li><a href="/guide/typography/">Typography</a>
+				<li><a href="/guide/shadow/">Shadow</a>
+				<li><a href="/assets/icons/renders/sprite.symbol.html">Icon sprite</a></li>
+			</ul>
 		</div>
 	</aside>
-	<main class="guide_content">
+	<main class="guide_content" id="guide_content">
 	{% block content %}{% endblock %}
 	</main>
 </body>
 <script src="/js/global.js"></script>
-{% block script %}{% endblock %}
+{% block script %}
+	<script>
+		var guideMenuToggle = document.querySelector('#guide_toggle');
+		var guideMenu = document.querySelector('#guide_menu');
+		var guideContent = document.querySelector('#guide_content');
+		var guideSectionFull = document.querySelector('.guidesectionFull');
+		guideMenuToggle.onclick = function() {
+		  guideMenuToggle.classList.toggle('active');
+		  guideMenu.classList.toggle('hide');
+		  guideContent.classList.toggle('full');
+		  guideSectionFull.classList.toggle('full');
+		}
+		guideMenuToggle.addEventListener('click', function() {
+		  let expanded = this.getAttribute('aria-expanded') === 'true' || false;
+		  this.setAttribute('aria-expanded', !expanded);
+		});
+	</script>
+{% endblock %}
 </html>

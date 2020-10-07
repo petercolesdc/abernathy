@@ -4,28 +4,48 @@
 @import 'abstracts/mixins.scss';
 @import 'abstracts/functions.scss';
 
-$guideSpace: 40px;
-$guideEdges: 40px;
+$guideSpace: 45px;
+$guideEdges: 20px;
+$menuWidth: 200px;
 $guideDivide: 2px solid #ddd;
 
 // Guide layout
 // -----------------------------------
 
 .guide_body {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-gap: 0;
   min-height: 100vh;
+}
+
+.guide_toggle {
+  padding: 0.5em 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: #fff;
+  font-size: 12px;
+  box-shadow: 0 0px 8px rgba(0,0,0,0.1);
+  &.active {
+    span {
+      display: none;
+    }
+  }
 }
 
 .guide_menu {
   padding: 1em;
-  padding-top: $guideSpace;
-  border-right: 1px solid #ddd;
+  width: $menuWidth;
+  position: absolute;
+  top: 0;
+  left: 0;
   > div {
-    position: sticky;
-    left: 0;
-    top: $guideSpace;
+    position: fixed;
+    left: 1em;
+    top: 0;
+    padding-top: 3em;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
   }
   &_heading {
     font-size: 14px;
@@ -42,12 +62,22 @@ $guideDivide: 2px solid #ddd;
       display: block;
     }
   }
+  &.hide {
+    display: none;
+  }
 }
 
 .guide_content {
   position: relative;
-  padding-left: $guideEdges;
-  padding-right: $guideEdges;
+  margin-left: $menuWidth + $guideEdges;
+  width: calc(100% - #{$menuWidth + $guideEdges});
+  min-height: 100vh;
+  border-left: 1px solid #ddd;
+  &.full {
+    margin-left: 0;
+    width: 100%;
+    border-left: 0;
+  }
 }
 
 .guide_index_list {
@@ -64,11 +94,6 @@ $guideDivide: 2px solid #ddd;
   }
 }
 
-.guidesection {
-  margin-top: $guideSpace;
-  padding-bottom: $guideSpace;
-}
-
 .guide_h1 {
   font-size: 22px;
   line-height: 29px;
@@ -76,6 +101,10 @@ $guideDivide: 2px solid #ddd;
   padding-bottom: 0.5em;
   color: #333;
   border-bottom: $guideDivide;
+  .guidesection.full & {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
 }
 
 .guide_h2 {
@@ -86,6 +115,10 @@ $guideDivide: 2px solid #ddd;
   padding-bottom: 0.5em;
   color: #333;
   border-bottom: $guideDivide;
+  .guidesection.full & {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
 }
 
 .guide_h3 {
@@ -94,13 +127,29 @@ $guideDivide: 2px solid #ddd;
   margin-top: 16px;
   margin-bottom: 18px;
   color: #333;
+  .guidesection.full & {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
 }
 
-// Type styles
+// Section styles
 // --------------------------------------------------------
+
+.guidesection {
+  padding-top: $guideSpace;
+  padding-bottom: $guideSpace;
+  padding-left: $guideEdges;
+  padding-right: $guideEdges;
+  &.full {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 
 .guidesection__type {
   max-width: 700px;
+  padding-left: 1em;
 }
 
 
