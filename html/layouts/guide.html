@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/css/guide.css">
 {% endblock %}
 <body class="guide_body">
-	<button class="guide_toggle" id="guide_toggle" aria-expanded="true" aria-controls="guide_menu"><span>Hide </span>Menu</button>
+	<button class="guide_toggle" id="guide_toggle" aria-label="Main menu" aria-expanded="true" aria-controls="guide_menu"><span>Hide </span>Menu</button>
 	<aside class="guide_menu" id="guide_menu">
 		<div>
 			<h1 class="guide_menu_heading"><a href="/">Home</a></h1>
@@ -41,22 +41,22 @@
 	</main>
 </body>
 <script src="/js/global.js"></script>
+<script>
+	var guideMenuToggle = document.querySelector('#guide_toggle');
+	var guideMenu = document.querySelector('#guide_menu');
+	var guideContent = document.querySelector('#guide_content');
+	var guideSectionFull = document.querySelector('.guidesectionFull');
+	guideMenuToggle.onclick = function() {
+	  guideMenuToggle.classList.toggle('active');
+	  guideMenu.classList.toggle('hide');
+	  guideContent.classList.toggle('full');
+	  guideSectionFull.classList.toggle('full');
+	}
+	guideMenuToggle.addEventListener('click', function() {
+	  let expanded = this.getAttribute('aria-expanded') === 'true' || false;
+	  this.setAttribute('aria-expanded', !expanded);
+	});
+</script>
 {% block script %}
-	<script>
-		var guideMenuToggle = document.querySelector('#guide_toggle');
-		var guideMenu = document.querySelector('#guide_menu');
-		var guideContent = document.querySelector('#guide_content');
-		var guideSectionFull = document.querySelector('.guidesectionFull');
-		guideMenuToggle.onclick = function() {
-		  guideMenuToggle.classList.toggle('active');
-		  guideMenu.classList.toggle('hide');
-		  guideContent.classList.toggle('full');
-		  guideSectionFull.classList.toggle('full');
-		}
-		guideMenuToggle.addEventListener('click', function() {
-		  let expanded = this.getAttribute('aria-expanded') === 'true' || false;
-		  this.setAttribute('aria-expanded', !expanded);
-		});
-	</script>
 {% endblock %}
 </html>

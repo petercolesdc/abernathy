@@ -7,6 +7,7 @@
 $guideSpace: 45px;
 $guideEdges: 20px;
 $menuWidth: 200px;
+$guideScrollbarWidth: 6px;
 $guideDivide: 2px solid #ddd;
 
 // Guide layout
@@ -38,14 +39,29 @@ $guideDivide: 2px solid #ddd;
   position: absolute;
   top: 0;
   left: 0;
+  background-color: #fff;
+  height: 100%;
+  border-right: 1px solid #ddd;
   > div {
     position: fixed;
     left: 1em;
     top: 0;
     padding-top: 3em;
     height: 100%;
-    width: 100%;
-    overflow: scroll;
+    background-color: #fff;
+    width: $menuWidth - $guideScrollbarWidth*2;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: $guideScrollbarWidth;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #eee;
+      width: $guideScrollbarWidth;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #ddd;
+      width: $guideScrollbarWidth;
+    }
   }
   &_heading {
     font-size: 14px;
@@ -69,10 +85,9 @@ $guideDivide: 2px solid #ddd;
 
 .guide_content {
   position: relative;
-  margin-left: $menuWidth + $guideEdges;
-  width: calc(100% - #{$menuWidth + $guideEdges});
+  margin-left: $menuWidth;
+  width: calc(100% - $menuWidth);
   min-height: 100vh;
-  border-left: 1px solid #ddd;
   &.full {
     margin-left: 0;
     width: 100%;
@@ -101,9 +116,14 @@ $guideDivide: 2px solid #ddd;
   padding-bottom: 0.5em;
   color: #333;
   border-bottom: $guideDivide;
+  font-weight: bold;
   .guidesection.full & {
     padding-left: 0.5em;
     padding-right: 0.5em;
+  }
+  .guidesection__meter & {
+    border: 0;
+    margin-bottom: 0.5em;
   }
 }
 
@@ -114,10 +134,15 @@ $guideDivide: 2px solid #ddd;
   margin-bottom: 18px;
   padding-bottom: 0.5em;
   color: #333;
+  font-weight: bold;
   border-bottom: $guideDivide;
   .guidesection.full & {
     padding-left: 0.5em;
     padding-right: 0.5em;
+  }
+  .guidesection__meter & {
+    border: 0;
+    margin-bottom: 0.5em;
   }
 }
 
@@ -130,6 +155,10 @@ $guideDivide: 2px solid #ddd;
   .guidesection.full & {
     padding-left: 0.5em;
     padding-right: 0.5em;
+  }
+  .guidesection__meter & {
+    border: 0;
+    margin-bottom: 0.5em;
   }
 }
 
@@ -147,11 +176,20 @@ $guideDivide: 2px solid #ddd;
   }
 }
 
-.guidesection__type {
+// For text runs and guides
+// that read better with a set meter
+.guidesection__meter {
   max-width: 700px;
   padding-left: 1em;
 }
 
+// For instructions
+.guidesection__instructions {
+  @extend .guidesection__meter;
+  p,ul,ol {
+    margin-bottom: 1em;
+  }
+}
 
 // Swatches
 // --------------------------------------------------------
@@ -205,9 +243,7 @@ $guideDivide: 2px solid #ddd;
 .guideshadows {
   display: grid;
   grid-gap: 40px;
-  @media screen and (min-width:860px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .guide_shadow {
