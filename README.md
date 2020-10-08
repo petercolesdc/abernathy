@@ -35,6 +35,10 @@ Reference in your markup as follows (where icon is exampleicon)
 </svg>
 ```
 
+## Helpers
+1. `make ipaddress` - Get an IP address to test over the same connection/wi-fi
+2. `make permissions` - Set permissions if you get docker install weirdness
+
 ## Colors
 Updating colors is pretty easy, but requires a few things to be changed in order for the system and the color palette in `/guide` to display correctly.
 
@@ -89,4 +93,3 @@ There's some Animation helpers should you need them. See comments in the file fo
 - Occasionally, when adding new images or re-saving images, someone will freak out and ruin the party. To resolve, do a `make design.stop` then `make design.watch` to get back to the action.
 - Right now, I have no flippin' idea how to use an `include` and a `for loop` together. This only appears to work if the data and the loop exist in the same page.
 - The `extends` method for templating is powerful, but requires planning to get to most out of it.
-- The included `grid` mixins aren't comprehensive.
