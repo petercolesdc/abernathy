@@ -45,39 +45,42 @@
 	var guideMenuToggle = document.querySelector('#guide_toggle');
 	var guideMenu = document.querySelector('#guide_menu');
 	var guideContent = document.querySelector('#guide_content');
-  var guideSectionFull = document.querySelector('.guidesectionFull');
+	var guideSectionFull = document.querySelector('.guidesectionFull');
 
-  var storageIsHidden = localStorage.getItem('isHidden')
-  var globalIsHidden = storageIsHidden ? true : false
-  
-  function setHiddenState(isHidden) {
-    const items = [
-      [guideMenuToggle, 'active'],
-      [guideMenu, 'hide'],
-      [guideContent, 'full'],
-      [guideSectionFull, 'full'],
-    ]
-    items.forEach(function(item){
-      const element = item[0]
-      const className = item[1]
-      if(!element) return
-      if(isHidden) {
-        element.classList.add(className)
-      } else {
-        element.classList.remove(className)
-      }
-    })
-    globalIsHidden = isHidden
-    localStorage.setItem('isHidden', isHidden ? 'yes' : '')
-  }
-
+	var storageIsHidden = localStorage.getItem('isHidden')
+	var globalIsHidden = storageIsHidden ? true : false
+	
+	function setHiddenState(isHidden) {
+		
+		const items = [
+		  [guideMenuToggle, 'active'],
+		  [guideMenu, 'hide'],
+		  [guideContent, 'full'],
+		  [guideSectionFull, 'full'],
+		]
+		
+		items.forEach(function(item){
+		  const element = item[0]
+		  const className = item[1]
+		  if(!element) return
+		  if(isHidden) {
+		    element.classList.add(className)
+		  } else {
+		    element.classList.remove(className)
+		  }
+		})
+	
+		globalIsHidden = isHidden
+		localStorage.setItem('isHidden', isHidden ? 'yes' : '')
+	}
+	
 	guideMenuToggle.addEventListener('click', function() {
 	  let expanded = this.getAttribute('aria-expanded') === 'true' || false;
-    this.setAttribute('aria-expanded', !expanded);
-    setHiddenState(!globalIsHidden)
-  });
-  
-  setHiddenState(globalIsHidden)
+	  this.setAttribute('aria-expanded', !expanded);
+	  setHiddenState(!globalIsHidden)
+	});
+	
+	setHiddenState(globalIsHidden)
 </script>
 {% block script %}
 {% endblock %}

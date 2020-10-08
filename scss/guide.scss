@@ -6,7 +6,7 @@
 
 $guideSpace: 45px;
 $guideEdges: 20px;
-$menuWidth: 200px;
+$guideMenuWidth: 200px;
 $guideScrollbarWidth: 6px;
 $guideDivide: 2px solid #ddd;
 
@@ -35,7 +35,7 @@ $guideDivide: 2px solid #ddd;
 
 .guide_menu {
   padding: 1em;
-  width: $menuWidth;
+  width: $guideMenuWidth;
   position: absolute;
   top: 0;
   left: 0;
@@ -49,7 +49,7 @@ $guideDivide: 2px solid #ddd;
     padding-top: 3em;
     height: 100%;
     background-color: #fff;
-    width: $menuWidth - $guideScrollbarWidth*2;
+    width: $guideMenuWidth - $guideScrollbarWidth*2;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       width: $guideScrollbarWidth;
@@ -85,8 +85,8 @@ $guideDivide: 2px solid #ddd;
 
 .guide_content {
   position: relative;
-  margin-left: $menuWidth;
-  width: calc(100% - $menuWidth);
+  margin-left: $guideMenuWidth;
+  width: calc(100% - $guideMenuWidth);
   min-height: 100vh;
   &.full {
     margin-left: 0;
