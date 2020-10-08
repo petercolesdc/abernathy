@@ -4,19 +4,102 @@
 @import 'abstracts/mixins.scss';
 @import 'abstracts/functions.scss';
 
-$guideSpace: 80px;
-$guideEdges: 30px;
+$guideSpace: 45px;
+$guideEdges: 20px;
+$menuWidth: 200px;
+$guideScrollbarWidth: 6px;
 $guideDivide: 2px solid #ddd;
 
 // Guide layout
 // -----------------------------------
 
+.guide_body {
+  min-height: 100vh;
+}
+
+.guide_toggle {
+  padding: 0.5em 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: #fff;
+  font-size: 12px;
+  box-shadow: 0 0px 8px rgba(0,0,0,0.1);
+  &.active {
+    span {
+      display: none;
+    }
+  }
+}
+
+.guide_menu {
+  padding: 1em;
+  width: $menuWidth;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  height: 100%;
+  border-right: 1px solid #ddd;
+  > div {
+    position: fixed;
+    left: 1em;
+    top: 0;
+    padding-top: 3em;
+    height: 100%;
+    background-color: #fff;
+    width: $menuWidth - $guideScrollbarWidth*2;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: $guideScrollbarWidth;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #eee;
+      width: $guideScrollbarWidth;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #ddd;
+      width: $guideScrollbarWidth;
+    }
+  }
+  &_heading {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  h1.guide_menu_heading {
+    margin-bottom: 20px;
+  }
+  &_list {
+    margin-bottom: 20px;
+    list-style-type: none;
+    li {
+      font-size: 14px;
+      display: block;
+    }
+  }
+  &.hide {
+    display: none;
+  }
+}
+
+.guide_content {
+  position: relative;
+  margin-left: $menuWidth;
+  width: calc(100% - $menuWidth);
+  min-height: 100vh;
+  &.full {
+    margin-left: 0;
+    width: 100%;
+    border-left: 0;
+  }
+}
+
 .guide_index_list {
   list-style-type: none;
-  padding: 1rem 4rem 1rem 5rem;
-  border-left: 3px solid #5c2d70;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  padding: 1rem 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
   li {
     font-size: 16px;
     margin-bottom: 8px;
@@ -26,13 +109,6 @@ $guideDivide: 2px solid #ddd;
   }
 }
 
-.guidesection {
-  margin-top: $guideSpace;
-  padding-left: $guideEdges;
-  padding-right: $guideEdges;
-  padding-bottom: $guideSpace;
-}
-
 .guide_h1 {
   font-size: 22px;
   line-height: 29px;
@@ -40,6 +116,15 @@ $guideDivide: 2px solid #ddd;
   padding-bottom: 0.5em;
   color: #333;
   border-bottom: $guideDivide;
+  font-weight: bold;
+  .guidesection.full & {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+  .guidesection__meter & {
+    border: 0;
+    margin-bottom: 0.5em;
+  }
 }
 
 .guide_h2 {
@@ -49,7 +134,16 @@ $guideDivide: 2px solid #ddd;
   margin-bottom: 18px;
   padding-bottom: 0.5em;
   color: #333;
+  font-weight: bold;
   border-bottom: $guideDivide;
+  .guidesection.full & {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+  .guidesection__meter & {
+    border: 0;
+    margin-bottom: 0.5em;
+  }
 }
 
 .guide_h3 {
@@ -58,31 +152,54 @@ $guideDivide: 2px solid #ddd;
   margin-top: 16px;
   margin-bottom: 18px;
   color: #333;
+  .guidesection.full & {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+  .guidesection__meter & {
+    border: 0;
+    margin-bottom: 0.5em;
+  }
 }
 
-// Type styles
+// Section styles
 // --------------------------------------------------------
 
-.guidesection__type {
-  padding: 2em 3em;
-  max-width: 700px;
+.guidesection {
+  padding-top: $guideSpace;
+  padding-bottom: $guideSpace;
+  padding-left: $guideEdges;
+  padding-right: $guideEdges;
+  &.full {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
+// For text runs and guides
+// that read better with a set meter
+.guidesection__meter {
+  max-width: 700px;
+  padding-left: 1em;
+}
+
+// For instructions
+.guidesection__instructions {
+  @extend .guidesection__meter;
+  p,ul,ol {
+    margin-bottom: 1em;
+  }
+}
 
 // Swatches
 // --------------------------------------------------------
 
 .guide_swatches {
   list-style-type: none;
-  margin-bottom: 10rem;
   display: grid;
-  grid-row-gap: 40px;
+  grid-row-gap: 20px;
   grid-column-gap: 20px;
-  @media screen and (min-width:860px) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 0;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .guide_swatch {
@@ -126,9 +243,7 @@ $guideDivide: 2px solid #ddd;
 .guideshadows {
   display: grid;
   grid-gap: 40px;
-  @media screen and (min-width:860px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .guide_shadow {
@@ -136,85 +251,9 @@ $guideDivide: 2px solid #ddd;
   text-align: center;
   border-radius: 5px;
   &Sharp {
-    box-shadow: box-shadow-sharp(4);
+    box-shadow: box-shadow-sharp(8);
   }
   &Diffuse {
-    box-shadow: box-shadow-diffuse(4);
-  }
-}
-
-// Examples
-// Uses a 6 column grid
-// --------------------------------------------------------
-.gridexample1 {
-  @include gridCalc(); // Default grid
-  div {
-    height: 60px;
-    background-color: #999;
-  }
-  .g1 {
-    @include gridCol(1, 2); // Position 1, span 2
-  }
-  .g2 {
-    @include gridCol(3, 4); // Position 3, span 4
-  }
-  .g3 {
-    @include gridCol(1, 2); // Position 1, span 2
-  }
-  .g4 {
-    @include gridCol(3, 2); // Position 3, span 2
-  }
-  .g5 {
-    @include gridCol(5, 2); // Position 5, span 2
-  }
-}
-
-.gridexample2 {
-  @include gridCalc($gridCols, 40, 20); // Default grid with different gaps
-  margin-top: 20px;
-  div {
-    height: 60px;
-    background-color: #999;
-  }
-  .g1 {
-    @include gridCol(1, 2); // Position 1, span 2
-  }
-  .g2 {
-    @include gridCol(3, 4); // Position 3, span 4
-  }
-  .g3 {
-    @include gridCol(1, 2); // Position 1, span 2
-  }
-  .g4 {
-    @include gridCol(3, 2); // Position 3, span 2
-  }
-  .g5 {
-    @include gridCol(5, 2); // Position 5, span 2
-  }
-}
-
-.gridexample3 {
-  @include gridCalc(4); // Smaller grid
-  margin-top: 20px;
-  div {
-    height: 60px;
-    background-color: #777;
-  }
-  .g1 {
-    @include gridCol(1, 2); // Position 1, span 2
-  }
-  .g2 {
-    @include gridCol(3, 4); // Position 3, span 4
-    @include gridRow(2); // Row 2, span 2
-  }
-}
-
-.gridexample4 {
-  margin-top: 20px;
-  // Include grid with default gaps and repeat in blocks of 3
-  @include gridRepeat(3);
-  div {
-    height: 60px;
-    background-color: #888;
+    box-shadow: box-shadow-diffuse(8);
   }
 }

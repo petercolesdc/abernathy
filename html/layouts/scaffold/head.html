@@ -2,5 +2,7 @@
 	<title>{{ title }}</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	{% if layout == 'guide' %}<link rel="stylesheet" href="/css/guide.css">{% else %}{% endif %}<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
+	{% block head %}
+	{% endblock %}
 </head>

@@ -2,10 +2,83 @@
 <!doctype html>
 <html lang="en" class="no-js">
 {% include 'layouts/scaffold/head.html' %}
-<body>
-{% block content %}
+{% block head %}
+<link rel="stylesheet" href="/css/guide.css">
 {% endblock %}
+<body class="guide_body">
+	<button class="guide_toggle" id="guide_toggle" aria-label="Main menu" aria-expanded="true" aria-controls="guide_menu"><span>Hide </span>Menu</button>
+	<aside class="guide_menu" id="guide_menu">
+		<div>
+			<h1 class="guide_menu_heading"><a href="/">Home</a></h1>
+			<h3 class="guide_menu_heading">Macro components</h3>
+			<ul class="guide_menu_list">
+				<li><a href="/components/buttons/">Buttons</a></li>
+				<li><a href="/components/forms/">Forms</a></li>
+			</ul>
+			<h3 class="guide_menu_heading">Full components</h3>
+			<ul class="guide_menu_list">
+				<li><a href="/components/heroes/">Heroes</a></li>
+			</ul>
+			<h3 class="guide_menu_heading">Templates</h3>
+			<ul class="guide_menu_list">
+				<li>Add here</li>
+			</ul>
+			<h3 class="guide_menu_heading">Pages</h3>
+			<ul class="guide_menu_list">
+				<li>Add here</li>
+			</ul>
+			<h3 class="guide_menu_heading">Style guide</h3>
+			<ul class="guide_menu_list">
+				<li><a href="/guide/color/">Color</a></li>
+				<li><a href="/guide/typography/">Typography</a>
+				<li><a href="/guide/shadow/">Shadow</a>
+				<li><a href="/assets/icons/renders/sprite.symbol.html">Icon sprite</a></li>
+			</ul>
+		</div>
+	</aside>
+	<main class="guide_content" id="guide_content">
+	{% block content %}{% endblock %}
+	</main>
 </body>
 <script src="/js/global.js"></script>
-{% block script %}{% endblock %}
+<script>
+	var guideMenuToggle = document.querySelector('#guide_toggle');
+	var guideMenu = document.querySelector('#guide_menu');
+	var guideContent = document.querySelector('#guide_content');
+  var guideSectionFull = document.querySelector('.guidesectionFull');
+
+  var storageIsHidden = localStorage.getItem('isHidden')
+  var globalIsHidden = storageIsHidden ? true : false
+  
+  function setHiddenState(isHidden) {
+    const items = [
+      [guideMenuToggle, 'active'],
+      [guideMenu, 'hide'],
+      [guideContent, 'full'],
+      [guideSectionFull, 'full'],
+    ]
+    items.forEach(function(item){
+      const element = item[0]
+      const className = item[1]
+      if(!element) return
+      if(isHidden) {
+        element.classList.add(className)
+      } else {
+        element.classList.remove(className)
+      }
+    })
+    globalIsHidden = isHidden
+    localStorage.setItem('isHidden', isHidden ? 'yes' : '')
+  }
+
+	guideMenuToggle.addEventListener('click', function() {
+	  let expanded = this.getAttribute('aria-expanded') === 'true' || false;
+    this.setAttribute('aria-expanded', !expanded);
+    setHiddenState(!globalIsHidden)
+  });
+  
+  setHiddenState(globalIsHidden)
+</script>
+{% block script %}
+{% endblock %}
 </html>

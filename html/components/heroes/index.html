@@ -1,0 +1,14 @@
+{% set title = 'Heroes' %}
+{% extends 'layouts/guide.html' %}
+
+{% import 'components/heroes/heroes.html' as hero %}
+
+{% block script %}
+{% endblock %}
+
+{% block content %}
+<section class="guidesection guidesectionFull">
+  <h1 class="guide_h1">{{ title }} default</h1>
+  {{ hero.default() }}
+</section>
+{% endblock %}

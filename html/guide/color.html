@@ -1,23 +1,23 @@
 {% set title = 'Color' %}
 {% extends 'layouts/guide.html' %}
 
-{% set color = {
-    a: { color: "Abernathy" },
-    b: { color: "Lowe" },
-    c: { color: "Ford" },
-    d: { color: "Delos" },
-    e: { color: "Stubbs" },
-    f: { color: "Flood" },
-    g: { color: "Weber" },
-    h: { color: "Sizemore" }
-  }
+{% set color = [
+    { color: "Abernathy" },
+    { color: "Lowe" },
+    { color: "Ford" },
+    { color: "Delos" },
+    { color: "Stubbs" },
+    { color: "Flood" },
+    { color: "Weber" },
+    { color: "Sizemore" }
+  ]
 %}
 
 {% block content %}
 <section class="guidesection">
   <h1 class="guide_h1">{{ title }} palette</h1>
   <ul class="guide_swatches">
-    {% for key, object in color | dictsort %}
+    {% for object in color  %}
       <li class="guide_swatch guide_swatch{{ object.color }}">
         <span class="guide_swatch_meta guide_swatch_meta{{ object.color }}">{{ object.color }}</span>
       </li>

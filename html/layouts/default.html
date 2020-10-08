@@ -1,23 +1,16 @@
 <!doctype html>
 <html lang="en" class="no-js">
 {% include 'layouts/scaffold/head.html' %}
+{% block head %}
+{% endblock %}
 <body>
 	<a href="#bodycontent">Skiplink</a>
 	<div id="uicontainer">
-		{% block header %}
-			{% include 'components/headers/default.html' %}
-		{% endblock %}
+		{% block header %}{% endblock %}
 		<div id="bodycontent">
-			{% block precontent %}
-			{% endblock %}
-			{% block content %}
-			{% endblock %}
-			{% block postcontent %}
-			{% endblock %}
+		{% block content %}{% endblock %}
 		</div>
-		{% block footer %}
-			{% include 'components/footers/default.html' %}
-		{% endblock %}
+		{% block footer %}{% endblock %}
 	</div>
 </body>
 <script src="/js/global.js"></script>
