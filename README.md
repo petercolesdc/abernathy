@@ -2,9 +2,15 @@
 
 ![Excellent](https://media.giphy.com/media/l2SqblV4jfjdExmr6/giphy.gif "Delores")
 
+## Build awesome s**t on your own terms
+
+**Not a framework; Just a frame. Add your own CSS, JS and markup and crack on sailor.**
+
 Abernathy is a place to start product and web builds. Built with atomic component based systems in mind, she renders to standard html templates, so you can build in a modular fashion - then render the old fashioned way.
 
-Abernathy uses the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language to harness the power of includes, macros and loops to aid in building dynamic design systems.
+- Use the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language to harness the power of includes, macros and loops to aid in building dynamic design systems.
+- [Sass](https://sass-lang.com/)Work however you like and bring your own structures
+- Bundled mixins and functions if you want them (but this is your dojo, run it how you like)
 
 ## Install (Docker)
 Grab docker desktop, install and start on your machine. Then:

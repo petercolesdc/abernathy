@@ -2,11 +2,40 @@
 {% extends 'layouts/guide.html' %}
 
 {% block content %}
+<style>
+	.guidesection__instructions {
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.guidesection h1 {
+		font-weight: bold;
+		font-size: 6vw;
+		line-height: 1.2;
+		margin-bottom: 0.5em;
+	}
+	@media screen and (min-width: 600px) {
+		.guidesection h1 {
+			font-size: 4vw;
+		}
+	}
+	.guidesection ul {
+		padding-left: 1em;
+		margin-bottom: 2em;
+	}
+	.guidesection li {
+		margin-bottom: 0.5em;
+	}
+</style>
 <section class="guidesection">
 	<div class="guidesection__instructions">
-		<h1 class="guide_h1">Abernathy: Pattern library &amp; flat-site building blocks</h1>
-		<p>Abernathy is a place to start product and web builds. Built with atomic component based systems in mind, she renders to standard html templates, so you can build in a modular fashion &ndash; then render the old fashioned way.</p>
-		<p>Abernathy uses the <a href="https://mozilla.github.io/nunjucks/">Nunjucks</a> templating language to harness the power of includes, macros and loops to aid in building dynamic design systems.</p>
+		<h1>Abernathy: Build awesome s**t on your own terms</h1>
+		<p><strong>Not a framework; Just a frame. Add your own CSS, JS and markup and crack on sailor.</strong></p>
+		<ul>
+			<li>Use the <a href="https://mozilla.github.io/nunjucks/">Nunjucks</a> templating language to harness the power of includes, macros and loops to aid in building dynamic design systems.</li>
+			<li><a href="https://sass-lang.com/">Sass baked in</a>. Work however you like and bring your own structures</li>
+			<li>Bundled mixins and functions if you want them (but this is your dojo, run it how you like)</li>
+		</ul>
 		<p>Checkout the <a href="https://github.com/petercolesdc/abernathy">README</a> for help on how to get started.</p>
 	</div>
 </section>

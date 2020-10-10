@@ -4,11 +4,15 @@
 @import 'abstracts/mixins.scss';
 @import 'abstracts/functions.scss';
 
-$guideSpace: 45px;
-$guideEdges: 20px;
+$guideSpace: 35px;
+$guideEdges: 40px;
 $guideMenuWidth: 200px;
 $guideScrollbarWidth: 6px;
-$guideDivide: 2px solid #ddd;
+$guideDivide: 6px solid rgba(0,0,0,0.1);
+$guideMenuBkg: #343434;
+$guideMenuText: #eee;
+$guideMenuLink: #5BF6DB;
+$guideMenuLinkAction: #fff;
 
 // Guide layout
 // -----------------------------------
@@ -20,13 +24,15 @@ $guideDivide: 2px solid #ddd;
 .guide_toggle {
   padding: 0.5em 1em;
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: 5;
-  background-color: #fff;
+  background-color: darken($guideMenuBkg, 2%);
   font-size: 12px;
-  box-shadow: 0 0px 8px rgba(0,0,0,0.1);
+  width: $guideMenuWidth;
+  color: $guideMenuLink;
   &.active {
+    width: 60px;
     span {
       display: none;
     }
@@ -39,33 +45,37 @@ $guideDivide: 2px solid #ddd;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: $guideMenuBkg;
   height: 100%;
-  border-right: 1px solid #ddd;
   > div {
     position: fixed;
-    left: 1em;
+    left: 0;
     top: 0;
-    padding-top: 3em;
+    padding-top: $guideSpace;
+    padding-left: 1em;
+    padding-bottom: 4em;
     height: 100%;
-    background-color: #fff;
-    width: $guideMenuWidth - $guideScrollbarWidth*2;
+    background-color: $guideMenuBkg;
+    width: $guideMenuWidth;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       width: $guideScrollbarWidth;
     }
     &::-webkit-scrollbar-track {
-      background-color: #eee;
+      background-color: darken($guideMenuBkg, 5%);
       width: $guideScrollbarWidth;
     }
     &::-webkit-scrollbar-thumb {
-      background-color: #ddd;
+      background-color: $guideMenuLink;
       width: $guideScrollbarWidth;
     }
+    scrollbar-width: thin;
+    scrollbar-color: $guideMenuLink $guideMenuBkg;
   }
   &_heading {
     font-size: 14px;
     font-weight: bold;
+    color: $guideMenuText;
   }
   h1.guide_menu_heading {
     margin-bottom: 20px;
@@ -76,10 +86,17 @@ $guideDivide: 2px solid #ddd;
     li {
       font-size: 14px;
       display: block;
+      color: $guideMenuText;
     }
   }
   &.hide {
     display: none;
+  }
+  a {
+    color: $guideMenuLink;
+    @include link-active-styles {
+      color: $guideMenuLinkAction;
+    }
   }
 }
 
