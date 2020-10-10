@@ -99,3 +99,6 @@ There's some Animation helpers should you need them. See comments in the file fo
 - Occasionally, when adding new images or re-saving images, someone will freak out and ruin the party. To resolve, do a `make design.stop` then `make design.watch` to get back to the action.
 - Right now, I have no flippin' idea how to use an `include` and a `for loop` together. This only appears to work if the data and the loop exist in the same page.
 - The `extends` method for templating is powerful, but requires planning to get to most out of it.
+
+#### Credits
+Social cover art by [simche](https://fanart.tv/members/simche/)
