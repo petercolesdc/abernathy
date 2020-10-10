@@ -9,7 +9,7 @@
 Abernathy is a place to start product and web builds. Built with atomic component based systems in mind, she renders to standard html templates, so you can build in a modular fashion - then render the old fashioned way.
 
 - Use the [Nunjucks](https://mozilla.github.io/nunjucks/) templating language to harness the power of includes, macros and loops to aid in building dynamic design systems.
-- [Sass](https://sass-lang.com/)Work however you like and bring your own structures
+- [Sass](https://sass-lang.com/) baked in. Work however you like and bring your own structures
 - Bundled mixins and functions if you want them (but this is your dojo, run it how you like)
 
 ## Install (Docker)
