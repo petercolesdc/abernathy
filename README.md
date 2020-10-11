@@ -4,7 +4,7 @@
 
 ## Build awesome s**t on your own terms
 
-**Not a framework; Just a frame. Add your own CSS, JS and markup and crack on sailor.**
+**Not a framework; Just a frame. Add your own CSS, JS and markup and crack on cowgirl.**
 
 Abernathy is a place to start product and web builds. Built with atomic component based systems in mind, she renders to standard html templates, so you can build in a modular fashion - then render the old fashioned way.
 
