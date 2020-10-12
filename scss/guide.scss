@@ -27,10 +27,13 @@ $guideMenuLinkAction: #fff;
   bottom: 0;
   left: 0;
   z-index: 5;
-  background-color: darken($guideMenuBkg, 2%);
+  background-color: darken($guideMenuBkg, 5%);
   font-size: 12px;
   width: $guideMenuWidth;
-  color: $guideMenuLink;
+  color: $guideMenuLinkAction;
+  @include link-active-styles {
+    color: $guideMenuLink;
+  }
   &.active {
     width: 60px;
     span {
