@@ -72,6 +72,17 @@ For components, this works a treat. Here's what I like to do:
 4. Import the macro sheet using the `{% import 'components/thing/thing.html' as thing %}`method
 5. Reference the specific macro using the `{{ thing.thingName('setting', 'setting') }}`
 
+You can also expose the macro component and it's markup by including it both in the page and within the `preFormat` module. Example:
+
+```
+{% import 'components/_template/component.html' as test %}
+
+{{ test.example(headingtext='Hello World') }}
+{{ preFormat(
+  test.example(headingtext='Hello World')
+) }}
+```
+
 ## Use the mixins and functions (or don't. Whatever!)
 The `mixins.scss` and `functions.scss` contains goodies that you might find useful. It's probably easier to pick through them, but here's what they do (and how to use them).
 
