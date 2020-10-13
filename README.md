@@ -125,14 +125,17 @@ Convenient syntax mixins for responsive breakpoints. I won't outline each one as
 
 ```
 @include respond-to($vpA) { 
-  Your styles for A viewport here here 
+  Your styles for viewport A upwards here 
 };
+
 @include respond-to($vpB) { 
-  Your styles for A & B viewport here here 
+  Your styles for B upwards here 
 };
+
 @include respond-to-max($vpA) { 
   Your styles for up to viewport A only
 };
+
 @include respond-to-min-max($vpA, $vpB) { 
   Your styles for viewports between A and B
 };
