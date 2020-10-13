@@ -3,6 +3,10 @@
 
 {% import 'components/heroes/heroes.html' as hero %}
 
+{% macro preFormat(x) %}
+<pre><code class="language-html">{% filter trim %}{{ x }}{% endfilter %}</code></pre>
+{% endmacro %}
+
 {% block script %}
 {% endblock %}
 
@@ -10,6 +14,9 @@
 <section class="guidesection guidesectionFull">
   <h1 class="guide_h1">{{ title }} default</h1>
   {{ hero.default() }}
-  <pre class="aslines"><code class="language-html">{% filter trim %}{{ hero.default() }}{% endfilter %}</pre>
+  <!-- Add preFormat blocks to show markup -->
+  {{ preFormat(
+    hero.default()
+  ) }}
 </section>
 {% endblock %}

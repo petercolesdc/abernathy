@@ -1,7 +1,7 @@
 
-{% macro button(classname, text, type) %}
+{% macro button(classname, text, type, url) %}
 {% if type == 'anchor' %}
-<a href="#" class="{{ classname }}">{{ text | safe | trim }}</a>
+<a href="{{ url }}" class="{{ classname }}">{{ text | safe | trim }}</a>
 {% elif type == 'submit' %}
 <button type="submit" class="{{ classname }}">{{ text | safe | trim }}</button>
 {% else %}
@@ -9,9 +9,9 @@
 {% endif %}
 {% endmacro %}
 
-{% macro buttonIcon(classname, text, ico, type) %}
+{% macro buttonIcon(classname, text, ico, type, url) %}
 {% if type == 'anchor' %}
-<a href="#" class="{{ classname }}">{{ text | safe | trim }}<svg class="icon_{{ ico }}_svg"><use xlink:href="/assets/icons/renders/sprite.svg#{{ ico }}"></use></svg></a>
+<a href="{{ url }}" class="{{ classname }}">{{ text | safe | trim }}<svg class="icon_{{ ico }}_svg"><use xlink:href="/assets/icons/renders/sprite.svg#{{ ico }}"></use></svg></a>
 {% elif type == 'submit' %}
 <button type="submit" class="{{ classname }}">{{ text | safe | trim }}<svg class="icon_{{ ico }}_svg"><use xlink:href="/assets/icons/renders/sprite.svg#{{ ico }}"></use></svg></button>
 {% else %}

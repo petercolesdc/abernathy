@@ -6,6 +6,10 @@
 {% import 'components/forms/default.html' as select %}
 {% import 'components/forms/default.html' as radiocheckbox %}
 
+{% macro preFormat(x) %}
+<pre><code class="language-html">{% filter trim %}{{ x }}{% endfilter %}</code></pre>
+{% endmacro %}
+
 {% block script %}
 {% endblock %}
 
@@ -16,63 +20,123 @@
     <fieldset>
       <div class="formfield">
         {{ input.input
-			  	( 
-			  		label='Standard text', 
-			  		name='text-field1',
-			  		type='text',
-			  		value='',
-			  		hint='',
-			  		placeholder='',
-			  		autocomplete='',
-			  		error_message='',
-			  		required= false
-			  	) 
-			  }}
+		  	( 
+		  		label='Standard text', 
+		  		name='text-field1',
+		  		type='text',
+		  		value='',
+		  		hint='',
+		  		placeholder='',
+		  		autocomplete='',
+		  		error_message='',
+		  		required= false
+		  	) 
+		}}
+		<!-- Add preFormat blocks to show markup -->
+		{{ preFormat(
+			input.input
+		  ( 
+			  label='Standard text', 
+			  name='text-field1',
+			  type='text',
+			  value='',
+			  hint='',
+			  placeholder='',
+			  autocomplete='',
+			  error_message='',
+			  required= false
+		  )
+		) }}
       </div>
       <div class="formfield formfieldSpaced">
          {{ input.input
-				  	( 
-				  		label='Email with required set', 
-				  		name='email-field1',
-				  		type='email',
-				  		value='',
-				  		hint='',
-				  		placeholder='',
-				  		autocomplete='email',
-				  		error_message='',
-				  		required= true
-				  	) 
-				  }}
+		  	( 
+		  		label='Email with required set', 
+		  		name='email-field1',
+		  		type='email',
+		  		value='',
+		  		hint='',
+		  		placeholder='',
+		  		autocomplete='email',
+		  		error_message='',
+		  		required= true
+		  	) 
+		  }}
+		  <!-- Add preFormat blocks to show markup -->
+		  {{ preFormat(
+			  input.input
+			  ( 
+				  label='Email with required set', 
+				  name='email-field1',
+				  type='email',
+				  value='',
+				  hint='',
+				  placeholder='',
+				  autocomplete='email',
+				  error_message='',
+				  required= true
+			  ) 
+		  ) }}
       </div>
        <div class="formfield formfieldSpaced">
          {{ input.input
-				  	( 
-				  		label='Telephone with required set + hint', 
-				  		name='tel-field1',
-				  		type='tel',
-				  		value='',
-				  		hint='Enter in any format',
-				  		placeholder='',
-				  		autocomplete='tel',
-				  		error_message="",
-				  		required= true
-				  	) 
-				  }}
+		  	( 
+		  		label='Telephone with required set + hint', 
+		  		name='tel-field1',
+		  		type='tel',
+		  		value='',
+		  		hint='Enter in any format',
+		  		placeholder='',
+		  		autocomplete='tel',
+		  		error_message="",
+		  		required= true
+		  	) 
+		  }}
+		  <!-- Add preFormat blocks to show markup -->
+			{{ preFormat(
+				input.input
+				( 
+				  label='Telephone with required set + hint', 
+				  name='tel-field1',
+				  type='tel',
+				  value='',
+				  hint='Enter in any format',
+				  placeholder='',
+				  autocomplete='tel',
+				  error_message="",
+				  required= true
+				) 
+			) }}
       </div>
       <div class="formfield formfieldSpaced">
          {{ input.input
-				  	( 
-				  		label='Password with required set + hint', 
-				  		name='password-field1',
-				  		type='password',
-				  		value='',
-				  		hint='Use a strong password including numbers and letters',
-				  		placeholder='',
-				  		autocomplete='email',
-				  		error_message="Your password doesn't match",
-				  		required= true
-				  	) 
-				  }}
+		  	( 
+		  		label='Password with required set + hint', 
+		  		name='password-field1',
+		  		type='password',
+		  		value='',
+		  		hint='Use a strong password including numbers and letters',
+		  		placeholder='',
+		  		autocomplete='email',
+		  		error_message="Your password doesn't match",
+		  		required= true
+		  	) 
+		  }}
+		  <!-- Add preFormat blocks to show markup -->
+		  {{ preFormat(
+			  input.input
+			  ( 
+				label='Password with required set + hint', 
+				name='password-field1',
+				type='password',
+				value='',
+				hint='Use a strong password including numbers and letters',
+				placeholder='',
+				autocomplete='email',
+				error_message="Your password doesn't match",
+				required= true
+			  ) 
+		  ) }}
       </div>
     </fieldset>
   </form>
@@ -84,54 +148,105 @@
     <fieldset>
       <div class="formfield">
         {{ input.select
-			  	( 
-			  		label='Standard select', 
-			  		name='select-1',
-			  		options='
-			  			<option value="1">Amsterdam</option>
-			  			<option value="2">Buenos Aires</option>
-							<option value="3">Delhi</option>
-							<option value="4">Hong Kong</option>
-			  		',
-			  		hint='',
-			  		error_message='',
-			  		required= false
-			  	) 
-			  }}
+		  	( 
+		  		label='Standard select', 
+		  		name='select-1',
+		  		options='
+		  			<option value="1">Amsterdam</option>
+		  			<option value="2">Buenos Aires</option>
+					<option value="3">Delhi</option>
+					<option value="4">Hong Kong</option>
+		  		',
+		  		hint='',
+		  		error_message='',
+		  		required= false
+		  	) 
+		  }}
+		  <!-- Add preFormat blocks to show markup -->
+			{{ preFormat(
+				input.select
+				( 
+				  label='Standard select', 
+				  name='select-1',
+				  options='
+<option value="1">Amsterdam</option>
+<option value="2">Buenos Aires</option>
+<option value="3">Delhi</option>
+<option value="4">Hong Kong</option>
+				  ',
+				  hint='',
+				  error_message='',
+				  required= false
+				) 
+			) }}
       </div>
       <div class="formfield formfieldSpaced">
         {{ input.select
-			  	( 
-			  		label='Standard select + required + hint', 
-			  		name='select-2',
-			  		options='
-			  			<option value="1">Amsterdam</option>
-			  			<option value="2">Buenos Aires</option>
-							<option value="3">Delhi</option>
-							<option value="4">Hong Kong</option>
-			  		',
-			  		hint='Choose the closest location to you',
-			  		error_message='',
-			  		required= true
-			  	) 
-			  }}
+		  	( 
+		  		label='Standard select + required + hint', 
+		  		name='select-2',
+		  		options='
+		  			<option value="1">Amsterdam</option>
+		  			<option value="2">Buenos Aires</option>
+					<option value="3">Delhi</option>
+					<option value="4">Hong Kong</option>
+		  		',
+		  		hint='Choose the closest location to you',
+		  		error_message='',
+		  		required= true
+		  	) 
+		  }}
+		  <!-- Add preFormat blocks to show markup -->
+		  {{ preFormat(
+			  input.select
+			  ( 
+				label='Standard select + required + hint', 
+				name='select-2',
+				options='
+<option value="1">Amsterdam</option>
+<option value="2">Buenos Aires</option>
+<option value="3">Delhi</option>
+<option value="4">Hong Kong</option>
+				',
+				hint='Choose the closest location to you',
+				error_message='',
+				required= true
+			  ) 
+		  ) }}
       </div>
       <div class="formfield formfieldSpaced">
         {{ input.select
-			  	( 
-			  		label='Standard select + required + error', 
-			  		name='select-3',
-			  		options='
-			  			<option value="1">Amsterdam</option>
-			  			<option value="2">Buenos Aires</option>
-							<option value="3">Delhi</option>
-							<option value="4">Hong Kong</option>
-			  		',
-			  		hint='',
-			  		error_message='You must select a city',
-			  		required= true
-			  	) 
-			  }}
+		  	( 
+		  		label='Standard select + required + error', 
+		  		name='select-3',
+		  		options='
+		  			<option value="1">Amsterdam</option>
+		  			<option value="2">Buenos Aires</option>
+					<option value="3">Delhi</option>
+					<option value="4">Hong Kong</option>
+		  		',
+		  		hint='',
+		  		error_message='You must select a city',
+		  		required= true
+		  	) 
+		  }}
+		<!-- Add preFormat blocks to show markup -->
+		{{ preFormat(
+			input.select
+			( 
+			  label='Standard select + required + error', 
+			  name='select-3',
+			  options='
+<option value="1">Amsterdam</option>
+<option value="2">Buenos Aires</option>
+<option value="3">Delhi</option>
+<option value="4">Hong Kong</option>
+			  ',
+			  hint='',
+			  error_message='You must select a city',
+			  required= true
+			) 
+		) }}
       </div>
      </fieldset>
   </form>
@@ -144,27 +259,53 @@
     <fieldset>
       <div class="formfield">
         {{ input.radiocheckbox
-				  	( 
-				  		type='radio',
-				  		label='Radio standard', 
-				  		name='radio',
-				  		id='radio-1',
-				  		value='value1',
-				  		checked= true,
-				  		required= true
-				  	) 
-				  }}
-				  {{ input.radiocheckbox
-				  	( 
-				  		type='radio',
-				  		label='Radio standard unchecked', 
-				  		name='radio',
-				  		id='radio-2',
-				  		value='value2',
-				  		checked= false,
-				  		required= false
-				  	) 
-				  }}
+		  	( 
+		  		type='radio',
+		  		label='Radio standard', 
+		  		name='radio',
+		  		id='radio-1',
+		  		value='value1',
+		  		checked= true,
+		  		required= true
+		  	) 
+		  }}
+		  {{ input.radiocheckbox
+		  	( 
+		  		type='radio',
+		  		label='Radio standard unchecked', 
+		  		name='radio',
+		  		id='radio-2',
+		  		value='value2',
+		  		checked= false,
+		  		required= false
+		  	) 
+		  }}
+		  <!-- Add preFormat blocks to show markup -->
+		  {{ preFormat(
+			  input.radiocheckbox
+			  ( 
+				type='radio',
+				label='Radio standard', 
+				name='radio',
+				id='radio-1',
+				value='value1',
+				checked= true,
+				required= true
+			  )
+		  ) }}
+		  <!-- Add preFormat blocks to show markup -->
+			{{ preFormat(
+				input.radiocheckbox
+				( 
+				  type='radio',
+				  label='Radio standard unchecked', 
+				  name='radio',
+				  id='radio-2',
+				  value='value2',
+				  checked= false,
+				  required= false
+			  ) 
+			) }}
       </div>
      </fieldset>
   </form>
@@ -177,27 +318,53 @@
     <fieldset>
       <div class="formfield">
         {{ input.radiocheckbox
-				  	( 
-				  		type='checkbox',
-				  		label='Check standard', 
-				  		id='check-1',
-				  		name='check',
-				  		value='value1',
-				  		checked= true,
-				  		required= true
-				  	) 
-				  }}
-				  {{ input.radiocheckbox
-				  	( 
-				  		type='checkbox',
-				  		label='Check standard unchecked', 
-				  		id='check-2',
-				  		name='check',
-				  		value='value2',
-				  		checked= false,
-				  		required= false
-				  	) 
-				  }}
+		  	( 
+		  		type='checkbox',
+		  		label='Check standard required', 
+		  		id='check-1',
+		  		name='check',
+		  		value='value1',
+		  		checked= true,
+		  		required= true
+		  	) 
+		  }}
+		  {{ input.radiocheckbox
+		  	( 
+		  		type='checkbox',
+		  		label='Check standard unchecked', 
+		  		id='check-2',
+		  		name='check',
+		  		value='value2',
+		  		checked= false,
+		  		required= false
+		  	) 
+		  }}
+		  <!-- Add preFormat blocks to show markup -->
+		  {{ preFormat(
+			  input.radiocheckbox
+			  ( 
+				type='checkbox',
+				label='Check standard', 
+				id='check-1',
+				name='check',
+				value='value1',
+				checked= true,
+				required= true
+			) 
+		  ) }}
+		  <!-- Add preFormat blocks to show markup -->
+		  {{ preFormat(
+			  input.radiocheckbox
+			  ( 
+				type='checkbox',
+				label='Check standard unchecked', 
+				id='check-2',
+				name='check',
+				value='value2',
+				checked= false,
+				required= false
+			) 
+		  ) }}
       </div>
      </fieldset>
   </form>

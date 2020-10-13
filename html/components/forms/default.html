@@ -1,51 +1,35 @@
 
 {% macro input(label, name, type, value, hint, required, placeholder, autocomplete, error_message) %}
-	<div class="form-element{% if error_message == '' %}{% else %} form-elementError{% endif %}{% if hint == '' %}{% else %} form-elementHint{% endif %}">
-		<label for="{{ name }}">{{ label | safe | trim }}{% if required == true %}{% else %} <span>(Optional)</span>{% endif %}</label>
+<div class="form-element{% if error_message == '' %}{% else %} form-elementError{% endif %}{% if hint == '' %}{% else %} form-elementHint{% endif %}">
+	<label for="{{ name }}">{{ label | safe | trim }}{% if required == true %}{% else %} <span>(Optional)</span>{% endif %}</label>
 	  <input 
 	  	type="{{ type }}" 
 	  	value="{{ value | safe | trim }}" 
 	  	id="{{ name }}" 
 	  	placeholder="{{ placeholder | safe | trim }}" 
-	  	autocomplete="{{ autocomplete }}"
-	  	{% if required == true %}
-	  		required
-	  		aria-required="true"
-	  	{% else %}{% endif %} 
-	  	{% if error_message == '' %}
-	  	{% else %}
-	  		aria-invalid="true"
-	  	{% endif %} 
-	  	{% if hint == '' %}
-	  	{% else %}
-	  		aria-describedby="hint-{{ name }}"
-	  	{% endif %} 
+	  	autocomplete="{{ autocomplete }}"{% if required == true %}
+		required 
+		aria-required="true"{% else %}{% endif %}{% if error_message == '' %}{% else %}
+		aria-invalid="true"{% endif %}{% if hint == '' %}{% else %}
+		aria-describedby="hint-{{ name }}"{% endif %}
 	  >
 	  <div class="form-element__notes">{% if error_message == '' %}{% else %}<span class="form-element__error-message">{{ error_message | safe | trim }}</span>{% endif %}{% if hint == '' %}{% else %}<span class="form-element__hint" id="hint-{{ name }}">{{ hint | safe | trim }}</span>{% endif %}</div>
-	</div>
+</div>
 {% endmacro %}
 
 {% macro textarea(label, name, type, value, hint, required, error_message) %}
-	<div class="form-element{% if error_message == '' %}{% else %} form-elementError{% endif %}{% if hint == '' %}{% else %} form-elementHint{% endif %}">
-		<label for="{{ name }}">{{ label | safe | trim }}{% if required == true %}{% else %} <span>(Optional)</span>{% endif %}</label>
+<div class="form-element{% if error_message == '' %}{% else %} form-elementError{% endif %}{% if hint == '' %}{% else %} form-elementHint{% endif %}">
+	<label for="{{ name }}">{{ label | safe | trim }}{% if required == true %}{% else %} <span>(Optional)</span>{% endif %}</label>
 	  <textarea
 	  	value="{{ value | safe | trim }}" 
-	  	id="{{ name }}" 
-	  	{% if required == true %}
-	  		required
-	  		aria-required="true"
-	  	{% else %}{% endif %} 
-	  	{% if error_message == '' %}
-	  	{% else %}
-	  		aria-invalid="true"
-	  	{% endif %} 
-	  	{% if hint == '' %}
-	  	{% else %}
-	  		aria-describedby="hint-{{ name }}"
-	  	{% endif %} 
+	  	id="{{ name }}" {% if required == true %}
+		required 
+		aria-required="true"{% else %}{% endif %}{% if error_message == '' %}{% else %}
+		aria-invalid="true"{% endif %}{% if hint == '' %}{% else %}
+		aria-describedby="hint-{{ name }}"{% endif %} 
 	  ></textarea> 
 	   <div class="form-element__notes">{% if error_message == '' %}{% else %}<span class="form-element__error-message">{{ error_message | safe | trim }}</span>{% endif %}{% if hint == '' %}{% else %}<span class="form-element__hint" id="hint-{{ name }}">{{ hint | safe | trim }}</span>{% endif %}</div>
-	</div>
+</div>
 {% endmacro %}
 
 
@@ -54,13 +38,13 @@
 	<label for="{{ name }}">{{ label | safe | trim }}{% if required == true %}{% else %} <span>(Optional)</span>{% endif %}</label>
 	<select 
 		id="{{ name }}" 
-		name="{{ name }}"
-		{% if hint == '' %}
-		{% else %}
-  		aria-describedby="hint-{{ name }}"
-  	{% endif %} 
+		name="{{ name }}"{% if hint == '' %}{% else %}
+		aria-describedby="hint-{{ name }}"{% endif %}{% if required == true %}
+		required 
+		aria-required="true"{% else %}{% endif %}{% if error_message == '' %}{% else %}
+		aria-invalid="true"{% endif %}
 	>
-	  {{ options | safe | trim }}
+{{ options | safe | trim }}
 	</select>
 	 <div class="form-element__notes">{% if error_message == '' %}{% else %}<span class="form-element__error-message">{{ error_message | safe | trim }}</span>{% endif %}{% if hint == '' %}{% else %}<span class="form-element__hint" id="hint-{{ name }}">{{ hint | safe | trim }}</span>{% endif %}</div>
 </div>
@@ -73,14 +57,10 @@
 	  	type="{{ type }}" 
 	  	value="{{ value | safe | trim }}" 
 	  	id="{{ id  }}" 
-	  	name="{{ name }}" 
-	  	{% if checked== true %}
-	  		checked="" 
-	  	{% else %}{% endif %} 
-	  	{% if required == true %}
-	  		required
-	  		aria-required="true"
-	  	{% else %}{% endif %} 
+	  	name="{{ name }}"{% if checked== true %}
+		checked=""{% else %}{% endif %}{% if required == true %}
+		required 
+		aria-required="true"{% else %}{% endif %} 
 	  >{{ label | safe | trim }}</label>
 </div>
 {% endmacro %}

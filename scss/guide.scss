@@ -196,14 +196,11 @@ $guideMenuLinkAction: #fff;
   }
   pre {
     overflow-x: auto;
-    tab-width: 4;
     font-family: monospace;
-    white-space: nowrap;
     margin-top: 1.5em;
     font-size: 1em;
-    &.aslines {
-      white-space: pre;
-    }
+    tab-size: 4;
+    white-space: break-spaces;
   }
 }
 
