@@ -4,6 +4,9 @@
 {% include 'layouts/scaffold/head.html' %}
 {% block head %}
 <link rel="stylesheet" href="/css/guide.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/atom-one-dark.min.css">
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}
 <body class="guide_body">
 	<button class="guide_toggle" id="guide_toggle" aria-label="Main menu" aria-expanded="true" aria-controls="guide_menu"><span>Hide </span>Menu</button>

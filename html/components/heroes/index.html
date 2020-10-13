@@ -10,5 +10,6 @@
 <section class="guidesection guidesectionFull">
   <h1 class="guide_h1">{{ title }} default</h1>
   {{ hero.default() }}
+  <pre class="aslines"><code class="language-html">{% filter trim %}{{ hero.default() }}{% endfilter %}</pre>
 </section>
 {% endblock %}

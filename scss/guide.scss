@@ -9,7 +9,7 @@ $guideEdges: 40px;
 $guideMenuWidth: 200px;
 $guideScrollbarWidth: 6px;
 $guideDivide: 6px solid rgba(0,0,0,0.1);
-$guideMenuBkg: #343434;
+$guideMenuBkg: #282c34;
 $guideMenuText: #eee;
 $guideMenuLink: #5BF6DB;
 $guideMenuLinkAction: #fff;
@@ -193,6 +193,17 @@ $guideMenuLinkAction: #fff;
   &.full {
     padding-left: 0;
     padding-right: 0;
+  }
+  pre {
+    overflow-x: auto;
+    tab-width: 4;
+    font-family: monospace;
+    white-space: nowrap;
+    margin-top: 1.5em;
+    font-size: 1em;
+    &.aslines {
+      white-space: pre;
+    }
   }
 }
 

@@ -8,7 +8,7 @@ var gulp            = require("gulp")
     browserSync     = require("browser-sync").create()
     plumber         = require("gulp-plumber")
     svgSprite       = require("gulp-svg-sprite")
-    prettyUrl       = require("gulp-pretty-url");
+    prettyUrl       = require("gulp-pretty-url")
 
     // --------------------------------
 

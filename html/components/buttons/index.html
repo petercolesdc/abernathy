@@ -11,17 +11,47 @@
   <h1 class="guide_h1">{{ title }} default</h1>
   {{ btn.button(classname='button buttonPrimary', text='Default') }}
   {{ btn.buttonIcon(classname='button buttonPrimary buttonIcon', text='Icon', ico='plus') }}
+  <pre><code class="language-html">
+  {% filter trim %}
+  {{ btn.button(classname='button buttonPrimary', text='Default') }}
+  {% endfilter %}
+  </code></pre>
+  <pre><code class="language-html">
+  {% filter trim %}
+  {{ btn.buttonIcon(classname='button buttonPrimary buttonIcon', text='Icon', ico='plus') }}
+  {% endfilter %}
+  </code></pre>
 </section>
 
 <section class="guidesection">
   <h1 class="guide_h1">{{ title }} submit</h1>
   {{ btn.button(classname='button buttonPrimary', text='Default', type='submit') }}
   {{ btn.buttonIcon(classname='button buttonPrimary buttonIcon', text='Icon', ico='plus', type='submit') }}
+  <pre><code class="language-html">
+  {% filter trim %}
+  {{ btn.button(classname='button buttonPrimary', text='Default', type='submit') }}
+  {% endfilter %}
+  </code></pre>
+  <pre><code class="language-html">
+  {% filter trim %}
+  {{ btn.buttonIcon(classname='button buttonPrimary buttonIcon', text='Icon', ico='plus', type='submit') }}
+  {% endfilter %}
+  </code></pre>
 </section>
 
 <section class="guidesection">
   <h1 class="guide_h1">{{ title }} link</h1>
   {{ btn.button(classname='button buttonPrimary', text='Default', type='anchor') }}
   {{ btn.buttonIcon(classname='button buttonPrimary buttonIcon', text='Icon', ico='plus', type='anchor') }}
+  <pre><code class="language-html">
+  {% filter trim %}
+  {{ btn.button(classname='button buttonPrimary', text='Default', type='anchor') }}
+  {% endfilter %}
+  </code></pre>
+  <pre><code class="language-html">
+  {% filter trim %}
+  {{ btn.buttonIcon(classname='button buttonPrimary buttonIcon', text='Icon', ico='plus', type='anchor') }}
+  {% endfilter %}
+  </code></pre>
 </section>
 {% endblock %}
