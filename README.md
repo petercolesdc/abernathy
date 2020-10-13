@@ -108,7 +108,8 @@ Can take `margin-bottom` `margin-top` `padding-top` or `padding-bottom` argument
 Example 
 
 ```
-@include font-size($yourTypeSizeVar, 'tighten', 1);
+// Use a globe variable
+@include font-size($yourTypeSizeVar);
 
 // Set just size
 @include font-size(16);
