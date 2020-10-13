@@ -89,15 +89,53 @@ The `mixins.scss` and `functions.scss` contains goodies that you might find usef
 It's worth noting that many mixins use settings defined in `/abstracts/_measurements.scss`, so be sure to check that out also.
 
 ### Spacing
-`@mixin baseline(number, 'type')` allows you to space items taking into account a consistent baseline. Use like this `@include baseline(3, 'margin-bottom')`. Be sure to set `$baseline` in `measurements.scss`. Can take `margin-bottom` `margin-top` `padding-top` or `padding-bottom` arguments.
+`@mixin baseline(number, 'type')` allows you to space items taking into account a consistent baseline. Be sure to set `$baseline` in `measurements.scss`. 
+
+Use like this 
+
+```
+@include baseline(3, 'margin-bottom');
+@include baseline(3, 'margin-top');
+@include baseline(3, 'padding-bottom');
+@include baseline(3, 'padding-top');
+```
+
+Can take `margin-bottom` `margin-top` `padding-top` or `padding-bottom` arguments.
 
 ### Typography
-`@mixin font-size(size, 'loosen/tighten', adjust_amount)` allows you to set the font-size in rem (but declare in px / pt value), and optionally tighten or loosen leading, based on a set baseline unit found in `measurements.scss`. E.g `@include font-size($yourTypeSizeVar, 'tighten', 1);`
+`@mixin font-size(size, 'loosen/tighten', adjust_amount)` allows you to set the font-size in rem (but declare in px / pt value), and optionally tighten or loosen leading, based on a set baseline unit found in `measurements.scss`. 
+
+Example 
+
+```
+@include font-size($yourTypeSizeVar, 'tighten', 1);
+
+// Set just size
+@include font-size(16);
+
+// Set size and adjust leading
+@include font-size(22, 'loosen', 1);
+```
 
 ### Responsive
 Convenient syntax mixins for responsive breakpoints. I won't outline each one as they all follow a similar syntax. There are options for min and max width, min and max heights and a combination of both.
 
-`@mixin respond-to($media-min) { @content }`. Sets the breakpoint syntax based on browser width. I usually define these in `viewports.scss`. Use like this: `@include respond-to($vpA) { Your styles here };`
+`@mixin respond-to($media-min) { @content }`. Sets the breakpoint syntax based on browser width. I usually define these in `viewports.scss`. Use like this: 
+
+```
+@include respond-to($vpA) { 
+  Your styles for A viewport here here 
+};
+@include respond-to($vpB) { 
+  Your styles for A & B viewport here here 
+};
+@include respond-to-max($vpA) { 
+  Your styles for up to viewport A only
+};
+@include respond-to-min-max($vpA, $vpB) { 
+  Your styles for viewports between A and B
+};
+```
 
 ### Helpful stuff
 - `@function rem($pixels)` is a function that takes a unit-less pixel value and converts it into REM values.
