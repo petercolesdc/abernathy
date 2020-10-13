@@ -14,7 +14,6 @@ Abernathy is a place to start product and web builds. Built with atomic componen
 
 ### Screen shots
 ![Forms](/assets/repo/ss2.png "Forms screenshot")
-![Buttons](/assets/repo/ss1.png "Buttons screenshot")
 ![Color](/assets/repo/ss3.png "Color swatch screenshot")
 
 ## Install (Docker)
