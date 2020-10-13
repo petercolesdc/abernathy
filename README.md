@@ -12,10 +12,6 @@ Abernathy is a place to start product and web builds. Built with atomic componen
 - [Sass](https://sass-lang.com/) baked in. Work however you like and bring your own structures
 - Bundled mixins and functions if you want them (but this is your dojo, run it how you like)
 
-### Screen shots
-![Forms](/assets/repo/ss2.png "Forms screenshot")
-![Color](/assets/repo/ss3.png "Color swatch screenshot")
-
 ## Install (Docker)
 Grab docker desktop, install and start on your machine. Then:
 
@@ -52,6 +48,8 @@ Reference in your markup as follows (where icon is exampleicon)
 ## Colors
 Updating colors is pretty easy, but requires a few things to be changed in order for the system and the color palette in `/guide` to display correctly.
 
+![Color](/assets/repo/ss3.png "Color swatch screenshot")
+
 1. Rename and/or re-assign colors in the `absracts/_colors.scss` file.
 2. Assign colors to the map function in `absracts/_colors.scss`. These should match the color variables. This function builds swatches, and is generally useful for making loops to assign color.
 3. Open `/guide/color.html` and update the model with the color references.
@@ -63,6 +61,8 @@ When you run `make design.build` Abernathy bundles the whole build into the loca
 
 ## Component macro sheets
 You can keep all your macros on one html page, and import only the ones you need into other pages.
+
+![Forms](/assets/repo/ss2.png "Forms screenshot")
 
 For components, this works a treat. Here's what I like to do:
 
