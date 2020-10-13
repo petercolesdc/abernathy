@@ -26,7 +26,7 @@ $guideMenuLinkAction: #fff;
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 5;
+  z-index: 50; // Set silly high just incase
   background-color: darken($guideMenuBkg, 5%);
   font-size: 12px;
   width: $guideMenuWidth;

@@ -376,29 +376,55 @@
     <fieldset>
       <div class="formfield">
         {{ input.textarea
-			  	( 
-			  		label='Text area + required', 
-			  		name='text-area1',
-			  		value='',
-			  		hint='',
-			  		placeholder='',
-			  		error_message='',
-			  		required= true
-			  	) 
-			  }}
+		  	( 
+		  		label='Text area + required', 
+		  		name='text-area1',
+		  		value='',
+		  		hint='',
+		  		placeholder='',
+		  		error_message='',
+		  		required= true
+		  	) 
+		  }}
+		<!-- Add preFormat blocks to show markup -->
+		{{ preFormat(
+			input.textarea
+			( 
+			  label='Text area + required', 
+			  name='text-area1',
+			  value='',
+			  hint='',
+			  placeholder='',
+			  error_message='',
+			  required= true
+		  ) 
+		) }}
       </div>
       <div class="formfield formfieldSpaced">
         {{ input.textarea
-			  	( 
-			  		label='Text area + required + error', 
-			  		name='text-area2',
-			  		value='',
-			  		hint='',
-			  		placeholder='',
-			  		error_message='You need to enter a message',
-			  		required= true
-			  	) 
-			  }}
+		  	( 
+		  		label='Text area + required + error', 
+		  		name='text-area2',
+		  		value='',
+		  		hint='',
+		  		placeholder='',
+		  		error_message='You need to enter a message',
+		  		required= true
+		  	) 
+		  }}
+		  <!-- Add preFormat blocks to show markup -->
+		  {{ preFormat(
+			  input.textarea
+			  ( 
+				label='Text area + required + error', 
+				name='text-area2',
+				value='',
+				hint='',
+				placeholder='',
+				error_message='You need to enter a message',
+				required= true
+			) 
+		  ) }}
       </div>
      </fieldset>
   </form>

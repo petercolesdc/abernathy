@@ -1,7 +1,8 @@
-{% set title = 'Heroes' %}
+{% set title = 'Example' %}
 {% extends 'layouts/guide.html' %}
 
-{% import 'components/heroes/heroes.html' as hero %}
+{% import 'components/_template/component.html' as test %}
+
 
 {% macro preFormat(x) %}
 <pre><code class="language-html">{% filter trim %}{{ x }}{% endfilter %}</code></pre>
@@ -11,12 +12,12 @@
 {% endblock %}
 
 {% block content %}
-<section class="guidesection guidesectionFull">
-  <h1 class="guide_h1">{{ title }} example</h1>
-  {{ hero.default() }}
+<section class="guidesection">
+  <h1 class="guide_h1">{{ title }}</h1>
+  {{ test.example(headingtext='Hello World') }}
   <!-- Add preFormat blocks to show markup -->
   {{ preFormat(
-    hero.default()
+	  test.example(headingtext='Hello World')
   ) }}
 </section>
 {% endblock %}

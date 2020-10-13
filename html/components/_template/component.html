@@ -1,0 +1,5 @@
+{% macro example(headingtext) %}
+<div class="guideexample">
+	<h1 class="guideexample_heading"">{{ headingtext | trim | safe }}</h1>
+</div>
+{% endmacro %}
