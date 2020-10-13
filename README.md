@@ -45,6 +45,10 @@ Reference in your markup as follows (where icon is exampleicon)
 1. `make ipaddress` - Get an IP address to test over the same connection/wi-fi
 2. `make permissions` - Set permissions if you get docker install weirdness
 
+## Deployment (basic)
+When you run `make design.build` Abernathy bundles the whole build into the local `public` folder. You can then deploy this folder anywhere you like as a self-contained flat-file system (I like to use surge.sh).
+
+
 ## Colors
 Updating colors is pretty easy, but requires a few things to be changed in order for the system and the color palette in `/guide` to display correctly.
 
@@ -55,9 +59,6 @@ Updating colors is pretty easy, but requires a few things to be changed in order
 3. Open `/guide/color.html` and update the model with the color references.
 
 Watch the terminal for errors
-
-## Deployment (basic)
-When you run `make design.build` Abernathy bundles the whole build into the local `public` folder. You can then deploy this folder anywhere you like as a self-contained flat-file system (I like to use surge.sh).
 
 ## Component macro sheets
 You can keep all your macros on one html page, and import only the ones you need into other pages.
