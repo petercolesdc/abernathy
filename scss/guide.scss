@@ -7,6 +7,7 @@
 $guideSpace: 35px;
 $guideEdges: 40px;
 $guideMenuWidth: 200px;
+$guideMenuWidthMobile: 80%;
 $guideScrollbarWidth: 6px;
 $guideDivide: 6px solid rgba(0,0,0,0.1);
 $guideMenuBkg: #282c34;
@@ -22,15 +23,18 @@ $guideMenuLinkAction: #fff;
 }
 
 .guide_toggle {
-  padding: 0.5em 1em;
+  padding: 1em;
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   z-index: 50; // Set silly high just incase
   background-color: darken($guideMenuBkg, 5%);
   font-size: 12px;
   width: $guideMenuWidth;
   color: $guideMenuLinkAction;
+  @include respond-to-max(800px) {
+    width: $guideMenuWidthMobile;
+  }
   @include link-active-styles {
     color: $guideMenuLink;
   }
@@ -50,17 +54,24 @@ $guideMenuLinkAction: #fff;
   left: 0;
   background-color: $guideMenuBkg;
   height: 100%;
+  z-index: 3;
+  @include respond-to-max(800px) {
+    width: $guideMenuWidthMobile;
+  }
   > div {
     position: fixed;
     left: 0;
     top: 0;
-    padding-top: $guideSpace;
+    padding-top: $guideSpace*2;
     padding-left: 1em;
     padding-bottom: 4em;
     height: 100%;
     background-color: $guideMenuBkg;
     width: $guideMenuWidth;
     overflow-y: scroll;
+    @include respond-to-max(800px) {
+      width: $guideMenuWidthMobile;
+    }
     &::-webkit-scrollbar {
       width: $guideScrollbarWidth;
     }
@@ -112,6 +123,9 @@ $guideMenuLinkAction: #fff;
     margin-left: 0;
     width: 100%;
     border-left: 0;
+  }
+  @include respond-to-max(800px) {
+    margin-left: 0;
   }
 }
 
