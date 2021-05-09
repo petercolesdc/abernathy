@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "gulp-pretty-url": "^0.1.1",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "lodash.template": "^4.5.0"
   },
   "browserslist": [
